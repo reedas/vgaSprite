@@ -74,8 +74,9 @@ SIGNAL VPOS: INTEGER RANGE 0 TO 524:=0;
 signal sixtyHz: integer range 0 to 6 := 0;
 signal count100ms: integer range 0 to 9999 := 0;
 signal scale: integer range 0 to 32 := 8;
-signal scaleBL: integer range 0 to 32 := 2;
+signal scaleBL: integer range 0 to 32;
 signal bl_delta: integer range -1 to 1 := 1;
+signal collision: integer range 0 to 1 := 0;
 signal asteroid1 : std_logic_vector(99 downto 0) := 
 									  ('0','0','0','0','1','1','0','0','0','0',
 										'0','0','0','1','1','1','1','0','0','0',
@@ -215,6 +216,14 @@ txtscr: txtScreen
 			G<= GD1 or GD2 or GBL or GT;
 			B<= BD1 or BD2 or BBL or BT;
 			nBlanking <= '1';
+			if (RBL = "1111" and GD2 = "1111") then 
+				collision <= 1;
+				scaleBL <= 1;
+			end if;
+			if (RBL = "1111" and GD2 = "0000") then
+				collision <= 0;
+				scaleBL <= 2;
+			end if;
 		END IF;
 		IF(HPOS> (h_pixels + h_fp) AND HPOS<(h_pixels + h_fp + h_pulse))THEN----HSYNC
 			ooHSYNC<='0';
