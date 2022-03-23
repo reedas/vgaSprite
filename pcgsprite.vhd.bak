@@ -1,0 +1,27 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+PACKAGE MY IS
+PROCEDURE SQ(SIGNAL Xcur,Ycur,Xpos,Ypos:IN INTEGER;SIGNAL RGB:OUT STD_LOGIC_VECTOR(3 downto 0);signal sprite:IN std_logic_vector(99 downto 0);
+signal scale: in integer; SIGNAL DRAW: OUT STD_LOGIC);
+END MY;
+
+PACKAGE BODY MY IS
+PROCEDURE SQ(SIGNAL Xcur,Ycur,Xpos,Ypos:IN INTEGER;SIGNAL RGB:OUT STD_LOGIC_VECTOR(3 downto 0);signal sprite:IN std_logic_vector(99 downto 0);
+signal scale: in integer; SIGNAL DRAW: OUT STD_LOGIC) IS
+BEGIN
+
+ IF(Xpos>=Xcur AND Xpos<((Xcur+10*scale)) AND Ypos>=Ycur AND Ypos<((Ycur+10*scale)))THEN
+	 if sprite(((xpos - xcur)/scale) + (((ypos - ycur)/scale)*10)) = '1' then 
+		RGB<="1111";
+		DRAW<='1';
+	 else
+		DRAW<='0';
+	 end if;
+ ELSE
+	 DRAW<='0';
+ END IF;
+ 
+END SQ;
+END MY;

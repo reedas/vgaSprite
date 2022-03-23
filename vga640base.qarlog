@@ -1,0 +1,41 @@
+Quartus Prime Archive log --	C:/Users/eleceng/Documents/sixforty/vga640base.qarlog
+
+Archive:	C:/Users/eleceng/Documents/sixforty/vga640base.qar
+Date:		Sat May 29 15:30:42 2021
+Quartus Prime		18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v
+C:/Users/eleceng/Documents/sixforty/VGA.vhd
+C:/Users/eleceng/Documents/sixforty/charrom.cmp
+C:/Users/eleceng/Documents/sixforty/charrom.qip
+C:/Users/eleceng/Documents/sixforty/charrom.v
+C:/Users/eleceng/Documents/sixforty/charrom_bb.v
+C:/Users/eleceng/Documents/sixforty/dispmem.cmp
+C:/Users/eleceng/Documents/sixforty/dispmem.qip
+C:/Users/eleceng/Documents/sixforty/dispmem.v
+C:/Users/eleceng/Documents/sixforty/dispmem_bb.v
+C:/Users/eleceng/Documents/sixforty/dispmem_inst.v
+C:/Users/eleceng/Documents/sixforty/font18x12.hex
+C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd
+C:/Users/eleceng/Documents/sixforty/pll.cmp
+C:/Users/eleceng/Documents/sixforty/pll.ppf
+C:/Users/eleceng/Documents/sixforty/pll.qip
+C:/Users/eleceng/Documents/sixforty/pll.v
+C:/Users/eleceng/Documents/sixforty/pll_bb.v
+C:/Users/eleceng/Documents/sixforty/ramstart.mif
+C:/Users/eleceng/Documents/sixforty/sync.vhd
+C:/Users/eleceng/Documents/sixforty/txtscreen.vhd
+C:/Users/eleceng/Documents/sixforty/vga.qpf
+C:/Users/eleceng/Documents/sixforty/vga.qsf
+C:/Users/eleceng/Documents/sixforty/vga_assignment_defaults.qdf
+	======= Total: 24 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Sat May 29 15:33:04 2021
+Source archive file:	C:/Users/eleceng/Documents/sixforty/vga640base.qar
+Archive was extracted into	C:/Users/eleceng/Documents/vgabase/
+		 - successfully.

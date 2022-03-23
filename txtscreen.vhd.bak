@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity txtScreen is
+	 generic(hp, vp : integer); -- pixel position
+	 PORT(
+			addr	:	in std_logic_vector(11 downto 0); -- text screen ram
+			data	:	in std_logic_vector(7 downto 0);
+			nWr	:	in std_logic;
+			pClk	:	in	std_logic;
+			nblnk	:	in std_logic;
+			
+			pix	:	out std_logic
+			
+			);
+end txtScreen;
+architecture RTL of txtScreen is
+
+begin
+	pix <= '0';
+	if (hp > 50 and hp < 100 and vp > 50 and vhp < 100) then pix ,= '1';
+end;

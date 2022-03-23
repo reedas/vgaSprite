@@ -45,6 +45,7 @@ signal ohsync:	std_logic;
 signal ovsync:	std_logic;
 signal oohsync:	std_logic;
 signal oovsync:	std_logic;
+signal cycle: std_logic := '0';
 SIGNAL SQ_X1: INTEGER RANGE 0 TO 639:=200;
 SIGNAL SQ_Y1: INTEGER RANGE 0 TO 479:=200;
 SIGNAL SQ_X2: INTEGER RANGE 0 TO 639:=300;
@@ -54,6 +55,11 @@ SIGNAL BL_Y1: INTEGER RANGE 0 TO 479:=400;
 signal nBlanking: std_logic := '1';
 signal txtRGB:	std_logic;
 signal scrAddress: std_logic_vector(11 downto 0); 
+signal charpos: integer range 0 to 4191:=0;
+signal thousands: integer range 0 to 255:=0;
+signal hundreds: integer range 0 to 255:=0;
+signal tens: integer range 0 to 255:=0;
+signal unit: integer range 0 to 255:=0;
 signal scrData :	std_logic_vector(7 downto 0);
 signal nWr : std_logic;
 signal RD1: std_logic_vector(3 downto 0);
@@ -73,8 +79,9 @@ SIGNAL HPOS: INTEGER RANGE 0 TO 799:=0;
 SIGNAL VPOS: INTEGER RANGE 0 TO 524:=0;
 signal sixtyHz: integer range 0 to 6 := 0;
 signal count100ms: integer range 0 to 9999 := 0;
-signal scale: integer range 0 to 32 := 8;
-signal scaleBL: integer range 0 to 32;
+signal scale: integer range 1 to 32 := 8;
+signal scaleBL: integer range 1 to 32 := 2;
+signal colCount: integer range 0 to 9999 := 0;
 signal bl_delta: integer range -1 to 1 := 1;
 signal collision: integer range 0 to 1 := 0;
 signal asteroid1 : std_logic_vector(99 downto 0) := 
@@ -100,25 +107,55 @@ signal asteroid2 : std_logic_vector(99 downto 0) :=
 										'0','0','1','0','0','0','1','0','0','0',
 										'0','0','0','1','1','1','0','0','0','0');
 signal ablock : std_logic_vector(99 downto 0) := 
-									  ('1','1','1','1','1','1','1','1','1','1',
+									  ('0','0','0','0','1','1','0','0','0','0',
+										'0','0','0','1','1','1','1','0','0','0',
+										'0','0','1','1','1','1','1','1','0','0',
+										'0','1','1','1','1','1','1','1','1','0',
 										'1','1','1','1','1','1','1','1','1','1',
 										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1');
+										'0','1','1','1','1','1','1','1','1','0',
+										'0','0','1','1','1','1','1','1','0','0',
+										'0','0','0','1','1','1','1','0','0','0',
+										'0','0','0','0','1','1','0','0','0','0');
 BEGIN
 SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
 SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
 SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 txtscr: txtScreen
 		port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
+thousands <= 48 + ((colcount / 1000) mod 10);
+hundreds <= 48 + ((colcount / 100) mod 10);
+tens <= 48 + ((colcount / 10) mod 10);
+unit <= 48 + (colcount mod 10);
  PROCESS(CLK)
  BEGIN
 	IF(CLK'EVENT AND CLK='0')THEN
+		if (cycle = '0') then
+			cycle <= '1';
+			nwr <= '0';
+		end if;
+		if (cycle = '1') then
+			cycle <= '0';
+			if (charpos = 0) then
+				scrData <= std_logic_vector(to_unsigned(thousands, scrData'length));
+				nwr <= '1';
+			end if;
+			if (charpos = 1) then
+				scrData <= std_logic_vector(to_unsigned(hundreds, scrdata'length));
+				nwr <= '1';
+			end if;
+			if (charpos = 2) then
+				scrData <= std_logic_vector(to_unsigned(tens, scrdata'length));
+				nwr <= '1';
+			end if;
+			if (charpos = 3) then
+				scrData <= std_logic_vector(to_unsigned(unit, scrdata'length));
+				nwr <= '1';
+			end if;
+
+			charpos <= charpos + 1;
+			scrAddress <= std_logic_vector(to_unsigned(charpos, scraddress'length));
+		end if;
       IF(DRAW1='1')THEN
 			IF(S(0)='1')THEN
 				RD1<=(others=>'1');
@@ -218,12 +255,21 @@ txtscr: txtScreen
 			nBlanking <= '1';
 			if (RBL = "1111" and GD2 = "1111") then 
 				collision <= 1;
-				scaleBL <= 1;
+				--scaleBL <= 1;
+				bl_y1 <= bl_y1 - 1;
+				colCount <= colCount + 1;
+--				scrData <= std_logic_vector(to_unsigned(colCount, scrdata'length));
+--				scrAddress(7 downto 0) <= scrData;
+--				nwr <= '1';
+				if BL_Y1 = 0 then BL_y1 <= 470; end if;
+				
 			end if;
 			if (RBL = "1111" and GD2 = "0000") then
 				collision <= 0;
-				scaleBL <= 2;
+				--scaleBL <= 2;
+
 			end if;
+			
 		END IF;
 		IF(HPOS> (h_pixels + h_fp) AND HPOS<(h_pixels + h_fp + h_pulse))THEN----HSYNC
 			ooHSYNC<='0';
@@ -258,7 +304,6 @@ txtscr: txtScreen
 			count100ms <= count100ms + 1;
 			sixtyHz <= 0;
 			scale <= scale + 1;
-			
 		end if;
 	end if;
 
