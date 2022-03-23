@@ -133,7 +133,7 @@ module DE10_LITE_Golden_Top(
 //=======================================================
 //  Structural coding
 //=======================================================
-VGA VGA_DISP ( .MAX10_CLK1_50(MAX10_CLK1_50), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .SEL(KEY[1:0]), .SW(SW[3:0]),
+VGA VGA_DISP ( .MAX10_CLK1_50(MAX10_CLK1_50), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .SEL(KEY[1:0]), .SW(SW[9:0]),
 					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B)); 
 
 

@@ -2,6 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.dw.all;
+use work.dw2.all;
 
 ENTITY SYNC IS
 PORT(
@@ -11,7 +12,7 @@ VSYNC: buffer STD_LOGIC;
 R: OUT STD_LOGIC_VECTOR(3 downto 0);
 G: OUT STD_LOGIC_VECTOR(3 downto 0);
 B: OUT STD_LOGIC_VECTOR(3 downto 0);
-KEYS: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+KEYS: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 S: IN STD_LOGIC_VECTOR(1 downto 0)
 );
 END SYNC;
@@ -46,6 +47,8 @@ signal ovsync:	std_logic;
 signal oohsync:	std_logic;
 signal oovsync:	std_logic;
 signal cycle: std_logic := '0';
+SIGNAL P_X1: INTEGER RANGE 0 TO 639:=20;
+SIGNAL P_Y1: INTEGER RANGE 0 TO 479:=60;
 SIGNAL SQ_X1: INTEGER RANGE 0 TO 639:=200;
 SIGNAL SQ_Y1: INTEGER RANGE 0 TO 479:=200;
 SIGNAL SQ_X2: INTEGER RANGE 0 TO 639:=300;
@@ -62,6 +65,9 @@ signal tens: integer range 0 to 255:=0;
 signal unit: integer range 0 to 255:=0;
 signal scrData :	std_logic_vector(7 downto 0);
 signal nWr : std_logic;
+signal RD0: std_logic_vector(3 downto 0);
+signal GD0: std_logic_vector(3 downto 0);
+signal BD0: std_logic_vector(3 downto 0);
 signal RD1: std_logic_vector(3 downto 0);
 signal GD1: std_logic_vector(3 downto 0);
 signal BD1: std_logic_vector(3 downto 0);
@@ -74,16 +80,29 @@ signal BT: std_logic_vector(3 downto 0);
 signal RBL: std_logic_vector(3 downto 0);
 signal GBL: std_logic_vector(3 downto 0);
 signal BBL: std_logic_vector(3 downto 0);
-SIGNAL DRAW1,DRAW2, drawBL:STD_LOGIC:='0';
+SIGNAL DRAW0, DRAW1,DRAW2, drawBL:STD_LOGIC:='0';
 SIGNAL HPOS: INTEGER RANGE 0 TO 799:=0;
 SIGNAL VPOS: INTEGER RANGE 0 TO 524:=0;
 signal sixtyHz: integer range 0 to 6 := 0;
 signal count100ms: integer range 0 to 9999 := 0;
 signal scale: integer range 1 to 32 := 8;
+signal scaleP: integer range 1 to 32 := 4;
 signal scaleBL: integer range 1 to 32 := 2;
 signal colCount: integer range 0 to 9999 := 0;
 signal bl_delta: integer range -1 to 1 := 1;
 signal collision: integer range 0 to 1 := 0;
+signal paddle : std_logic_vector(19 downto 0) :=
+										('1','1',
+										 '1','1',
+										 '1','1',
+										 '1','1',
+										 '1','0',
+										 '1','1',
+										 '1','1',
+										 '1','1',
+										 '1','1',
+										 '1','1');
+
 signal asteroid1 : std_logic_vector(99 downto 0) := 
 									  ('0','0','0','0','1','1','0','0','0','0',
 										'0','0','0','1','1','1','1','0','0','0',
@@ -107,17 +126,18 @@ signal asteroid2 : std_logic_vector(99 downto 0) :=
 										'0','0','1','0','0','0','1','0','0','0',
 										'0','0','0','1','1','1','0','0','0','0');
 signal ablock : std_logic_vector(99 downto 0) := 
-									  ('0','0','0','0','1','1','0','0','0','0',
+									  ('0','0','0','0','0','0','0','0','0','0',
 										'0','0','0','1','1','1','1','0','0','0',
 										'0','0','1','1','1','1','1','1','0','0',
 										'0','1','1','1','1','1','1','1','1','0',
-										'1','1','1','1','1','1','1','1','1','1',
-										'1','1','1','1','1','1','1','1','1','1',
+										'0','1','1','1','1','1','1','1','1','0',
+										'0','1','1','1','1','1','1','1','1','0',
 										'0','1','1','1','1','1','1','1','1','0',
 										'0','0','1','1','1','1','1','1','0','0',
 										'0','0','0','1','1','1','1','0','0','0',
-										'0','0','0','0','1','1','0','0','0','0');
+										'0','0','0','0','0','0','0','0','0','0');
 BEGIN
+SPR(HPOS,VPOS,P_X1,P_Y1,paddle,scaleP,DRAW0);
 SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
 SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
 SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
@@ -195,6 +215,24 @@ unit <= 48 + (colcount mod 10);
 				GBL<=(others=>'0');
 				BBL<=(others=>'0');
       END IF;
+--		if (txtRGB = '1') then
+--			RT<=(others=>'1');
+--			GT<=(others=>'1');
+--			BT<=(others=>'1');
+--		ELSE
+--			RT<=(others=>'0');
+--			GT<=(others=>'0');
+--			BT<=(others=>'0');
+--		END IF;
+		IF(DRAW0='1')THEN
+				RD0<=(others=>'1');
+				GD0<=(others=>'1');
+				BD0<=(others=>'1');
+		ELSE
+				RD0<=(others=>'0');
+				GD0<=(others=>'0');
+				BD0<=(others=>'0');
+      END IF;
 		if (txtRGB = '1') then
 			RT<=(others=>'1');
 			GT<=(others=>'1');
@@ -225,7 +263,10 @@ unit <= 48 + (colcount mod 10);
 						 END IF;
 						 IF(KEYS(3)='1')THEN
 						  SQ_Y1<=SQ_Y1+5;
-						 END IF;  
+						 END IF; 
+						 if(KEYS(9)='1') then
+						  P_y1<=p_y1-1;
+						 end if;
 					END IF;
 			      IF(S(1)='1')THEN
 					    IF(KEYS(0)='1')THEN
@@ -240,6 +281,9 @@ unit <= 48 + (colcount mod 10);
 						 IF(KEYS(3)='1')THEN
 						  SQ_Y2<=SQ_Y2+5;
 						 END IF; 
+						 if(KEYS(9)='1') then
+						  P_y1<=p_y1+1;
+						 end if;
 					END IF;  
 		      END IF;
 		END IF;
@@ -249,9 +293,9 @@ unit <= 48 + (colcount mod 10);
 			B<=(others=>'0');
 			nblanking <= '0';
 		else
-			R<= RD1 or RD2 or RBL or RT;
-			G<= GD1 or GD2 or GBL or GT;
-			B<= BD1 or BD2 or BBL or BT;
+			R<= RD0 or RD1 or RD2 or RBL or RT;
+			G<= GD0 or GD1 or GD2 or GBL or GT;
+			B<= BD0 or BD1 or BD2 or BBL or BT;
 			nBlanking <= '1';
 			if (RBL = "1111" and GD2 = "1111") then 
 				collision <= 1;
