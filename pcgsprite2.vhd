@@ -12,8 +12,8 @@ PROCEDURE SPR(SIGNAL Xcur,Ycur,Xpos,Ypos:IN INTEGER;signal sprite:IN std_logic_v
 signal scale: in integer; SIGNAL DRAW: OUT STD_LOGIC) IS
 BEGIN
 
- IF(Xpos-Xcur)/scale>=0 AND (Xpos-xcur)/scale<2 AND (Ypos-Ycur)/scale>=0 AND (Ypos-ycur)/scale<9 THEN
-	 if sprite(1+((xpos - xcur)/scale) + ((1+((ypos - ycur)/scale))*2)) = '1' then 
+ IF (((Xpos-Xcur)/scale)>=0) AND (((Xpos-xcur)/scale)<2) AND (((Ypos-Ycur)/scale)>=0) AND (((Ypos-ycur)/scale)<9) THEN
+	 if sprite(((xpos - xcur)/scale) + ((((ypos - ycur)/scale))*2)) = '1' then 
 		DRAW<='1';
 	 else
 		DRAW<='0';

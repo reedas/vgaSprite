@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -32.660
-TNS   : -150.485
+Slack : -31.486
+TNS   : -72.751
 
 Type  : Slow 1200mV 85C Model Setup 'VGA:VGA_DISP|SYNC:C1|VSYNC'
-Slack : -1.433
-TNS   : -15.506
+Slack : -1.514
+TNS   : -15.652
+
+Type  : Slow 1200mV 85C Model Hold 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.260
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'VGA:VGA_DISP|SYNC:C1|VSYNC'
 Slack : 0.325
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.419
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA:VGA_DISP|SYNC:C1|VSYNC'
@@ -27,23 +27,23 @@ Slack : 9.777
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.527
+Slack : 19.529
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -29.248
-TNS   : -130.658
+Slack : -28.162
+TNS   : -64.649
 
 Type  : Slow 1200mV 0C Model Setup 'VGA:VGA_DISP|SYNC:C1|VSYNC'
-Slack : -1.206
-TNS   : -12.424
+Slack : -1.279
+TNS   : -12.574
+
+Type  : Slow 1200mV 0C Model Hold 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.214
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'VGA:VGA_DISP|SYNC:C1|VSYNC'
 Slack : 0.294
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.346
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA:VGA_DISP|SYNC:C1|VSYNC'
@@ -55,23 +55,23 @@ Slack : 9.784
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.543
+Slack : 19.542
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -15.602
-TNS   : -67.080
+Slack : -15.008
+TNS   : -34.865
 
 Type  : Fast 1200mV 0C Model Setup 'VGA:VGA_DISP|SYNC:C1|VSYNC'
-Slack : -0.167
-TNS   : -0.285
+Slack : -0.218
+TNS   : -0.439
+
+Type  : Fast 1200mV 0C Model Hold 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.119
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'VGA:VGA_DISP|SYNC:C1|VSYNC'
 Slack : 0.147
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'VGA_DISP|C|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.205
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGA:VGA_DISP|SYNC:C1|VSYNC'

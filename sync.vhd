@@ -47,7 +47,7 @@ signal ovsync:	std_logic;
 signal oohsync:	std_logic;
 signal oovsync:	std_logic;
 signal cycle: std_logic := '0';
-SIGNAL P_X1: INTEGER RANGE 0 TO 639:=20;
+SIGNAL P_X1: INTEGER RANGE 0 TO 639:=17;
 SIGNAL P_Y1: INTEGER RANGE 0 TO 479:=60;
 SIGNAL SQ_X1: INTEGER RANGE 0 TO 639:=200;
 SIGNAL SQ_Y1: INTEGER RANGE 0 TO 479:=200;
@@ -86,7 +86,7 @@ SIGNAL VPOS: INTEGER RANGE 0 TO 524:=0;
 signal sixtyHz: integer range 0 to 6 := 0;
 signal count100ms: integer range 0 to 9999 := 0;
 signal scale: integer range 1 to 32 := 8;
-signal scaleP: integer range 1 to 32 := 4;
+signal scaleP: integer range 1 to 32 := 2;
 signal scaleBL: integer range 1 to 32 := 2;
 signal colCount: integer range 0 to 9999 := 0;
 signal bl_delta: integer range -1 to 1 := 1;
@@ -96,8 +96,8 @@ signal paddle : std_logic_vector(19 downto 0) :=
 										 '1','1',
 										 '1','1',
 										 '1','1',
+										 '0','1',
 										 '1','0',
-										 '1','1',
 										 '1','1',
 										 '1','1',
 										 '1','1',
@@ -137,10 +137,6 @@ signal ablock : std_logic_vector(99 downto 0) :=
 										'0','0','0','1','1','1','1','0','0','0',
 										'0','0','0','0','0','0','0','0','0','0');
 BEGIN
-SPR(HPOS,VPOS,P_X1,P_Y1,paddle,scaleP,DRAW0);
-SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
-SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
-SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 txtscr: txtScreen
 		port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
 thousands <= 48 + ((colcount / 1000) mod 10);
@@ -149,7 +145,11 @@ tens <= 48 + ((colcount / 10) mod 10);
 unit <= 48 + (colcount mod 10);
  PROCESS(CLK)
  BEGIN
-	IF(CLK'EVENT AND CLK='0')THEN
+	IF(CLK'EVENT AND CLK='1')THEN
+SPR(HPOS,VPOS,P_X1,P_Y1,paddle,scaleP,DRAW0);
+SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
+SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
+SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 		if (cycle = '0') then
 			cycle <= '1';
 			nwr <= '0';
