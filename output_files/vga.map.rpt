@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vga
-Wed Mar 23 22:36:19 2022
+Thu Mar 24 17:35:14 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -24,29 +24,31 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  16. Parameter Settings for User Entity Instance: VGA:VGA_DISP|pll:C|altpll:altpll_component
  17. Parameter Settings for User Entity Instance: VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component
  18. Parameter Settings for User Entity Instance: VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component
- 19. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5
- 20. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6
- 21. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3
- 22. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4
- 23. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Mod0
- 24. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6
- 25. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7
- 26. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod4
- 27. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod5
- 28. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2
- 29. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2
- 30. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div1
- 31. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1
- 32. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0
- 33. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod0
- 34. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod3
- 35. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Div0
- 36. altpll Parameter Settings by Entity Instance
- 37. altsyncram Parameter Settings by Entity Instance
- 38. Port Connectivity Checks: "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr"
- 39. Post-Synthesis Netlist Statistics for Top Partition
- 40. Elapsed Time Per Partition
- 41. Analysis & Synthesis Messages
+ 19. Parameter Settings for User Entity Instance: VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1
+ 20. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5
+ 21. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6
+ 22. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3
+ 23. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4
+ 24. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Mod0
+ 25. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6
+ 26. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7
+ 27. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod4
+ 28. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod5
+ 29. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2
+ 30. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2
+ 31. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div1
+ 32. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1
+ 33. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0
+ 34. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod0
+ 35. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod3
+ 36. Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Div0
+ 37. altpll Parameter Settings by Entity Instance
+ 38. altsyncram Parameter Settings by Entity Instance
+ 39. Port Connectivity Checks: "VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1"
+ 40. Port Connectivity Checks: "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr"
+ 41. Post-Synthesis Netlist Statistics for Top Partition
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
 
 
 
@@ -73,15 +75,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 23 22:36:18 2022       ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 24 17:35:14 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; vga                                         ;
 ; Top-level Entity Name              ; DE10_LITE_Golden_Top                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 3,251                                       ;
-;     Total combinational functions  ; 3,225                                       ;
-;     Dedicated logic registers      ; 172                                         ;
-; Total registers                    ; 172                                         ;
+; Total logic elements               ; 3,297                                       ;
+;     Total combinational functions  ; 3,262                                       ;
+;     Dedicated logic registers      ; 216                                         ;
+; Total registers                    ; 216                                         ;
 ; Total pins                         ; 185                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 49,152                                      ;
@@ -183,93 +185,92 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 8           ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
 ;     Processor 6            ;   0.1%      ;
-;     Processor 7            ;   0.1%      ;
-;     Processor 8            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                            ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                              ; Library ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------+---------+
-; sync.vhd                         ; yes             ; User VHDL File                         ; /home/asr/fpga/vgasprite/sync.vhd                                                         ;         ;
-; VGA.vhd                          ; yes             ; User VHDL File                         ; /home/asr/fpga/vgasprite/VGA.vhd                                                          ;         ;
-; pll.v                            ; yes             ; User Wizard-Generated File             ; /home/asr/fpga/vgasprite/pll.v                                                            ;         ;
-; pcgsprite.vhd                    ; yes             ; User VHDL File                         ; /home/asr/fpga/vgasprite/pcgsprite.vhd                                                    ;         ;
-; DE10_LITE_Golden_Top.v           ; yes             ; User Verilog HDL File                  ; /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v                                           ;         ;
-; txtscreen.vhd                    ; yes             ; User VHDL File                         ; /home/asr/fpga/vgasprite/txtscreen.vhd                                                    ;         ;
-; dispmem.v                        ; yes             ; User Wizard-Generated File             ; /home/asr/fpga/vgasprite/dispmem.v                                                        ;         ;
-; charrom.v                        ; yes             ; User Wizard-Generated File             ; /home/asr/fpga/vgasprite/charrom.v                                                        ;         ;
-; pcgsprite2.vhd                   ; yes             ; User VHDL File                         ; /home/asr/fpga/vgasprite/pcgsprite2.vhd                                                   ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
-; aglobal201.inc                   ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc        ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
-; db/pll_altpll.v                  ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/pll_altpll.v                                                  ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_ag91.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/altsyncram_ag91.tdf                                           ;         ;
-; font18x12.hex                    ; yes             ; Auto-Found Memory Initialization File  ; /home/asr/fpga/vgasprite/font18x12.hex                                                    ;         ;
-; db/altsyncram_0tp1.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/altsyncram_0tp1.tdf                                           ;         ;
-; ramstart.mif                     ; yes             ; Auto-Found Memory Initialization File  ; /home/asr/fpga/vgasprite/ramstart.mif                                                     ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                           ; /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
-; db/lpm_divide_fbo.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_fbo.tdf                                            ;         ;
-; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/abs_divider_kbg.tdf                                           ;         ;
-; db/alt_u_div_she.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_she.tdf                                             ;         ;
-; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/add_sub_t3c.tdf                                               ;         ;
-; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/add_sub_u3c.tdf                                               ;         ;
-; db/lpm_abs_q99.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_abs_q99.tdf                                               ;         ;
-; db/lpm_abs_6b9.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_abs_6b9.tdf                                               ;         ;
-; db/lpm_divide_25o.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_25o.tdf                                            ;         ;
-; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/abs_divider_4dg.tdf                                           ;         ;
-; db/alt_u_div_tke.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_tke.tdf                                             ;         ;
-; db/lpm_abs_8b9.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_abs_8b9.tdf                                               ;         ;
-; db/lpm_divide_4nl.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_4nl.tdf                                            ;         ;
-; db/sign_div_unsign_3nh.tdf       ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/sign_div_unsign_3nh.tdf                                       ;         ;
-; db/alt_u_div_gke.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_gke.tdf                                             ;         ;
-; db/lpm_divide_u4o.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_u4o.tdf                                            ;         ;
-; db/abs_divider_0dg.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/abs_divider_0dg.tdf                                           ;         ;
-; db/alt_u_div_kke.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_kke.tdf                                             ;         ;
-; db/lpm_divide_mtl.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_mtl.tdf                                            ;         ;
-; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/sign_div_unsign_olh.tdf                                       ;         ;
-; db/alt_u_div_qhe.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_qhe.tdf                                             ;         ;
-; db/lpm_divide_anl.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_anl.tdf                                            ;         ;
-; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/sign_div_unsign_9nh.tdf                                       ;         ;
-; db/alt_u_div_ske.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf                                             ;         ;
-; db/lpm_divide_ptl.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_ptl.tdf                                            ;         ;
-; db/sign_div_unsign_rlh.tdf       ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/sign_div_unsign_rlh.tdf                                       ;         ;
-; db/alt_u_div_0ie.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_0ie.tdf                                             ;         ;
-; db/lpm_divide_3vl.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_3vl.tdf                                            ;         ;
-; db/sign_div_unsign_5nh.tdf       ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/sign_div_unsign_5nh.tdf                                       ;         ;
-; db/alt_u_div_lke.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_lke.tdf                                             ;         ;
-; db/lpm_divide_hbo.tdf            ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_divide_hbo.tdf                                            ;         ;
-; db/abs_divider_mbg.tdf           ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/abs_divider_mbg.tdf                                           ;         ;
-; db/alt_u_div_the.tdf             ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/alt_u_div_the.tdf                                             ;         ;
-; db/lpm_abs_o99.tdf               ; yes             ; Auto-Generated Megafunction            ; /home/asr/fpga/vgasprite/db/lpm_abs_o99.tdf                                               ;         ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; quadrature_decoder.vhd           ; yes             ; User VHDL File                         ; C:/Users/eleceng/Documents/sixforty/quadrature_decoder.vhd                   ;         ;
+; sync.vhd                         ; yes             ; User VHDL File                         ; C:/Users/eleceng/Documents/sixforty/sync.vhd                                 ;         ;
+; VGA.vhd                          ; yes             ; User VHDL File                         ; C:/Users/eleceng/Documents/sixforty/VGA.vhd                                  ;         ;
+; pll.v                            ; yes             ; User Wizard-Generated File             ; C:/Users/eleceng/Documents/sixforty/pll.v                                    ;         ;
+; pcgsprite.vhd                    ; yes             ; User VHDL File                         ; C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd                            ;         ;
+; DE10_LITE_Golden_Top.v           ; yes             ; User Verilog HDL File                  ; C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v                   ;         ;
+; txtscreen.vhd                    ; yes             ; User VHDL File                         ; C:/Users/eleceng/Documents/sixforty/txtscreen.vhd                            ;         ;
+; dispmem.v                        ; yes             ; User Wizard-Generated File             ; C:/Users/eleceng/Documents/sixforty/dispmem.v                                ;         ;
+; charrom.v                        ; yes             ; User Wizard-Generated File             ; C:/Users/eleceng/Documents/sixforty/charrom.v                                ;         ;
+; pcgsprite2.vhd                   ; yes             ; User VHDL File                         ; C:/Users/eleceng/Documents/sixforty/pcgsprite2.vhd                           ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc        ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; db/pll_altpll.v                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/pll_altpll.v                          ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_ag91.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/altsyncram_ag91.tdf                   ;         ;
+; font18x12.hex                    ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/eleceng/Documents/sixforty/font18x12.hex                            ;         ;
+; db/altsyncram_0tp1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/altsyncram_0tp1.tdf                   ;         ;
+; ramstart.mif                     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/eleceng/Documents/sixforty/ramstart.mif                             ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                           ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_fbo.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_fbo.tdf                    ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/abs_divider_kbg.tdf                   ;         ;
+; db/alt_u_div_she.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_she.tdf                     ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/add_sub_t3c.tdf                       ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/add_sub_u3c.tdf                       ;         ;
+; db/lpm_abs_q99.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_abs_q99.tdf                       ;         ;
+; db/lpm_abs_6b9.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_abs_6b9.tdf                       ;         ;
+; db/lpm_divide_25o.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_25o.tdf                    ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/abs_divider_4dg.tdf                   ;         ;
+; db/alt_u_div_tke.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_tke.tdf                     ;         ;
+; db/lpm_abs_8b9.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_abs_8b9.tdf                       ;         ;
+; db/lpm_divide_4nl.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_4nl.tdf                    ;         ;
+; db/sign_div_unsign_3nh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_3nh.tdf               ;         ;
+; db/alt_u_div_gke.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_gke.tdf                     ;         ;
+; db/lpm_divide_u4o.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_u4o.tdf                    ;         ;
+; db/abs_divider_0dg.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/abs_divider_0dg.tdf                   ;         ;
+; db/alt_u_div_kke.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_kke.tdf                     ;         ;
+; db/lpm_divide_mtl.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_mtl.tdf                    ;         ;
+; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_olh.tdf               ;         ;
+; db/alt_u_div_qhe.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_qhe.tdf                     ;         ;
+; db/lpm_divide_anl.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_anl.tdf                    ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_9nh.tdf               ;         ;
+; db/alt_u_div_ske.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf                     ;         ;
+; db/lpm_divide_ptl.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_ptl.tdf                    ;         ;
+; db/sign_div_unsign_rlh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_rlh.tdf               ;         ;
+; db/alt_u_div_0ie.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_0ie.tdf                     ;         ;
+; db/lpm_divide_3vl.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_3vl.tdf                    ;         ;
+; db/sign_div_unsign_5nh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_5nh.tdf               ;         ;
+; db/alt_u_div_lke.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_lke.tdf                     ;         ;
+; db/lpm_divide_hbo.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_divide_hbo.tdf                    ;         ;
+; db/abs_divider_mbg.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/abs_divider_mbg.tdf                   ;         ;
+; db/alt_u_div_the.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/alt_u_div_the.tdf                     ;         ;
+; db/lpm_abs_o99.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/Users/eleceng/Documents/sixforty/db/lpm_abs_o99.tdf                       ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------+
@@ -277,20 +278,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                 ;
 +---------------------------------------------+---------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 3,251                                                                                 ;
+; Estimated Total logic elements              ; 3,297                                                                                 ;
 ;                                             ;                                                                                       ;
-; Total combinational functions               ; 3225                                                                                  ;
+; Total combinational functions               ; 3262                                                                                  ;
 ; Logic element usage by number of LUT inputs ;                                                                                       ;
-;     -- 4 input functions                    ; 716                                                                                   ;
-;     -- 3 input functions                    ; 1210                                                                                  ;
-;     -- <=2 input functions                  ; 1299                                                                                  ;
+;     -- 4 input functions                    ; 737                                                                                   ;
+;     -- 3 input functions                    ; 1212                                                                                  ;
+;     -- <=2 input functions                  ; 1313                                                                                  ;
 ;                                             ;                                                                                       ;
 ; Logic elements by mode                      ;                                                                                       ;
-;     -- normal mode                          ; 1994                                                                                  ;
-;     -- arithmetic mode                      ; 1231                                                                                  ;
+;     -- normal mode                          ; 2022                                                                                  ;
+;     -- arithmetic mode                      ; 1240                                                                                  ;
 ;                                             ;                                                                                       ;
-; Total registers                             ; 172                                                                                   ;
-;     -- Dedicated logic registers            ; 172                                                                                   ;
+; Total registers                             ; 216                                                                                   ;
+;     -- Dedicated logic registers            ; 216                                                                                   ;
 ;     -- I/O registers                        ; 0                                                                                     ;
 ;                                             ;                                                                                       ;
 ; I/O pins                                    ; 185                                                                                   ;
@@ -302,9 +303,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                                     ;
 ;                                             ;                                                                                       ;
 ; Maximum fan-out node                        ; VGA:VGA_DISP|pll:C|altpll:altpll_component|pll_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 169                                                                                   ;
-; Total fan-out                               ; 9822                                                                                  ;
-; Average fan-out                             ; 2.55                                                                                  ;
+; Maximum fan-out                             ; 213                                                                                   ;
+; Total fan-out                               ; 10112                                                                                 ;
+; Average fan-out                             ; 2.57                                                                                  ;
 +---------------------------------------------+---------------------------------------------------------------------------------------+
 
 
@@ -313,9 +314,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                          ; Entity Name          ; Library Name ;
 +----------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |DE10_LITE_Golden_Top                              ; 3225 (0)            ; 172 (0)                   ; 49152       ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |DE10_LITE_Golden_Top                                                                                                                                        ; DE10_LITE_Golden_Top ; work         ;
-;    |VGA:VGA_DISP|                                  ; 3225 (0)            ; 172 (0)                   ; 49152       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP                                                                                                                           ; VGA                  ; work         ;
-;       |SYNC:C1|                                    ; 3225 (625)          ; 172 (171)                 ; 49152       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1                                                                                                                   ; SYNC                 ; work         ;
+; |DE10_LITE_Golden_Top                              ; 3262 (0)            ; 216 (0)                   ; 49152       ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |DE10_LITE_Golden_Top                                                                                                                                        ; DE10_LITE_Golden_Top ; work         ;
+;    |VGA:VGA_DISP|                                  ; 3262 (0)            ; 216 (0)                   ; 49152       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP                                                                                                                           ; VGA                  ; work         ;
+;       |SYNC:C1|                                    ; 3262 (580)          ; 216 (165)                 ; 49152       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1                                                                                                                   ; SYNC                 ; work         ;
 ;          |lpm_divide:Div0|                         ; 123 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0                                                                                                   ; lpm_divide           ; work         ;
 ;             |lpm_divide_3vl:auto_generated|        ; 123 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0|lpm_divide_3vl:auto_generated                                                                     ; lpm_divide_3vl       ; work         ;
 ;                |sign_div_unsign_5nh:divider|       ; 123 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0|lpm_divide_3vl:auto_generated|sign_div_unsign_5nh:divider                                         ; sign_div_unsign_5nh  ; work         ;
@@ -328,27 +329,27 @@ https://fpgasoftware.intel.com/eula.
 ;             |lpm_divide_mtl:auto_generated|        ; 134 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2|lpm_divide_mtl:auto_generated                                                                     ; lpm_divide_mtl       ; work         ;
 ;                |sign_div_unsign_olh:divider|       ; 134 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2|lpm_divide_mtl:auto_generated|sign_div_unsign_olh:divider                                         ; sign_div_unsign_olh  ; work         ;
 ;                   |alt_u_div_qhe:divider|          ; 134 (134)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2|lpm_divide_mtl:auto_generated|sign_div_unsign_olh:divider|alt_u_div_qhe:divider                   ; alt_u_div_qhe        ; work         ;
-;          |lpm_divide:Div3|                         ; 181 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3                                                                                                   ; lpm_divide           ; work         ;
-;             |lpm_divide_fbo:auto_generated|        ; 181 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
-;                |abs_divider_kbg:divider|           ; 181 (24)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
+;          |lpm_divide:Div3|                         ; 182 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3                                                                                                   ; lpm_divide           ; work         ;
+;             |lpm_divide_fbo:auto_generated|        ; 182 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
+;                |abs_divider_kbg:divider|           ; 182 (24)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
 ;                   |alt_u_div_she:divider|          ; 141 (140)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                       ; alt_u_div_she        ; work         ;
 ;                      |add_sub_u3c:add_sub_1|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c          ; work         ;
-;                   |lpm_abs_6b9:my_abs_num|         ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
-;          |lpm_divide:Div4|                         ; 179 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4                                                                                                   ; lpm_divide           ; work         ;
-;             |lpm_divide_fbo:auto_generated|        ; 179 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
-;                |abs_divider_kbg:divider|           ; 179 (22)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
+;                   |lpm_abs_6b9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div3|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
+;          |lpm_divide:Div4|                         ; 181 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4                                                                                                   ; lpm_divide           ; work         ;
+;             |lpm_divide_fbo:auto_generated|        ; 181 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
+;                |abs_divider_kbg:divider|           ; 181 (23)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
 ;                   |alt_u_div_she:divider|          ; 141 (140)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                       ; alt_u_div_she        ; work         ;
 ;                      |add_sub_u3c:add_sub_1|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c          ; work         ;
-;                   |lpm_abs_6b9:my_abs_num|         ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
-;          |lpm_divide:Div5|                         ; 187 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5                                                                                                   ; lpm_divide           ; work         ;
-;             |lpm_divide_fbo:auto_generated|        ; 187 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
-;                |abs_divider_kbg:divider|           ; 187 (24)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
+;                   |lpm_abs_6b9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div4|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
+;          |lpm_divide:Div5|                         ; 186 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5                                                                                                   ; lpm_divide           ; work         ;
+;             |lpm_divide_fbo:auto_generated|        ; 186 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
+;                |abs_divider_kbg:divider|           ; 186 (24)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
 ;                   |alt_u_div_she:divider|          ; 145 (144)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                       ; alt_u_div_she        ; work         ;
 ;                      |add_sub_u3c:add_sub_1|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c          ; work         ;
-;                   |lpm_abs_6b9:my_abs_num|         ; 18 (18)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
-;          |lpm_divide:Div6|                         ; 180 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6                                                                                                   ; lpm_divide           ; work         ;
-;             |lpm_divide_fbo:auto_generated|        ; 180 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
-;                |abs_divider_kbg:divider|           ; 180 (22)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
+;                   |lpm_abs_6b9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
+;          |lpm_divide:Div6|                         ; 181 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6                                                                                                   ; lpm_divide           ; work         ;
+;             |lpm_divide_fbo:auto_generated|        ; 181 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6|lpm_divide_fbo:auto_generated                                                                     ; lpm_divide_fbo       ; work         ;
+;                |abs_divider_kbg:divider|           ; 181 (23)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                                             ; abs_divider_kbg      ; work         ;
 ;                   |alt_u_div_she:divider|          ; 141 (140)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider                       ; alt_u_div_she        ; work         ;
 ;                      |add_sub_u3c:add_sub_1|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c          ; work         ;
 ;                   |lpm_abs_6b9:my_abs_num|         ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Div6|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
@@ -360,10 +361,10 @@ https://fpgasoftware.intel.com/eula.
 ;             |lpm_divide_anl:auto_generated|        ; 154 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated                                                                     ; lpm_divide_anl       ; work         ;
 ;                |sign_div_unsign_9nh:divider|       ; 154 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider                                         ; sign_div_unsign_9nh  ; work         ;
 ;                   |alt_u_div_ske:divider|          ; 154 (154)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider                   ; alt_u_div_ske        ; work         ;
-;          |lpm_divide:Mod2|                         ; 232 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2                                                                                                   ; lpm_divide           ; work         ;
-;             |lpm_divide_anl:auto_generated|        ; 232 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated                                                                     ; lpm_divide_anl       ; work         ;
-;                |sign_div_unsign_9nh:divider|       ; 232 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider                                         ; sign_div_unsign_9nh  ; work         ;
-;                   |alt_u_div_ske:divider|          ; 232 (232)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider                   ; alt_u_div_ske        ; work         ;
+;          |lpm_divide:Mod2|                         ; 235 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2                                                                                                   ; lpm_divide           ; work         ;
+;             |lpm_divide_anl:auto_generated|        ; 235 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated                                                                     ; lpm_divide_anl       ; work         ;
+;                |sign_div_unsign_9nh:divider|       ; 235 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider                                         ; sign_div_unsign_9nh  ; work         ;
+;                   |alt_u_div_ske:divider|          ; 235 (235)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider                   ; alt_u_div_ske        ; work         ;
 ;          |lpm_divide:Mod3|                         ; 276 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod3                                                                                                   ; lpm_divide           ; work         ;
 ;             |lpm_divide_anl:auto_generated|        ; 276 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod3|lpm_divide_anl:auto_generated                                                                     ; lpm_divide_anl       ; work         ;
 ;                |sign_div_unsign_9nh:divider|       ; 276 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod3|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider                                         ; sign_div_unsign_9nh  ; work         ;
@@ -386,6 +387,7 @@ https://fpgasoftware.intel.com/eula.
 ;                |abs_divider_0dg:divider|           ; 81 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7|lpm_divide_u4o:auto_generated|abs_divider_0dg:divider                                             ; abs_divider_0dg      ; work         ;
 ;                   |alt_u_div_kke:divider|          ; 58 (58)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7|lpm_divide_u4o:auto_generated|abs_divider_0dg:divider|alt_u_div_kke:divider                       ; alt_u_div_kke        ; work         ;
 ;                   |lpm_abs_6b9:my_abs_num|         ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7|lpm_divide_u4o:auto_generated|abs_divider_0dg:divider|lpm_abs_6b9:my_abs_num                      ; lpm_abs_6b9          ; work         ;
+;          |quadrature_decoder:quad1|                ; 76 (76)             ; 50 (50)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1                                                                                          ; quadrature_decoder   ; work         ;
 ;          |txtScreen:txtscr|                        ; 522 (40)            ; 1 (1)                     ; 49152       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr                                                                                                  ; txtScreen            ; work         ;
 ;             |charrom:font8x12_inst|                ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst                                                                            ; charrom              ; work         ;
 ;                |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component                                            ; altsyncram           ; work         ;
@@ -434,6 +436,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+------------------------------------------------+
 ; Register name                          ; Reason for Removal                             ;
 +----------------------------------------+------------------------------------------------+
+; VGA:VGA_DISP|SYNC:C1|P_Y1[0,1]         ; Stuck at GND due to stuck port data_in         ;
 ; VGA:VGA_DISP|SYNC:C1|GBL[0..3]         ; Stuck at GND due to stuck port data_in         ;
 ; VGA:VGA_DISP|SYNC:C1|RD2[0..3]         ; Stuck at GND due to stuck port data_in         ;
 ; VGA:VGA_DISP|SYNC:C1|GD1[0..3]         ; Stuck at GND due to stuck port data_in         ;
@@ -443,15 +446,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA:VGA_DISP|SYNC:C1|BD0[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BD0[0]        ;
 ; VGA:VGA_DISP|SYNC:C1|GD0[0..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BD0[0]        ;
 ; VGA:VGA_DISP|SYNC:C1|RD0[0..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BD0[0]        ;
+; VGA:VGA_DISP|SYNC:C1|BD1[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BD1[0]        ;
+; VGA:VGA_DISP|SYNC:C1|BD2[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BD2[0]        ;
 ; VGA:VGA_DISP|SYNC:C1|BBL[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BBL[0]        ;
 ; VGA:VGA_DISP|SYNC:C1|RBL[0..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BBL[0]        ;
 ; VGA:VGA_DISP|SYNC:C1|GD2[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|GD2[0]        ;
-; VGA:VGA_DISP|SYNC:C1|BD1[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BD1[0]        ;
-; VGA:VGA_DISP|SYNC:C1|BD2[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|BD2[0]        ;
 ; VGA:VGA_DISP|SYNC:C1|RD1[1..3]         ; Merged with VGA:VGA_DISP|SYNC:C1|RD1[0]        ;
 ; VGA:VGA_DISP|SYNC:C1|charpos[0]        ; Merged with VGA:VGA_DISP|SYNC:C1|scrAddress[0] ;
 ; VGA:VGA_DISP|SYNC:C1|bl_delta[0]       ; Stuck at VCC due to stuck port data_in         ;
-; Total Number of Removed Registers = 55 ;                                                ;
+; Total Number of Removed Registers = 57 ;                                                ;
 +----------------------------------------+------------------------------------------------+
 
 
@@ -460,12 +463,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 172   ;
-; Number of registers using Synchronous Clear  ; 21    ;
-; Number of registers using Synchronous Load   ; 3     ;
+; Total registers                              ; 216   ;
+; Number of registers using Synchronous Clear  ; 62    ;
+; Number of registers using Synchronous Load   ; 9     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 116   ;
+; Number of registers using Clock Enable       ; 150   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -475,29 +478,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; VGA:VGA_DISP|SYNC:C1|SQ_X1[7]           ; 4       ;
-; VGA:VGA_DISP|SYNC:C1|SQ_X1[6]           ; 3       ;
-; VGA:VGA_DISP|SYNC:C1|SQ_X1[3]           ; 3       ;
-; VGA:VGA_DISP|SYNC:C1|scale[3]           ; 39      ;
+; VGA:VGA_DISP|SYNC:C1|SQ_Y1[3]           ; 2       ;
 ; VGA:VGA_DISP|SYNC:C1|SQ_Y1[7]           ; 2       ;
 ; VGA:VGA_DISP|SYNC:C1|SQ_Y1[6]           ; 2       ;
-; VGA:VGA_DISP|SYNC:C1|SQ_Y1[3]           ; 2       ;
-; VGA:VGA_DISP|SYNC:C1|SQ_X2[3]           ; 3       ;
-; VGA:VGA_DISP|SYNC:C1|SQ_X2[2]           ; 3       ;
-; VGA:VGA_DISP|SYNC:C1|SQ_X2[8]           ; 4       ;
-; VGA:VGA_DISP|SYNC:C1|SQ_X2[5]           ; 3       ;
+; VGA:VGA_DISP|SYNC:C1|scale[3]           ; 39      ;
+; VGA:VGA_DISP|SYNC:C1|SQ_X1[3]           ; 3       ;
+; VGA:VGA_DISP|SYNC:C1|SQ_X1[7]           ; 4       ;
+; VGA:VGA_DISP|SYNC:C1|SQ_X1[6]           ; 3       ;
 ; VGA:VGA_DISP|SYNC:C1|SQ_Y2[8]           ; 2       ;
 ; VGA:VGA_DISP|SYNC:C1|SQ_Y2[5]           ; 2       ;
 ; VGA:VGA_DISP|SYNC:C1|SQ_Y2[3]           ; 2       ;
 ; VGA:VGA_DISP|SYNC:C1|SQ_Y2[2]           ; 2       ;
+; VGA:VGA_DISP|SYNC:C1|SQ_X2[8]           ; 4       ;
+; VGA:VGA_DISP|SYNC:C1|SQ_X2[5]           ; 3       ;
+; VGA:VGA_DISP|SYNC:C1|SQ_X2[3]           ; 3       ;
+; VGA:VGA_DISP|SYNC:C1|SQ_X2[2]           ; 3       ;
+; VGA:VGA_DISP|SYNC:C1|BL_X1[8]           ; 3       ;
 ; VGA:VGA_DISP|SYNC:C1|BL_X1[7]           ; 3       ;
 ; VGA:VGA_DISP|SYNC:C1|BL_X1[4]           ; 3       ;
-; VGA:VGA_DISP|SYNC:C1|BL_X1[8]           ; 3       ;
-; VGA:VGA_DISP|SYNC:C1|BL_Y1[4]           ; 3       ;
-; VGA:VGA_DISP|SYNC:C1|BL_Y1[8]           ; 5       ;
+; VGA:VGA_DISP|SYNC:C1|BL_Y1[8]           ; 3       ;
 ; VGA:VGA_DISP|SYNC:C1|BL_Y1[7]           ; 3       ;
+; VGA:VGA_DISP|SYNC:C1|BL_Y1[4]           ; 3       ;
 ; VGA:VGA_DISP|SYNC:C1|P_Y1[5]            ; 2       ;
-; VGA:VGA_DISP|SYNC:C1|P_Y1[4]            ; 2       ;
+; VGA:VGA_DISP|SYNC:C1|P_Y1[4]            ; 3       ;
 ; VGA:VGA_DISP|SYNC:C1|P_Y1[3]            ; 2       ;
 ; VGA:VGA_DISP|SYNC:C1|P_Y1[2]            ; 2       ;
 ; VGA:VGA_DISP|SYNC:C1|scrAddress[0]      ; 4       ;
@@ -505,19 +508,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 0 LEs                ; 10 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|P_Y1[8]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X2[1]   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X2[7]   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X1[9]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|scrData[0] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|P_Y1[5]    ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X1[6]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X2[4]                                    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1|debounce_cnt[1]    ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1|set_origin_cnt[13] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X2[9]                                    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X1[8]                                    ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|scrData[5]                                  ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1|position[0]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|VGA:VGA_DISP|SYNC:C1|SQ_X2[2]                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1034,6 +1038,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1 ;
++--------------------------+--------+--------------------------------------------------------+
+; Parameter Name           ; Value  ; Type                                                   ;
++--------------------------+--------+--------------------------------------------------------+
+; positions                ; 64     ; Signed Integer                                         ;
+; debounce_time            ; 50000  ; Signed Integer                                         ;
+; set_origin_debounce_time ; 500000 ; Signed Integer                                         ;
++--------------------------+--------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +---------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5 ;
 +------------------------+----------------+---------------------------------------------+
@@ -1473,6 +1489,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+---------------------------------------------------------------------------------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1"                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; direction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------+
 ; Port Connectivity Checks: "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr" ;
 +------------+-------+----------+-----------------------------------+
@@ -1489,29 +1514,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 185                         ;
-; cycloneiii_ff         ; 172                         ;
-;     ENA               ; 103                         ;
-;     ENA SCLR          ; 10                          ;
+; cycloneiii_ff         ; 216                         ;
+;     ENA               ; 96                          ;
+;     ENA SCLR          ; 45                          ;
+;     ENA SCLR SLD      ; 6                           ;
 ;     ENA SLD           ; 3                           ;
 ;     SCLR              ; 11                          ;
-;     plain             ; 45                          ;
+;     plain             ; 55                          ;
 ; cycloneiii_io_obuf    ; 71                          ;
-; cycloneiii_lcell_comb ; 3226                        ;
-;     arith             ; 1231                        ;
+; cycloneiii_lcell_comb ; 3263                        ;
+;     arith             ; 1240                        ;
 ;         1 data inputs ; 39                          ;
-;         2 data inputs ; 253                         ;
-;         3 data inputs ; 939                         ;
-;     normal            ; 1995                        ;
-;         0 data inputs ; 127                         ;
-;         1 data inputs ; 50                          ;
-;         2 data inputs ; 831                         ;
-;         3 data inputs ; 271                         ;
-;         4 data inputs ; 716                         ;
+;         2 data inputs ; 268                         ;
+;         3 data inputs ; 933                         ;
+;     normal            ; 2023                        ;
+;         0 data inputs ; 126                         ;
+;         1 data inputs ; 54                          ;
+;         2 data inputs ; 827                         ;
+;         3 data inputs ; 279                         ;
+;         4 data inputs ; 737                         ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 41.70                       ;
-; Average LUT depth     ; 25.78                       ;
+; Average LUT depth     ; 25.48                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1520,7 +1546,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:07     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -1530,58 +1556,61 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Mar 23 22:35:57 2022
+    Info: Processing started: Thu Mar 24 17:34:55 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga -c vga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file quadrature_decoder.vhd
+    Info (12022): Found design unit 1: quadrature_decoder-logic File: C:/Users/eleceng/Documents/sixforty/quadrature_decoder.vhd Line: 40
+    Info (12023): Found entity 1: quadrature_decoder File: C:/Users/eleceng/Documents/sixforty/quadrature_decoder.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file sync.vhd
-    Info (12022): Found design unit 1: SYNC-MAIN File: /home/asr/fpga/vgasprite/sync.vhd Line: 21
-    Info (12023): Found entity 1: SYNC File: /home/asr/fpga/vgasprite/sync.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file VGA.vhd
-    Info (12022): Found design unit 1: VGA-MAIN File: /home/asr/fpga/vgasprite/VGA.vhd Line: 19
-    Info (12023): Found entity 1: VGA File: /home/asr/fpga/vgasprite/VGA.vhd Line: 6
+    Info (12022): Found design unit 1: SYNC-MAIN File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 23
+    Info (12023): Found entity 1: SYNC File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file vga.vhd
+    Info (12022): Found design unit 1: VGA-MAIN File: C:/Users/eleceng/Documents/sixforty/VGA.vhd Line: 20
+    Info (12023): Found entity 1: VGA File: C:/Users/eleceng/Documents/sixforty/VGA.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
-    Info (12023): Found entity 1: pll File: /home/asr/fpga/vgasprite/pll.v Line: 40
+    Info (12023): Found entity 1: pll File: C:/Users/eleceng/Documents/sixforty/pll.v Line: 40
 Info (12021): Found 2 design units, including 0 entities, in source file pcgsprite.vhd
-    Info (12022): Found design unit 1: DW File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 5
-    Info (12022): Found design unit 2: DW-body File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file DE10_LITE_Golden_Top.v
-    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 29
+    Info (12022): Found design unit 1: DW File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 5
+    Info (12022): Found design unit 2: DW-body File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 29
 Info (12021): Found 2 design units, including 1 entities, in source file txtscreen.vhd
-    Info (12022): Found design unit 1: txtScreen-RTL File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 23
-    Info (12023): Found entity 1: txtScreen File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 8
+    Info (12022): Found design unit 1: txtScreen-RTL File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 23
+    Info (12023): Found entity 1: txtScreen File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file dispmem.v
-    Info (12023): Found entity 1: dispmem File: /home/asr/fpga/vgasprite/dispmem.v Line: 40
+    Info (12023): Found entity 1: dispmem File: C:/Users/eleceng/Documents/sixforty/dispmem.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file charrom.v
-    Info (12023): Found entity 1: charrom File: /home/asr/fpga/vgasprite/charrom.v Line: 40
+    Info (12023): Found entity 1: charrom File: C:/Users/eleceng/Documents/sixforty/charrom.v Line: 40
 Info (12021): Found 2 design units, including 0 entities, in source file pcgsprite2.vhd
-    Info (12022): Found design unit 1: DW2 File: /home/asr/fpga/vgasprite/pcgsprite2.vhd Line: 5
-    Info (12022): Found design unit 2: DW2-body File: /home/asr/fpga/vgasprite/pcgsprite2.vhd Line: 10
+    Info (12022): Found design unit 1: DW2 File: C:/Users/eleceng/Documents/sixforty/pcgsprite2.vhd Line: 5
+    Info (12022): Found design unit 2: DW2-body File: C:/Users/eleceng/Documents/sixforty/pcgsprite2.vhd Line: 10
 Info (12127): Elaborating entity "DE10_LITE_Golden_Top" for the top level hierarchy
-Warning (10034): Output port "DRAM_ADDR" at DE10_LITE_Golden_Top.v(46) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-Warning (10034): Output port "DRAM_BA" at DE10_LITE_Golden_Top.v(47) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 47
-Warning (10034): Output port "HEX0" at DE10_LITE_Golden_Top.v(61) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-Warning (10034): Output port "HEX1" at DE10_LITE_Golden_Top.v(64) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-Warning (10034): Output port "HEX2" at DE10_LITE_Golden_Top.v(67) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-Warning (10034): Output port "HEX3" at DE10_LITE_Golden_Top.v(70) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-Warning (10034): Output port "HEX4" at DE10_LITE_Golden_Top.v(73) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-Warning (10034): Output port "HEX5" at DE10_LITE_Golden_Top.v(76) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-Warning (10034): Output port "LEDR" at DE10_LITE_Golden_Top.v(86) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-Warning (10034): Output port "DRAM_CAS_N" at DE10_LITE_Golden_Top.v(48) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 48
-Warning (10034): Output port "DRAM_CKE" at DE10_LITE_Golden_Top.v(49) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 49
-Warning (10034): Output port "DRAM_CLK" at DE10_LITE_Golden_Top.v(50) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 50
-Warning (10034): Output port "DRAM_CS_N" at DE10_LITE_Golden_Top.v(51) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 51
-Warning (10034): Output port "DRAM_LDQM" at DE10_LITE_Golden_Top.v(53) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 53
-Warning (10034): Output port "DRAM_RAS_N" at DE10_LITE_Golden_Top.v(54) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 54
-Warning (10034): Output port "DRAM_UDQM" at DE10_LITE_Golden_Top.v(55) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 55
-Warning (10034): Output port "DRAM_WE_N" at DE10_LITE_Golden_Top.v(56) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 56
-Warning (10034): Output port "GSENSOR_CS_N" at DE10_LITE_Golden_Top.v(105) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 105
-Warning (10034): Output port "GSENSOR_SCLK" at DE10_LITE_Golden_Top.v(107) has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 107
-Info (12128): Elaborating entity "VGA" for hierarchy "VGA:VGA_DISP" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 137
-Info (12128): Elaborating entity "pll" for hierarchy "VGA:VGA_DISP|pll:C" File: /home/asr/fpga/vgasprite/VGA.vhd Line: 47
-Info (12128): Elaborating entity "altpll" for hierarchy "VGA:VGA_DISP|pll:C|altpll:altpll_component" File: /home/asr/fpga/vgasprite/pll.v Line: 91
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|pll:C|altpll:altpll_component" File: /home/asr/fpga/vgasprite/pll.v Line: 91
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|pll:C|altpll:altpll_component" with the following parameter: File: /home/asr/fpga/vgasprite/pll.v Line: 91
+Warning (10034): Output port "DRAM_ADDR" at DE10_LITE_Golden_Top.v(46) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+Warning (10034): Output port "DRAM_BA" at DE10_LITE_Golden_Top.v(47) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 47
+Warning (10034): Output port "HEX0" at DE10_LITE_Golden_Top.v(61) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+Warning (10034): Output port "HEX1" at DE10_LITE_Golden_Top.v(64) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+Warning (10034): Output port "HEX2" at DE10_LITE_Golden_Top.v(67) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+Warning (10034): Output port "HEX3" at DE10_LITE_Golden_Top.v(70) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+Warning (10034): Output port "HEX4" at DE10_LITE_Golden_Top.v(73) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+Warning (10034): Output port "HEX5" at DE10_LITE_Golden_Top.v(76) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+Warning (10034): Output port "LEDR" at DE10_LITE_Golden_Top.v(86) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+Warning (10034): Output port "DRAM_CAS_N" at DE10_LITE_Golden_Top.v(48) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 48
+Warning (10034): Output port "DRAM_CKE" at DE10_LITE_Golden_Top.v(49) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 49
+Warning (10034): Output port "DRAM_CLK" at DE10_LITE_Golden_Top.v(50) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 50
+Warning (10034): Output port "DRAM_CS_N" at DE10_LITE_Golden_Top.v(51) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 51
+Warning (10034): Output port "DRAM_LDQM" at DE10_LITE_Golden_Top.v(53) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 53
+Warning (10034): Output port "DRAM_RAS_N" at DE10_LITE_Golden_Top.v(54) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 54
+Warning (10034): Output port "DRAM_UDQM" at DE10_LITE_Golden_Top.v(55) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 55
+Warning (10034): Output port "DRAM_WE_N" at DE10_LITE_Golden_Top.v(56) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 56
+Warning (10034): Output port "GSENSOR_CS_N" at DE10_LITE_Golden_Top.v(105) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 105
+Warning (10034): Output port "GSENSOR_SCLK" at DE10_LITE_Golden_Top.v(107) has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 107
+Info (12128): Elaborating entity "VGA" for hierarchy "VGA:VGA_DISP" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 137
+Info (12128): Elaborating entity "pll" for hierarchy "VGA:VGA_DISP|pll:C" File: C:/Users/eleceng/Documents/sixforty/VGA.vhd Line: 59
+Info (12128): Elaborating entity "altpll" for hierarchy "VGA:VGA_DISP|pll:C|altpll:altpll_component" File: C:/Users/eleceng/Documents/sixforty/pll.v Line: 91
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|pll:C|altpll:altpll_component" File: C:/Users/eleceng/Documents/sixforty/pll.v Line: 91
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|pll:C|altpll:altpll_component" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/pll.v Line: 91
     Info (12134): Parameter "bandwidth_type" = "AUTO"
     Info (12134): Parameter "clk0_divide_by" = "2000"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
@@ -1637,23 +1666,24 @@ Info (12133): Instantiated megafunction "VGA:VGA_DISP|pll:C|altpll:altpll_compon
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "width_clock" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
-    Info (12023): Found entity 1: pll_altpll File: /home/asr/fpga/vgasprite/db/pll_altpll.v Line: 30
-Info (12128): Elaborating entity "pll_altpll" for hierarchy "VGA:VGA_DISP|pll:C|altpll:altpll_component|pll_altpll:auto_generated" File: /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "SYNC" for hierarchy "VGA:VGA_DISP|SYNC:C1" File: /home/asr/fpga/vgasprite/VGA.vhd Line: 48
-Warning (10540): VHDL Signal Declaration warning at sync.vhd(50): used explicit default value for signal "P_X1" because signal was never assigned a value File: /home/asr/fpga/vgasprite/sync.vhd Line: 50
-Warning (10540): VHDL Signal Declaration warning at sync.vhd(89): used explicit default value for signal "scaleP" because signal was never assigned a value File: /home/asr/fpga/vgasprite/sync.vhd Line: 89
-Warning (10540): VHDL Signal Declaration warning at sync.vhd(90): used explicit default value for signal "scaleBL" because signal was never assigned a value File: /home/asr/fpga/vgasprite/sync.vhd Line: 90
-Warning (10036): Verilog HDL or VHDL warning at sync.vhd(93): object "collision" assigned a value but never read File: /home/asr/fpga/vgasprite/sync.vhd Line: 93
-Warning (10540): VHDL Signal Declaration warning at sync.vhd(94): used explicit default value for signal "paddle" because signal was never assigned a value File: /home/asr/fpga/vgasprite/sync.vhd Line: 94
-Warning (10540): VHDL Signal Declaration warning at sync.vhd(106): used explicit default value for signal "asteroid1" because signal was never assigned a value File: /home/asr/fpga/vgasprite/sync.vhd Line: 106
-Warning (10540): VHDL Signal Declaration warning at sync.vhd(117): used explicit default value for signal "asteroid2" because signal was never assigned a value File: /home/asr/fpga/vgasprite/sync.vhd Line: 117
-Warning (10540): VHDL Signal Declaration warning at sync.vhd(128): used explicit default value for signal "ablock" because signal was never assigned a value File: /home/asr/fpga/vgasprite/sync.vhd Line: 128
-Info (12128): Elaborating entity "txtScreen" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr" File: /home/asr/fpga/vgasprite/sync.vhd Line: 140
-Warning (10492): VHDL Process Statement warning at txtscreen.vhd(89): signal "q_8x12" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 89
-Info (12128): Elaborating entity "charrom" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst" File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 54
-Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component" File: /home/asr/fpga/vgasprite/charrom.v Line: 82
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component" File: /home/asr/fpga/vgasprite/charrom.v Line: 82
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component" with the following parameter: File: /home/asr/fpga/vgasprite/charrom.v Line: 82
+    Info (12023): Found entity 1: pll_altpll File: C:/Users/eleceng/Documents/sixforty/db/pll_altpll.v Line: 30
+Info (12128): Elaborating entity "pll_altpll" for hierarchy "VGA:VGA_DISP|pll:C|altpll:altpll_component|pll_altpll:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
+Info (12128): Elaborating entity "SYNC" for hierarchy "VGA:VGA_DISP|SYNC:C1" File: C:/Users/eleceng/Documents/sixforty/VGA.vhd Line: 60
+Warning (10540): VHDL Signal Declaration warning at sync.vhd(62): used explicit default value for signal "P_X1" because signal was never assigned a value File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 62
+Warning (10540): VHDL Signal Declaration warning at sync.vhd(101): used explicit default value for signal "scaleP" because signal was never assigned a value File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 101
+Warning (10540): VHDL Signal Declaration warning at sync.vhd(102): used explicit default value for signal "scaleBL" because signal was never assigned a value File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 102
+Warning (10036): Verilog HDL or VHDL warning at sync.vhd(104): object "direction1" assigned a value but never read File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 104
+Warning (10036): Verilog HDL or VHDL warning at sync.vhd(107): object "collision" assigned a value but never read File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 107
+Warning (10540): VHDL Signal Declaration warning at sync.vhd(108): used explicit default value for signal "paddle" because signal was never assigned a value File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 108
+Warning (10540): VHDL Signal Declaration warning at sync.vhd(120): used explicit default value for signal "asteroid1" because signal was never assigned a value File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 120
+Warning (10540): VHDL Signal Declaration warning at sync.vhd(131): used explicit default value for signal "asteroid2" because signal was never assigned a value File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 131
+Warning (10540): VHDL Signal Declaration warning at sync.vhd(142): used explicit default value for signal "ablock" because signal was never assigned a value File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 142
+Info (12128): Elaborating entity "txtScreen" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 154
+Warning (10492): VHDL Process Statement warning at txtscreen.vhd(89): signal "q_8x12" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 89
+Info (12128): Elaborating entity "charrom" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst" File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 54
+Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component" File: C:/Users/eleceng/Documents/sixforty/charrom.v Line: 82
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component" File: C:/Users/eleceng/Documents/sixforty/charrom.v Line: 82
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/charrom.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1669,12 +1699,12 @@ Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|c
     Info (12134): Parameter "width_a" = "8"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ag91.tdf
-    Info (12023): Found entity 1: altsyncram_ag91 File: /home/asr/fpga/vgasprite/db/altsyncram_ag91.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_ag91" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component|altsyncram_ag91:auto_generated" File: /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "dispmem" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst" File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 59
-Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component" File: /home/asr/fpga/vgasprite/dispmem.v Line: 89
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component" File: /home/asr/fpga/vgasprite/dispmem.v Line: 89
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component" with the following parameter: File: /home/asr/fpga/vgasprite/dispmem.v Line: 89
+    Info (12023): Found entity 1: altsyncram_ag91 File: C:/Users/eleceng/Documents/sixforty/db/altsyncram_ag91.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_ag91" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|charrom:font8x12_inst|altsyncram:altsyncram_component|altsyncram_ag91:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "dispmem" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst" File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 59
+Info (12128): Elaborating entity "altsyncram" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component" File: C:/Users/eleceng/Documents/sixforty/dispmem.v Line: 89
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component" File: C:/Users/eleceng/Documents/sixforty/dispmem.v Line: 89
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/dispmem.v Line: 89
     Info (12134): Parameter "address_aclr_b" = "NONE"
     Info (12134): Parameter "address_reg_b" = "CLOCK0"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
@@ -1696,345 +1726,350 @@ Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|d
     Info (12134): Parameter "width_b" = "8"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_0tp1.tdf
-    Info (12023): Found entity 1: altsyncram_0tp1 File: /home/asr/fpga/vgasprite/db/altsyncram_0tp1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_0tp1" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component|altsyncram_0tp1:auto_generated" File: /home/asr/stuff/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_0tp1 File: C:/Users/eleceng/Documents/sixforty/db/altsyncram_0tp1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_0tp1" for hierarchy "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|dispmem:dispmem_inst|altsyncram:altsyncram_component|altsyncram_0tp1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "quadrature_decoder" for hierarchy "VGA:VGA_DISP|SYNC:C1|quadrature_decoder:quad1" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 156
 Info (278001): Inferred 17 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div5" File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 16
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div6" File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 16
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div3" File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 16
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div4" File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 16
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|Mod0" File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 68
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod6" File: /home/asr/fpga/vgasprite/sync.vhd Line: 273
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod7" File: /home/asr/fpga/vgasprite/sync.vhd Line: 276
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod4" File: /home/asr/fpga/vgasprite/sync.vhd Line: 256
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod5" File: /home/asr/fpga/vgasprite/sync.vhd Line: 259
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div2" File: /home/asr/fpga/vgasprite/sync.vhd Line: 144
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod2" File: /home/asr/fpga/vgasprite/sync.vhd Line: 144
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div1" File: /home/asr/fpga/vgasprite/sync.vhd Line: 143
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod1" File: /home/asr/fpga/vgasprite/sync.vhd Line: 143
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div0" File: /home/asr/fpga/vgasprite/sync.vhd Line: 142
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod0" File: /home/asr/fpga/vgasprite/sync.vhd Line: 142
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod3" File: /home/asr/fpga/vgasprite/sync.vhd Line: 145
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|Div0" File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 67
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5" File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 16
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5" with the following parameter: File: /home/asr/fpga/vgasprite/pcgsprite.vhd Line: 16
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div5" File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 16
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div6" File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 16
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div3" File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 16
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div4" File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 16
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|Mod0" File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 68
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod6" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 293
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod7" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 296
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod4" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 276
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod5" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 279
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div2" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 159
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod2" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 159
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div1" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 158
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod1" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 158
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Div0" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 157
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod0" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 157
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|Mod3" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 160
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|Div0" File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 67
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5" File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 16
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div5" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/pcgsprite.vhd Line: 16
     Info (12134): Parameter "LPM_WIDTHN" = "12"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fbo.tdf
-    Info (12023): Found entity 1: lpm_divide_fbo File: /home/asr/fpga/vgasprite/db/lpm_divide_fbo.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_fbo File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_fbo.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
-    Info (12023): Found entity 1: abs_divider_kbg File: /home/asr/fpga/vgasprite/db/abs_divider_kbg.tdf Line: 29
+    Info (12023): Found entity 1: abs_divider_kbg File: C:/Users/eleceng/Documents/sixforty/db/abs_divider_kbg.tdf Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_she.tdf
-    Info (12023): Found entity 1: alt_u_div_she File: /home/asr/fpga/vgasprite/db/alt_u_div_she.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_she File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_she.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
-    Info (12023): Found entity 1: add_sub_t3c File: /home/asr/fpga/vgasprite/db/add_sub_t3c.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/eleceng/Documents/sixforty/db/add_sub_t3c.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
-    Info (12023): Found entity 1: add_sub_u3c File: /home/asr/fpga/vgasprite/db/add_sub_u3c.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/eleceng/Documents/sixforty/db/add_sub_u3c.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_q99.tdf
-    Info (12023): Found entity 1: lpm_abs_q99 File: /home/asr/fpga/vgasprite/db/lpm_abs_q99.tdf Line: 25
+    Info (12023): Found entity 1: lpm_abs_q99 File: C:/Users/eleceng/Documents/sixforty/db/lpm_abs_q99.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_6b9.tdf
-    Info (12023): Found entity 1: lpm_abs_6b9 File: /home/asr/fpga/vgasprite/db/lpm_abs_6b9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Mod0" File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 68
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Mod0" with the following parameter: File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 68
+    Info (12023): Found entity 1: lpm_abs_6b9 File: C:/Users/eleceng/Documents/sixforty/db/lpm_abs_6b9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Mod0" File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 68
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Mod0" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 68
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_25o.tdf
-    Info (12023): Found entity 1: lpm_divide_25o File: /home/asr/fpga/vgasprite/db/lpm_divide_25o.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_25o File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_25o.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
-    Info (12023): Found entity 1: abs_divider_4dg File: /home/asr/fpga/vgasprite/db/abs_divider_4dg.tdf Line: 27
+    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/eleceng/Documents/sixforty/db/abs_divider_4dg.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_tke.tdf
-    Info (12023): Found entity 1: alt_u_div_tke File: /home/asr/fpga/vgasprite/db/alt_u_div_tke.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_tke File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_tke.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8b9.tdf
-    Info (12023): Found entity 1: lpm_abs_8b9 File: /home/asr/fpga/vgasprite/db/lpm_abs_8b9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6" File: /home/asr/fpga/vgasprite/sync.vhd Line: 273
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6" with the following parameter: File: /home/asr/fpga/vgasprite/sync.vhd Line: 273
+    Info (12023): Found entity 1: lpm_abs_8b9 File: C:/Users/eleceng/Documents/sixforty/db/lpm_abs_8b9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 293
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 293
     Info (12134): Parameter "LPM_WIDTHN" = "11"
     Info (12134): Parameter "LPM_WIDTHD" = "11"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_4nl.tdf
-    Info (12023): Found entity 1: lpm_divide_4nl File: /home/asr/fpga/vgasprite/db/lpm_divide_4nl.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_4nl File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_4nl.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_3nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_3nh File: /home/asr/fpga/vgasprite/db/sign_div_unsign_3nh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_3nh File: C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_3nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_gke.tdf
-    Info (12023): Found entity 1: alt_u_div_gke File: /home/asr/fpga/vgasprite/db/alt_u_div_gke.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7" File: /home/asr/fpga/vgasprite/sync.vhd Line: 276
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7" with the following parameter: File: /home/asr/fpga/vgasprite/sync.vhd Line: 276
+    Info (12023): Found entity 1: alt_u_div_gke File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_gke.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 296
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod7" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 296
     Info (12134): Parameter "LPM_WIDTHN" = "12"
     Info (12134): Parameter "LPM_WIDTHD" = "12"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u4o.tdf
-    Info (12023): Found entity 1: lpm_divide_u4o File: /home/asr/fpga/vgasprite/db/lpm_divide_u4o.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_u4o File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_u4o.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_0dg.tdf
-    Info (12023): Found entity 1: abs_divider_0dg File: /home/asr/fpga/vgasprite/db/abs_divider_0dg.tdf Line: 27
+    Info (12023): Found entity 1: abs_divider_0dg File: C:/Users/eleceng/Documents/sixforty/db/abs_divider_0dg.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kke.tdf
-    Info (12023): Found entity 1: alt_u_div_kke File: /home/asr/fpga/vgasprite/db/alt_u_div_kke.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2" File: /home/asr/fpga/vgasprite/sync.vhd Line: 144
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2" with the following parameter: File: /home/asr/fpga/vgasprite/sync.vhd Line: 144
+    Info (12023): Found entity 1: alt_u_div_kke File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_kke.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 159
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div2" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 159
     Info (12134): Parameter "LPM_WIDTHN" = "14"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mtl.tdf
-    Info (12023): Found entity 1: lpm_divide_mtl File: /home/asr/fpga/vgasprite/db/lpm_divide_mtl.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_mtl File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_mtl.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_olh File: /home/asr/fpga/vgasprite/db/sign_div_unsign_olh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_olh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qhe.tdf
-    Info (12023): Found entity 1: alt_u_div_qhe File: /home/asr/fpga/vgasprite/db/alt_u_div_qhe.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2" File: /home/asr/fpga/vgasprite/sync.vhd Line: 144
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2" with the following parameter: File: /home/asr/fpga/vgasprite/sync.vhd Line: 144
+    Info (12023): Found entity 1: alt_u_div_qhe File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_qhe.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 159
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 159
     Info (12134): Parameter "LPM_WIDTHN" = "14"
     Info (12134): Parameter "LPM_WIDTHD" = "14"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_anl.tdf
-    Info (12023): Found entity 1: lpm_divide_anl File: /home/asr/fpga/vgasprite/db/lpm_divide_anl.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_anl File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_anl.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: /home/asr/fpga/vgasprite/db/sign_div_unsign_9nh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_9nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ske.tdf
-    Info (12023): Found entity 1: alt_u_div_ske File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div1" File: /home/asr/fpga/vgasprite/sync.vhd Line: 143
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div1" with the following parameter: File: /home/asr/fpga/vgasprite/sync.vhd Line: 143
+    Info (12023): Found entity 1: alt_u_div_ske File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div1" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 158
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div1" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 158
     Info (12134): Parameter "LPM_WIDTHN" = "14"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ptl.tdf
-    Info (12023): Found entity 1: lpm_divide_ptl File: /home/asr/fpga/vgasprite/db/lpm_divide_ptl.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_ptl File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_ptl.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_rlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_rlh File: /home/asr/fpga/vgasprite/db/sign_div_unsign_rlh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_rlh File: C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_rlh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_0ie.tdf
-    Info (12023): Found entity 1: alt_u_div_0ie File: /home/asr/fpga/vgasprite/db/alt_u_div_0ie.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0" File: /home/asr/fpga/vgasprite/sync.vhd Line: 142
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0" with the following parameter: File: /home/asr/fpga/vgasprite/sync.vhd Line: 142
+    Info (12023): Found entity 1: alt_u_div_0ie File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_0ie.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0" File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 157
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|lpm_divide:Div0" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/sync.vhd Line: 157
     Info (12134): Parameter "LPM_WIDTHN" = "14"
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3vl.tdf
-    Info (12023): Found entity 1: lpm_divide_3vl File: /home/asr/fpga/vgasprite/db/lpm_divide_3vl.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_3vl File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_3vl.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_5nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_5nh File: /home/asr/fpga/vgasprite/db/sign_div_unsign_5nh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_5nh File: C:/Users/eleceng/Documents/sixforty/db/sign_div_unsign_5nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_lke.tdf
-    Info (12023): Found entity 1: alt_u_div_lke File: /home/asr/fpga/vgasprite/db/alt_u_div_lke.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Div0" File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 67
-Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Div0" with the following parameter: File: /home/asr/fpga/vgasprite/txtscreen.vhd Line: 67
+    Info (12023): Found entity 1: alt_u_div_lke File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_lke.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Div0" File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 67
+Info (12133): Instantiated megafunction "VGA:VGA_DISP|SYNC:C1|txtScreen:txtscr|lpm_divide:Div0" with the following parameter: File: C:/Users/eleceng/Documents/sixforty/txtscreen.vhd Line: 67
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hbo.tdf
-    Info (12023): Found entity 1: lpm_divide_hbo File: /home/asr/fpga/vgasprite/db/lpm_divide_hbo.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_hbo File: C:/Users/eleceng/Documents/sixforty/db/lpm_divide_hbo.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_mbg.tdf
-    Info (12023): Found entity 1: abs_divider_mbg File: /home/asr/fpga/vgasprite/db/abs_divider_mbg.tdf Line: 29
+    Info (12023): Found entity 1: abs_divider_mbg File: C:/Users/eleceng/Documents/sixforty/db/abs_divider_mbg.tdf Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_the.tdf
-    Info (12023): Found entity 1: alt_u_div_the File: /home/asr/fpga/vgasprite/db/alt_u_div_the.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_the File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_the.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_o99.tdf
-    Info (12023): Found entity 1: lpm_abs_o99 File: /home/asr/fpga/vgasprite/db/lpm_abs_o99.tdf Line: 25
+    Info (12023): Found entity 1: lpm_abs_o99 File: C:/Users/eleceng/Documents/sixforty/db/lpm_abs_o99.tdf Line: 25
 Info (13014): Ignored 60 buffer(s)
     Info (13016): Ignored 60 CARRY_SUM buffer(s)
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 52
-    Warning (13040): bidirectional pin "GSENSOR_SDI" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 108
-    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 109
-    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 114
-    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 115
-    Warning (13040): bidirectional pin "GPIO[0]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[1]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[2]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[3]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[4]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[5]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[6]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[7]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[8]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[9]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[10]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[11]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[12]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[13]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[14]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[15]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[16]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[17]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[18]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[19]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[20]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[21]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[22]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[23]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[25]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[26]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[27]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[28]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[29]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[30]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[31]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[32]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[33]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[34]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
-    Warning (13040): bidirectional pin "GPIO[35]" has no driver File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[0]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[1]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[2]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[3]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[4]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[5]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[6]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[7]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[8]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[9]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[10]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[11]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[12]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[13]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[14]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[15]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[16]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[17]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[18]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[19]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[20]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[21]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[22]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[23]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[25]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[26]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[27]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[28]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[29]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[30]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[31]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[32]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[33]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[35]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "GSENSOR_SDI" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 108
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 109
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 115
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 46
-    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 47
-    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 47
-    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 48
-    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 49
-    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 50
-    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 51
-    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 53
-    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 54
-    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 55
-    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 56
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX0[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 61
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX1[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 64
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX2[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 67
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX3[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 70
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX4[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 73
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "HEX5[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 76
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 86
-    Warning (13410): Pin "GSENSOR_CS_N" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 105
-    Warning (13410): Pin "GSENSOR_SCLK" is stuck at GND File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 107
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 47
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 47
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 48
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 49
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 50
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 51
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 53
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 54
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 55
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 56
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX0[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "GSENSOR_CS_N" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 105
+    Warning (13410): Pin "GSENSOR_SCLK" is stuck at GND File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 107
 Info (286030): Timing-Driven Synthesis is running
 Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod4|lpm_divide_4nl:auto_generated|sign_div_unsign_3nh:divider|alt_u_div_gke:divider|add_sub_10_result_int[0]~22" File: /home/asr/fpga/vgasprite/db/alt_u_div_gke.tdf Line: 37
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6|lpm_divide_4nl:auto_generated|sign_div_unsign_3nh:divider|alt_u_div_gke:divider|add_sub_10_result_int[0]~16" File: /home/asr/fpga/vgasprite/db/alt_u_div_gke.tdf Line: 37
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_13_result_int[0]~0" File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 52
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_8_result_int[0]~18" File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 87
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_12_result_int[0]~26" File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 47
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_13_result_int[0]~0" File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 52
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod4|lpm_divide_4nl:auto_generated|sign_div_unsign_3nh:divider|alt_u_div_gke:divider|add_sub_10_result_int[0]~16" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_gke.tdf Line: 37
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod6|lpm_divide_4nl:auto_generated|sign_div_unsign_3nh:divider|alt_u_div_gke:divider|add_sub_10_result_int[0]~22" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_gke.tdf Line: 37
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_13_result_int[0]~0" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 52
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_7_result_int[0]~16" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 82
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_8_result_int[0]~18" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 87
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_10_result_int[0]~22" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 37
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_11_result_int[0]~24" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 42
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod2|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_12_result_int[0]~26" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 47
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_13_result_int[0]~0" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 52
     Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|op_12~18"
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_10_result_int[0]~22" File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 37
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_11_result_int[0]~24" File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 42
-    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_12_result_int[0]~26" File: /home/asr/fpga/vgasprite/db/alt_u_div_ske.tdf Line: 47
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_10_result_int[0]~22" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 37
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_11_result_int[0]~24" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 42
+    Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod1|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_12_result_int[0]~26" File: C:/Users/eleceng/Documents/sixforty/db/alt_u_div_ske.tdf Line: 47
     Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod0|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|op_4~0"
     Info (17048): Logic cell "VGA:VGA_DISP|SYNC:C1|lpm_divide:Mod0|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|op_3~18"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 33
-    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 41
-    Warning (15610): No output dependent on input pin "SW[4]" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 91
-    Warning (15610): No output dependent on input pin "SW[5]" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 91
-    Warning (15610): No output dependent on input pin "SW[6]" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 91
-    Warning (15610): No output dependent on input pin "SW[7]" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 91
-    Warning (15610): No output dependent on input pin "SW[8]" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 91
-    Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 106
-    Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: /home/asr/fpga/vgasprite/DE10_LITE_Golden_Top.v Line: 106
-Info (21057): Implemented 3456 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 33
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 41
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 106
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/eleceng/Documents/sixforty/DE10_LITE_Golden_Top.v Line: 106
+Info (21057): Implemented 3502 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
-    Info (21061): Implemented 3254 logic cells
+    Info (21061): Implemented 3300 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 195 warnings
-    Info: Peak virtual memory: 532 megabytes
-    Info: Processing ended: Wed Mar 23 22:36:19 2022
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:42
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 197 warnings
+    Info: Peak virtual memory: 4907 megabytes
+    Info: Processing ended: Thu Mar 24 17:35:14 2022
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:28
 
 

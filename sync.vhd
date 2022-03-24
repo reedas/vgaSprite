@@ -13,12 +13,24 @@ R: OUT STD_LOGIC_VECTOR(3 downto 0);
 G: OUT STD_LOGIC_VECTOR(3 downto 0);
 B: OUT STD_LOGIC_VECTOR(3 downto 0);
 KEYS: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-S: IN STD_LOGIC_VECTOR(1 downto 0)
+S: IN STD_LOGIC_VECTOR(1 downto 0);
+encoder1: in std_logic_vector(2 downto 0);
+encoder2: in std_logic_vector(2 downto 0)
 );
 END SYNC;
 
 
 ARCHITECTURE MAIN OF SYNC IS
+component quadrature_decoder is
+	port(
+	 clk          : IN     STD_LOGIC;                            --system clock
+    a            : IN     STD_LOGIC;                            --quadrature encoded signal a
+    b            : IN     STD_LOGIC;                            --quadrature encoded signal b
+    set_origin_n : IN     STD_LOGIC;                            --active-low synchronous clear of position counter
+    direction    : OUT    STD_LOGIC;                            --direction of last change, 1 = positive, 0 = negative
+    position     : buffer integer RANGE 0 TO 63 := 31				 --current position relative to index or initial value
+	 );
+END component quadrature_decoder;
 component txtScreen is
 	 PORT(
 			hp, vp : integer;
@@ -47,8 +59,8 @@ signal ovsync:	std_logic;
 signal oohsync:	std_logic;
 signal oovsync:	std_logic;
 signal cycle: std_logic := '0';
-SIGNAL P_X1: INTEGER RANGE 0 TO 639:=17;
-SIGNAL P_Y1: INTEGER RANGE 0 TO 479:=60;
+SIGNAL P_X1: INTEGER RANGE 0 TO 639:= 8;
+SIGNAL P_Y1: INTEGER RANGE 0 TO 479:= 60;
 SIGNAL SQ_X1: INTEGER RANGE 0 TO 639:=200;
 SIGNAL SQ_Y1: INTEGER RANGE 0 TO 479:=200;
 SIGNAL SQ_X2: INTEGER RANGE 0 TO 639:=300;
@@ -86,9 +98,11 @@ SIGNAL VPOS: INTEGER RANGE 0 TO 524:=0;
 signal sixtyHz: integer range 0 to 6 := 0;
 signal count100ms: integer range 0 to 9999 := 0;
 signal scale: integer range 1 to 32 := 8;
-signal scaleP: integer range 1 to 32 := 2;
+signal scaleP: integer range 1 to 32 := 8;
 signal scaleBL: integer range 1 to 32 := 2;
 signal colCount: integer range 0 to 9999 := 0;
+signal direction1: std_logic;
+signal position1: integer;
 signal bl_delta: integer range -1 to 1 := 1;
 signal collision: integer range 0 to 1 := 0;
 signal paddle : std_logic_vector(19 downto 0) :=
@@ -96,8 +110,8 @@ signal paddle : std_logic_vector(19 downto 0) :=
 										 '1','1',
 										 '1','1',
 										 '1','1',
-										 '0','1',
-										 '1','0',
+										 '1','1',
+										 '1','1',
 										 '1','1',
 										 '1','1',
 										 '1','1',
@@ -139,17 +153,23 @@ signal ablock : std_logic_vector(99 downto 0) :=
 BEGIN
 txtscr: txtScreen
 		port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
+quad1: quadrature_decoder port map (clk, encoder1(0), encoder1(1), encoder1(2), direction1, position1);
 thousands <= 48 + ((colcount / 1000) mod 10);
 hundreds <= 48 + ((colcount / 100) mod 10);
 tens <= 48 + ((colcount / 10) mod 10);
 unit <= 48 + (colcount mod 10);
- PROCESS(CLK)
- BEGIN
-	IF(CLK'EVENT AND CLK='1')THEN
 SPR(HPOS,VPOS,P_X1,P_Y1,paddle,scaleP,DRAW0);
 SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
 SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
 SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
+
+ PROCESS(CLK)
+ BEGIN
+	IF(CLK'EVENT AND CLK='0')THEN
+--SPR(HPOS,VPOS,P_X1,P_Y1,paddle,scaleP,DRAW0);
+--SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
+--SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
+--SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 		if (cycle = '0') then
 			cycle <= '1';
 			nwr <= '0';
@@ -242,7 +262,7 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 			GT<=(others=>'0');
 			BT<=(others=>'0');
 		END IF;
-
+		P_y1 <= position1 * 8;
 		IF(HPOS<h_pixels + h_fp + h_pulse + h_bp)THEN
 		HPOS<=HPOS+1;
 		ELSE
@@ -264,9 +284,9 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 						 IF(KEYS(3)='1')THEN
 						  SQ_Y1<=SQ_Y1+5;
 						 END IF; 
-						 if(KEYS(9)='1') then
-						  P_y1<=p_y1-1;
-						 end if;
+--						 if(KEYS(9)='1') then
+--						  P_y1<=p_y1-1;
+--						 end if;
 					END IF;
 			      IF(S(1)='1')THEN
 					    IF(KEYS(0)='1')THEN
@@ -281,9 +301,9 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 						 IF(KEYS(3)='1')THEN
 						  SQ_Y2<=SQ_Y2+5;
 						 END IF; 
-						 if(KEYS(9)='1') then
-						  P_y1<=p_y1+1;
-						 end if;
+--						 if(KEYS(9)='1') then
+--						  P_y1<=p_y1+1;
+--						 end if;
 					END IF;  
 		      END IF;
 		END IF;
