@@ -66,3 +66,5 @@
 incremental_db/
 db/
 _output_files/
+*.sld
+output_files/vga.pin

@@ -105,6 +105,7 @@ signal direction1: std_logic;
 signal position1: integer;
 signal bl_delta: integer range -1 to 1 := 1;
 signal collision: integer range 0 to 1 := 0;
+signal current_dir: integer range -1 to 1 := 1;
 signal paddle : std_logic_vector(19 downto 0) :=
 										('1','1',
 										 '1','1',
@@ -117,28 +118,28 @@ signal paddle : std_logic_vector(19 downto 0) :=
 										 '1','1',
 										 '1','1');
 
-signal asteroid1 : std_logic_vector(99 downto 0) := 
-									  ('0','0','0','0','1','1','0','0','0','0',
-										'0','0','0','1','1','1','1','0','0','0',
-										'0','0','0','1','1','1','1','1','1','0',
-										'0','0','1','1','1','1','1','1','1','0',
-										'1','1','1','1','0','0','1','1','1','1',
-										'1','1','1','0','0','0','0','1','1','1',
-										'1','1','1','1','0','0','1','1','1','1',
-										'0','0','1','1','1','1','1','1','1','0',
-										'0','0','1','1','1','1','1','0','0','0',
-										'0','0','0','1','1','1','0','0','0','0');
-signal asteroid2 : std_logic_vector(99 downto 0) := 
-									  ('0','0','0','0','1','1','0','0','0','0',
-										'0','0','0','1','0','0','1','0','0','0',
-										'0','0','0','1','0','0','0','1','1','0',
-										'0','0','1','0','0','0','0','0','1','0',
-										'0','1','0','0','0','0','0','0','0','1',
-										'1','0','0','0','0','0','0','0','0','1',
-										'1','1','0','0','0','0','0','0','0','1',
-										'0','0','1','0','0','0','0','1','1','0',
-										'0','0','1','0','0','0','1','0','0','0',
-										'0','0','0','1','1','1','0','0','0','0');
+--signal asteroid1 : std_logic_vector(99 downto 0) := 
+--									  ('0','0','0','0','1','1','0','0','0','0',
+--										'0','0','0','1','1','1','1','0','0','0',
+--										'0','0','0','1','1','1','1','1','1','0',
+--										'0','0','1','1','1','1','1','1','1','0',
+--										'1','1','1','1','0','0','1','1','1','1',
+--										'1','1','1','0','0','0','0','1','1','1',
+--										'1','1','1','1','0','0','1','1','1','1',
+--										'0','0','1','1','1','1','1','1','1','0',
+--										'0','0','1','1','1','1','1','0','0','0',
+--										'0','0','0','1','1','1','0','0','0','0');
+--signal asteroid2 : std_logic_vector(99 downto 0) := 
+--									  ('0','0','0','0','1','1','0','0','0','0',
+--										'0','0','0','1','0','0','1','0','0','0',
+--										'0','0','0','1','0','0','0','1','1','0',
+--										'0','0','1','0','0','0','0','0','1','0',
+--										'0','1','0','0','0','0','0','0','0','1',
+--										'1','0','0','0','0','0','0','0','0','1',
+--										'1','1','0','0','0','0','0','0','0','1',
+--										'0','0','1','0','0','0','0','1','1','0',
+--										'0','0','1','0','0','0','1','0','0','0',
+--										'0','0','0','1','1','1','0','0','0','0');
 signal ablock : std_logic_vector(99 downto 0) := 
 									  ('0','0','0','0','0','0','0','0','0','0',
 										'0','0','0','1','1','1','1','0','0','0',
@@ -159,8 +160,8 @@ hundreds <= 48 + ((colcount / 100) mod 10);
 tens <= 48 + ((colcount / 10) mod 10);
 unit <= 48 + (colcount mod 10);
 SPR(HPOS,VPOS,P_X1,P_Y1,paddle,scaleP,DRAW0);
-SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
-SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
+--SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
+--SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
 SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 
  PROCESS(CLK)
@@ -196,36 +197,36 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 			charpos <= charpos + 1;
 			scrAddress <= std_logic_vector(to_unsigned(charpos, scraddress'length));
 		end if;
-      IF(DRAW1='1')THEN
-			IF(S(0)='1')THEN
-				RD1<=(others=>'1');
-				GD1<=(others=>'0');
-				BD1<=(others=>'0');
-			ELSE
-				RD1<=(others=>'0');
-				GD1<=(others=>'0');
-				BD1<=(others=>'1');
-			END IF;
-		else
-			RD1<=(others=>'0');
-	      GD1<=(others=>'0');
-	      BD1<=(others=>'0');
-      END IF;
-		IF(DRAW2='1')THEN
-			IF(S(1)='1')THEN
-				RD2<=(others=>'0');
-				GD2<=(others=>'1');
-				BD2<=(others=>'0');
-			ELSE
-				RD2<=(others=>'0');
-				GD2<=(others=>'1');
-				BD2<=(others=>'1');
-		  END IF;
-		else
-			RD2<=(others=>'0');
-	      GD2<=(others=>'0');
-	      BD2<=(others=>'0');
-      END IF;
+--      IF(DRAW1='1')THEN
+--			IF(S(0)='1')THEN
+--				RD1<=(others=>'1');
+--				GD1<=(others=>'0');
+--				BD1<=(others=>'0');
+--			ELSE
+--				RD1<=(others=>'0');
+--				GD1<=(others=>'0');
+--				BD1<=(others=>'1');
+--			END IF;
+--		else
+--			RD1<=(others=>'0');
+--	      GD1<=(others=>'0');
+--	      BD1<=(others=>'0');
+--      END IF;
+--		IF(DRAW2='1')THEN
+--			IF(S(1)='1')THEN
+--				RD2<=(others=>'0');
+--				GD2<=(others=>'1');
+--				BD2<=(others=>'0');
+--			ELSE
+--				RD2<=(others=>'0');
+--				GD2<=(others=>'1');
+--				BD2<=(others=>'1');
+--		  END IF;
+--		else
+--			RD2<=(others=>'0');
+--	      GD2<=(others=>'0');
+--	      BD2<=(others=>'0');
+--      END IF;
 		IF(DRAWBL='1')THEN
 				RBL<=(others=>'1');
 				GBL<=(others=>'0');
@@ -271,40 +272,40 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 			  VPOS<=VPOS+1;
 			  ELSE
 			  VPOS<=0; 
-			      IF(S(0)='1')THEN
-					    IF(KEYS(0)='1')THEN
-						  SQ_X1<=(SQ_X1+5) MOD 640;
-						 END IF;
-                   IF(KEYS(1)='1')THEN
-						  SQ_X1<=(SQ_X1-5) MOD 640;
-						 END IF;
-						  IF(KEYS(2)='1')THEN
-						  SQ_Y1<=SQ_Y1-5;
-						 END IF;
-						 IF(KEYS(3)='1')THEN
-						  SQ_Y1<=SQ_Y1+5;
-						 END IF; 
+--			      IF(S(0)='1')THEN
+--					    IF(KEYS(0)='1')THEN
+--						  SQ_X1<=(SQ_X1+5) MOD 640;
+--						 END IF;
+--                   IF(KEYS(1)='1')THEN
+--						  SQ_X1<=(SQ_X1-5) MOD 640;
+--						 END IF;
+--						  IF(KEYS(2)='1')THEN
+--						  SQ_Y1<=SQ_Y1-5;
+--						 END IF;
+--						 IF(KEYS(3)='1')THEN
+--						  SQ_Y1<=SQ_Y1+5;
+--						 END IF; 
 --						 if(KEYS(9)='1') then
 --						  P_y1<=p_y1-1;
 --						 end if;
-					END IF;
-			      IF(S(1)='1')THEN
-					    IF(KEYS(0)='1')THEN
-						  SQ_X2<=(SQ_X2+5) MOD 640;
-						 END IF;
-                   IF(KEYS(1)='1')THEN
-						  SQ_X2<=(SQ_X2-5) MOD 640;
-						 END IF;
-						 IF(KEYS(2)='1')THEN
-						  SQ_Y2<=SQ_Y2-5;
-						 END IF;
-						 IF(KEYS(3)='1')THEN
-						  SQ_Y2<=SQ_Y2+5;
-						 END IF; 
---						 if(KEYS(9)='1') then
---						  P_y1<=p_y1+1;
---						 end if;
-					END IF;  
+--					END IF;
+--			      IF(S(1)='1')THEN
+--					    IF(KEYS(0)='1')THEN
+--						  SQ_X2<=(SQ_X2+5) MOD 640;
+--						 END IF;
+--                   IF(KEYS(1)='1')THEN
+--						  SQ_X2<=(SQ_X2-5) MOD 640;
+--						 END IF;
+--						 IF(KEYS(2)='1')THEN
+--						  SQ_Y2<=SQ_Y2-5;
+--						 END IF;
+--						 IF(KEYS(3)='1')THEN
+--						  SQ_Y2<=SQ_Y2+5;
+--						 END IF; 
+----						 if(KEYS(9)='1') then
+----						  P_y1<=p_y1+1;
+----						 end if;
+--					END IF;  
 		      END IF;
 		END IF;
 		IF((HPOS>h_pixels) OR (VPOS>v_pixels))THEN
@@ -313,14 +314,17 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 			B<=(others=>'0');
 			nblanking <= '0';
 		else
-			R<= RD0 or RD1 or RD2 or RBL or RT;
-			G<= GD0 or GD1 or GD2 or GBL or GT;
-			B<= BD0 or BD1 or BD2 or BBL or BT;
+--			R<= RD0 or RD1 or RD2 or RBL or RT;
+--			G<= GD0 or GD1 or GD2 or GBL or GT;
+--			B<= BD0 or BD1 or BD2 or BBL or BT;
+			R<= RD0 or RBL or RT;
+			G<= GD0 or GBL or GT;
+			B<= BD0 or BBL or BT;
 			nBlanking <= '1';
-			if (RBL = "1111" and GD2 = "1111") then 
+			if (RBL = "1111" and GD0 = "1111") then 
 				collision <= 1;
 				--scaleBL <= 1;
-				bl_y1 <= bl_y1 - 1;
+				current_dir <= current_dir * (-1);
 				colCount <= colCount + 1;
 --				scrData <= std_logic_vector(to_unsigned(colCount, scrdata'length));
 --				scrAddress(7 downto 0) <= scrData;
@@ -328,7 +332,7 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 				if BL_Y1 = 0 then BL_y1 <= 470; end if;
 				
 			end if;
-			if (RBL = "1111" and GD2 = "0000") then
+			if (RBL = "1111" and GD0 = "0000") then
 				collision <= 0;
 				--scaleBL <= 2;
 
@@ -356,12 +360,12 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
  process (vsync)
  begin -- move or scale stuff
 	if (vsync'event and vsync = '0') then
-		bl_x1 <= bl_x1 + bl_delta;
+		bl_x1 <= bl_x1 + bl_delta * current_dir;
 		if bl_x1 = h_pixels + 5 - scalebl*10 then
-			bl_delta <= -1;
+				bl_delta <= -1;
 		end if; 
 		if bl_x1 = 5*scalebl then
-			bl_delta <= 1;
+				bl_delta <= 1;
 		end if;
 		sixtyHz <= sixtyHz + 1;
 		if (sixtyHz > 5) then
