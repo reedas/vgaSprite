@@ -103,7 +103,8 @@ signal scaleBL: integer range 1 to 32 := 2;
 signal colCount: integer range 0 to 9999 := 0;
 signal direction1: std_logic;
 signal position1: integer;
-signal bl_delta: integer range -1 to 1 := 1;
+signal bl_xdelta: integer range -2 to 2 := 1;
+signal bl_ydelta: integer range -2 to 2 := 1;
 signal collision: integer range 0 to 1 := 0;
 signal current_dir: integer range -1 to 1 := 1;
 signal paddle : std_logic_vector(19 downto 0) :=
@@ -141,20 +142,20 @@ signal paddle : std_logic_vector(19 downto 0) :=
 --										'0','0','1','0','0','0','1','0','0','0',
 --										'0','0','0','1','1','1','0','0','0','0');
 signal ablock : std_logic_vector(99 downto 0) := 
-									  ('0','0','0','0','0','0','0','0','0','0',
-										'0','0','0','1','1','1','1','0','0','0',
+									  ('0','0','0','0','1','1','0','0','0','0',
 										'0','0','1','1','1','1','1','1','0','0',
 										'0','1','1','1','1','1','1','1','1','0',
 										'0','1','1','1','1','1','1','1','1','0',
+										'1','1','1','1','1','1','1','1','1','1',
+										'1','1','1','1','1','1','1','1','1','1',
 										'0','1','1','1','1','1','1','1','1','0',
 										'0','1','1','1','1','1','1','1','1','0',
 										'0','0','1','1','1','1','1','1','0','0',
-										'0','0','0','1','1','1','1','0','0','0',
-										'0','0','0','0','0','0','0','0','0','0');
+										'0','0','0','0','1','1','0','0','0','0');
 BEGIN
 txtscr: txtScreen
 		port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
-quad1: quadrature_decoder port map (clk, encoder1(0), encoder1(1), encoder1(2), direction1, position1);
+quad1: quadrature_decoder port map (clk, encoder1(0), encoder1(1), not s(1), direction1, position1);
 thousands <= 48 + ((colcount / 1000) mod 10);
 hundreds <= 48 + ((colcount / 100) mod 10);
 tens <= 48 + ((colcount / 10) mod 10);
@@ -321,22 +322,22 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 			G<= GD0 or GBL or GT;
 			B<= BD0 or BBL or BT;
 			nBlanking <= '1';
-			if (RBL = "1111" and GD0 = "1111") then 
-				collision <= 1;
-				--scaleBL <= 1;
-				current_dir <= current_dir * (-1);
-				colCount <= colCount + 1;
---				scrData <= std_logic_vector(to_unsigned(colCount, scrdata'length));
---				scrAddress(7 downto 0) <= scrData;
---				nwr <= '1';
-				if BL_Y1 = 0 then BL_y1 <= 470; end if;
-				
-			end if;
-			if (RBL = "1111" and GD0 = "0000") then
-				collision <= 0;
-				--scaleBL <= 2;
-
-			end if;
+--			if (RBL = "1111" and GD0 = "1111") then 
+--				collision <= 1;
+--				--scaleBL <= 1;
+--				current_dir <= current_dir * (-1);
+--				colCount <= colCount + 1;
+----				scrData <= std_logic_vector(to_unsigned(colCount, scrdata'length));
+----				scrAddress(7 downto 0) <= scrData;
+----				nwr <= '1';
+--				if BL_Y1 = 0 then BL_y1 <= 470; end if;
+--				
+--			end if;
+--			if (RBL = "1111" and GD0 = "0000") then
+--				collision <= 0;
+--				--scaleBL <= 2;
+--
+--			end if;
 			
 		END IF;
 		IF(HPOS> (h_pixels + h_fp) AND HPOS<(h_pixels + h_fp + h_pulse))THEN----HSYNC
@@ -360,12 +361,43 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
  process (vsync)
  begin -- move or scale stuff
 	if (vsync'event and vsync = '0') then
-		bl_x1 <= bl_x1 + bl_delta * current_dir;
-		if bl_x1 = h_pixels + 5 - scalebl*10 then
-				bl_delta <= -1;
-		end if; 
-		if bl_x1 = 5*scalebl then
-				bl_delta <= 1;
+		if ((p_X1 + 2 * scaleP) = bl_x1) and ((BL_y1 - p_y1) > 0) and ((bl_y1 - p_y1) < 10 * scaleP)  then  -- bat hits ball
+--			current_dir <= 1;
+			bl_xdelta <= 1;
+			bl_x1 <= p_x1 + 20;
+			colCount <= colCount + 1;
+			if ((bl_y1 - p_y1) < 16) then
+				bl_ydelta <= -2;
+			else if ((bl_y1 - p_y1) < 32) then
+					bl_ydelta <= -1;
+				else if ((bl_y1 - p_y1) < 48) then
+					bl_ydelta <= 0;
+					else if ((bl_y1 - p_y1) < 64) then
+						bl_ydelta <= 1;
+
+						else 
+							bl_ydelta <= 2;
+						end if;
+						end if;
+				end if;
+			end if;
+		else 
+         bl_x1 <= bl_x1 + bl_xdelta;
+			bl_y1 <= bl_y1 + bl_ydelta;
+			if bl_x1 = (h_pixels - scalebl*5) then
+				bl_xdelta <= -1;
+--				current_dir <= -1;
+			else if bl_x1 < 5*scalebl then
+				bl_xdelta <= 1;
+--				current_dir <= 1;
+				end if;
+			end if;
+			if bl_y1 < 5*scalebl then
+				bl_ydelta <= 1;
+			else if (bl_y1 > (v_pixels -5 *scalebl )) then
+					bl_ydelta <= -1;
+				end if;
+			end if;	
 		end if;
 		sixtyHz <= sixtyHz + 1;
 		if (sixtyHz > 5) then
