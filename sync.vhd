@@ -382,20 +382,31 @@ SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
 				end if;
 			end if;
 		else 
-         bl_x1 <= bl_x1 + bl_xdelta;
-			bl_y1 <= bl_y1 + bl_ydelta;
-			if bl_x1 = (h_pixels - scalebl*5) then
+ 
+			if bl_x1 >= (h_pixels - scalebl*5) then
 				bl_xdelta <= -1;
+				bl_x1 <= h_pixels - scalebl*6;
+				
 --				current_dir <= -1;
 			else if bl_x1 < 5*scalebl then
 				bl_xdelta <= 1;
+				bl_x1 <=380;
+				colCount <= 0;
 --				current_dir <= 1;
+				else
+				   bl_x1 <= bl_x1 + bl_xdelta;
 				end if;
 			end if;
-			if bl_y1 < 5*scalebl then
-				bl_ydelta <= 1;
-			else if (bl_y1 > (v_pixels -5 *scalebl )) then
-					bl_ydelta <= -1;
+			if ((bl_y1 <= 5*scalebl)) then
+				bl_ydelta <= bl_ydelta *(-1);
+				bl_y1 <= 5*scalebl + 1;
+
+			else if (bl_y1 >= (v_pixels -5 *scalebl )) then
+						bl_ydelta <= bl_ydelta *(-1);
+						bl_y1 <= v_pixels - 6*scalebl;
+				else
+						bl_y1 <= bl_y1 + bl_ydelta;
+
 				end if;
 			end if;	
 		end if;
