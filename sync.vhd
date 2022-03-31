@@ -77,6 +77,10 @@ architecture MAIN of SYNC is
   signal hundreds                    : integer range 0 to 255  := 0;
   signal tens                        : integer range 0 to 255  := 0;
   signal unit                        : integer range 0 to 255  := 0;
+  signal thousands2                   : integer range 0 to 255  := 0;
+  signal hundreds2                    : integer range 0 to 255  := 0;
+  signal tens2                        : integer range 0 to 255  := 0;
+  signal unit2                        : integer range 0 to 255  := 0;
   signal scrData                     : std_logic_vector(7 downto 0);
   signal nWr                         : std_logic;
   signal RD0                         : std_logic_vector(3 downto 0);
@@ -102,16 +106,17 @@ architecture MAIN of SYNC is
   signal scale                       : integer range 1 to 32   := 8;
   signal scaleP                      : integer range 1 to 32   := 8;
   signal scaleBL                     : integer range 1 to 32   := 2;
-  signal colCount                    : integer range 0 to 9999 := 0;
-  signal colCount2                   : integer range 0 to 9999 := 0;
+  signal playerScore                    : integer range 0 to 9999 := 0;
+  signal playerScore2                   : integer range 0 to 9999 := 0;
   signal direction1                  : std_logic;
   signal position1                   : integer;
   signal direction2                  : std_logic;
   signal position2                   : integer;
-  signal bl_xdelta                   : integer range -2 to 2   := 1;
-  signal bl_ydelta                   : integer range -2 to 2   := 1;
+  signal bl_xdelta                   : integer range -4 to 4   := 1;
+  signal bl_ydelta                   : integer range -4 to 4   := 1;
   signal collision                   : integer range 0 to 1    := 0;
   signal current_dir                 : integer range -1 to 1   := 1;
+  signal ballSpeed						 : integer range 1 to 10   := 1;
   signal paddle                      : std_logic_vector(19 downto 0) :=
     ('1', '1',
      '1', '1',
@@ -162,79 +167,70 @@ begin
     port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
   paddleLeft  : quadrature_decoder port map (clk, encoder1(0), encoder1(1), not s(1), direction1, position1);
   paddleRight : quadrature_decoder port map (clk, encoder2(0), encoder2(1), not s(1), direction2, position2);
-  thousands <= 48 + ((colcount / 1000) mod 10);
-  hundreds  <= 48 + ((colcount / 100) mod 10);
-  tens      <= 48 + ((colcount / 10) mod 10);
-  unit      <= 48 + (colcount mod 10);
+  thousands <= 48 + ((playerScore / 1000) mod 10);
+  hundreds  <= 48 + ((playerScore / 100) mod 10);
+  tens      <= 48 + ((playerScore / 10) mod 10);
+  unit      <= 48 + (playerScore mod 10);
+  thousands2 <= 48 + ((playerScore2 / 1000) mod 10);
+  hundreds2  <= 48 + ((playerScore2 / 100) mod 10);
+  tens2      <= 48 + ((playerScore2 / 10) mod 10);
+  unit2      <= 48 + (playerScore2 mod 10);
   SPR(HPOS, VPOS, P_X1, P_Y1, paddle, scaleP, DRAW0);
   SPR(HPOS, VPOS, P_X2, P_Y2, paddle, scaleP, DRAW1);
---SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
---SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
+--SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW2);
+--SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW3);
   SP(HPOS, VPOS, BL_X1, BL_Y1, ablock, scaleBL, DRAWBL);
 
   process(CLK)
   begin
     if(CLK'event and CLK = '0')then
---SPR(HPOS,VPOS,P_X1,P_Y1,paddle,scaleP,DRAW0);
---SP(HPOS,VPOS,SQ_X1,SQ_Y1,asteroid1,scale,DRAW1);
---SP(HPOS,VPOS,SQ_X2,SQ_Y2,asteroid2,scale,DRAW2);
---SP(HPOS,VPOS,BL_X1,BL_Y1,ablock,scaleBL,DRAWBL);
-      if (cycle = '0') then
+      if (cycle = '0') then  -- write data to text screen ram
         cycle <= '1';
         nwr   <= '0';
       end if;
       if (cycle = '1') then
         cycle <= '0';
-        if (charpos = 0) then
+        if (charpos = 4) then
           scrData <= std_logic_vector(to_unsigned(thousands, scrData'length));
           nwr     <= '1';
         end if;
-        if (charpos = 1) then
+        if (charpos = 5) then
           scrData <= std_logic_vector(to_unsigned(hundreds, scrdata'length));
           nwr     <= '1';
         end if;
-        if (charpos = 2) then
+        if (charpos = 6) then
           scrData <= std_logic_vector(to_unsigned(tens, scrdata'length));
           nwr     <= '1';
         end if;
-        if (charpos = 3) then
+        if (charpos = 7) then
           scrData <= std_logic_vector(to_unsigned(unit, scrdata'length));
+          nwr     <= '1';
+        end if;
+        if (charpos = 72) then
+          scrData <= std_logic_vector(to_unsigned(thousands2, scrData'length));
+          nwr     <= '1';
+        end if;
+        if (charpos = 73) then
+          scrData <= std_logic_vector(to_unsigned(hundreds2, scrdata'length));
+          nwr     <= '1';
+        end if;
+        if (charpos = 74) then
+          scrData <= std_logic_vector(to_unsigned(tens2, scrdata'length));
+          nwr     <= '1';
+        end if;
+        if (charpos = 75) then
+          scrData <= std_logic_vector(to_unsigned(unit2, scrdata'length));
           nwr     <= '1';
         end if;
 
         charpos    <= charpos + 1;
         scrAddress <= std_logic_vector(to_unsigned(charpos, scraddress'length));
       end if;
---      IF(DRAW1='1')THEN
---                      IF(S(0)='1')THEN
---                              RD1<=(others=>'1');
---                              GD1<=(others=>'0');
---                              BD1<=(others=>'0');
---                      ELSE
---                              RD1<=(others=>'0');
---                              GD1<=(others=>'0');
---                              BD1<=(others=>'1');
---                      END IF;
---              else
---                      RD1<=(others=>'0');
---            GD1<=(others=>'0');
---            BD1<=(others=>'0');
---      END IF;
---              IF(DRAW2='1')THEN
---                      IF(S(1)='1')THEN
---                              RD2<=(others=>'0');
---                              GD2<=(others=>'1');
---                              BD2<=(others=>'0');
---                      ELSE
---                              RD2<=(others=>'0');
---                              GD2<=(others=>'1');
---                              BD2<=(others=>'1');
---                END IF;
---              else
---                      RD2<=(others=>'0');
---            GD2<=(others=>'0');
---            BD2<=(others=>'0');
---      END IF;
+		if (keys(9) = '1') then
+		  ballSpeed <= 2;
+		else
+		  ballSpeed <= 1;
+		end if;
       if(DRAWBL = '1')then
         RBL <= (others => '1');
         GBL <= (others => '0');
@@ -244,15 +240,6 @@ begin
         GBL <= (others => '0');
         BBL <= (others => '0');
       end if;
---              if (txtRGB = '1') then
---                      RT<=(others=>'1');
---                      GT<=(others=>'1');
---                      BT<=(others=>'1');
---              ELSE
---                      RT<=(others=>'0');
---                      GT<=(others=>'0');
---                      BT<=(others=>'0');
---              END IF;
       if(DRAW0 = '1')then
         RD0 <= (others => '1');
         GD0 <= (others => '1');
@@ -290,40 +277,6 @@ begin
           VPOS <= VPOS+1;
         else
           VPOS <= 0;
---                            IF(S(0)='1')THEN
---                                          IF(KEYS(0)='1')THEN
---                                                SQ_X1<=(SQ_X1+5) MOD 640;
---                                               END IF;
---                   IF(KEYS(1)='1')THEN
---                                                SQ_X1<=(SQ_X1-5) MOD 640;
---                                               END IF;
---                                                IF(KEYS(2)='1')THEN
---                                                SQ_Y1<=SQ_Y1-5;
---                                               END IF;
---                                               IF(KEYS(3)='1')THEN
---                                                SQ_Y1<=SQ_Y1+5;
---                                               END IF; 
---                                               if(KEYS(9)='1') then
---                                                P_y1<=p_y1-1;
---                                               end if;
---                                      END IF;
---                            IF(S(1)='1')THEN
---                                          IF(KEYS(0)='1')THEN
---                                                SQ_X2<=(SQ_X2+5) MOD 640;
---                                               END IF;
---                   IF(KEYS(1)='1')THEN
---                                                SQ_X2<=(SQ_X2-5) MOD 640;
---                                               END IF;
---                                               IF(KEYS(2)='1')THEN
---                                                SQ_Y2<=SQ_Y2-5;
---                                               END IF;
---                                               IF(KEYS(3)='1')THEN
---                                                SQ_Y2<=SQ_Y2+5;
---                                               END IF; 
-----                                             if(KEYS(9)='1') then
-----                                              P_y1<=p_y1+1;
-----                                             end if;
---                                      END IF;  
         end if;
       end if;
       if((HPOS > h_pixels) or (VPOS > v_pixels))then
@@ -332,30 +285,10 @@ begin
         B         <= (others => '0');
         nblanking <= '0';
       else
---                      R<= RD0 or RD1 or RD2 or RBL or RT;
---                      G<= GD0 or GD1 or GD2 or GBL or GT;
---                      B<= BD0 or BD1 or BD2 or BBL or BT;
         R         <= RD0 or RD1 or RBL or RT;
         G         <= GD0 or GD1 or GBL or GT;
         B         <= BD0 or BD1 or BBL or BT;
         nBlanking <= '1';
---                      if (RBL = "1111" and GD0 = "1111") then 
---                              collision <= 1;
---                              --scaleBL <= 1;
---                              current_dir <= current_dir * (-1);
---                              colCount <= colCount + 1;
-----                            scrData <= std_logic_vector(to_unsigned(colCount, scrdata'length));
-----                            scrAddress(7 downto 0) <= scrData;
-----                            nwr <= '1';
---                              if BL_Y1 = 0 then BL_y1 <= 470; end if;
---                              
---                      end if;
---                      if (RBL = "1111" and GD0 = "0000") then
---                              collision <= 0;
---                              --scaleBL <= 2;
---
---                      end if;
-
       end if;
       if(HPOS > (h_pixels + h_fp) and HPOS < (h_pixels + h_fp + h_pulse))then  ----HSYNC
         ooHSYNC <= '0';
@@ -379,24 +312,22 @@ begin
   begin  -- move or scale stuff
     if (vsync'event and vsync = '0') then
       if ((p_X1 + 2 * scaleP) = bl_x1) and ((BL_y1 - p_y1) > 0) and ((bl_y1 - p_y1) < 10 * scaleP) then  -- bat hits ball
---                      current_dir <= 1;
-        bl_xdelta <= 1;
+        bl_xdelta <= ballSpeed;
         bl_x1     <= p_x1 + 20;
-        colCount  <= colCount + 1;
         if ((bl_y1 - p_y1) < 16) then
-          bl_ydelta <= -2;
+          bl_ydelta <= ballSpeed * (-2);
         else
           if ((bl_y1 - p_y1) < 32) then
-            bl_ydelta <= -1;
+            bl_ydelta <= ballSpeed * (-1);
           else
             if ((bl_y1 - p_y1) < 48) then
               bl_ydelta <= 0;
             else
               if ((bl_y1 - p_y1) < 64) then
-                bl_ydelta <= 1;
+                bl_ydelta <= ballSpeed * (1);
 
               else
-                bl_ydelta <= 2;
+                bl_ydelta <= ballSpeed * (2);
               end if;
             end if;
           end if;
@@ -405,50 +336,46 @@ begin
         if (p_X2 = (bl_x1 + scaleP)) and ((BL_y1 - p_y2) > 0) and ((bl_y1 - p_y2) < 10 * scaleP) then  -- bat hits ball
           bl_xdelta <= bl_xdelta * (-1);
           bl_x1     <= p_x2 - 10;
-          colCount2 <= colCount2 + 1;
           if ((bl_y1 - p_y2) < 16) then
-            bl_ydelta <= -2;
+            bl_ydelta <= ballSpeed * (-2);
           else
             if ((bl_y1 - p_y2) < 32) then
-              bl_ydelta <= -1;
+              bl_ydelta <= ballSpeed * (-1);
             else
               if ((bl_y1 - p_y2) < 48) then
                 bl_ydelta <= 0;
               else
                 if ((bl_y1 - p_y2) < 64) then
-                  bl_ydelta <= 1;
+                  bl_ydelta <= ballSpeed * (1);
 
                 else
-                  bl_ydelta <= 2;
+                  bl_ydelta <= ballSpeed * (2);
                 end if;
               end if;
             end if;
           end if;
---        end if;
         else
 
           if bl_x1 >= (h_pixels - scalebl*5) then
-            bl_xdelta <= -1;
-            bl_x1     <= h_pixels - scalebl*6;
-
---                              current_dir <= -1;
+            bl_xdelta <= ballSpeed *(-1);
+            bl_x1     <= 380;
+				playerScore <= playerScore + 1;
           else
             if bl_x1 < 5*scalebl then
-              bl_xdelta <= 1;
-              bl_x1     <= 380;
-              colCount  <= 0;
---                              current_dir <= 1;
+              bl_xdelta <= ballSpeed;
+              bl_x1     <= 280;
+              playerScore2  <= playerScore2 + 1;
             else
               bl_x1 <= bl_x1 + bl_xdelta;
             end if;
           end if;
         end if;
-        if ((bl_y1 <= 5*scalebl)) then
-          bl_ydelta <= bl_ydelta *(-1);
-          bl_y1     <= 5*scalebl + 1;
+        if ((bl_y1 <= 64 + 4*scalebl)) then
+          bl_ydelta <= abs (bl_ydelta);
+          bl_y1     <= 64 + 6*scaleBl;
 
         else
-          if (bl_y1 >= (v_pixels -5 *scalebl)) then
+          if (bl_y1 >= (v_pixels - 4*scalebl)) then
             bl_ydelta <= bl_ydelta *(-1);
             bl_y1     <= v_pixels - 6*scalebl;
           else
