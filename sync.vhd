@@ -77,10 +77,10 @@ architecture MAIN of SYNC is
   signal hundreds                    : integer range 0 to 255  := 0;
   signal tens                        : integer range 0 to 255  := 0;
   signal unit                        : integer range 0 to 255  := 0;
-  signal thousands2                   : integer range 0 to 255  := 0;
-  signal hundreds2                    : integer range 0 to 255  := 0;
-  signal tens2                        : integer range 0 to 255  := 0;
-  signal unit2                        : integer range 0 to 255  := 0;
+  signal thousands2                  : integer range 0 to 255  := 0;
+  signal hundreds2                   : integer range 0 to 255  := 0;
+  signal tens2                       : integer range 0 to 255  := 0;
+  signal unit2                       : integer range 0 to 255  := 0;
   signal scrData                     : std_logic_vector(7 downto 0);
   signal nWr                         : std_logic;
   signal RD0                         : std_logic_vector(3 downto 0);
@@ -106,8 +106,8 @@ architecture MAIN of SYNC is
   signal scale                       : integer range 1 to 32   := 8;
   signal scaleP                      : integer range 1 to 32   := 8;
   signal scaleBL                     : integer range 1 to 32   := 2;
-  signal playerScore                    : integer range 0 to 9999 := 0;
-  signal playerScore2                   : integer range 0 to 9999 := 0;
+  signal playerScore                 : integer range 0 to 9999 := 0;
+  signal playerScore2                : integer range 0 to 9999 := 0;
   signal direction1                  : std_logic;
   signal position1                   : integer;
   signal direction2                  : std_logic;
@@ -116,7 +116,7 @@ architecture MAIN of SYNC is
   signal bl_ydelta                   : integer range -4 to 4   := 1;
   signal collision                   : integer range 0 to 1    := 0;
   signal current_dir                 : integer range -1 to 1   := 1;
-  signal ballSpeed						 : integer range 1 to 10   := 1;
+  signal ballSpeed                   : integer range 1 to 10   := 1;
   signal paddle                      : std_logic_vector(19 downto 0) :=
     ('1', '1',
      '1', '1',
@@ -167,10 +167,10 @@ begin
     port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
   paddleLeft  : quadrature_decoder port map (clk, encoder1(0), encoder1(1), not s(1), direction1, position1);
   paddleRight : quadrature_decoder port map (clk, encoder2(0), encoder2(1), not s(1), direction2, position2);
-  thousands <= 48 + ((playerScore / 1000) mod 10);
-  hundreds  <= 48 + ((playerScore / 100) mod 10);
-  tens      <= 48 + ((playerScore / 10) mod 10);
-  unit      <= 48 + (playerScore mod 10);
+  thousands  <= 48 + ((playerScore / 1000) mod 10);
+  hundreds   <= 48 + ((playerScore / 100) mod 10);
+  tens       <= 48 + ((playerScore / 10) mod 10);
+  unit       <= 48 + (playerScore mod 10);
   thousands2 <= 48 + ((playerScore2 / 1000) mod 10);
   hundreds2  <= 48 + ((playerScore2 / 100) mod 10);
   tens2      <= 48 + ((playerScore2 / 10) mod 10);
@@ -184,7 +184,7 @@ begin
   process(CLK)
   begin
     if(CLK'event and CLK = '0')then
-      if (cycle = '0') then  -- write data to text screen ram
+      if (cycle = '0') then             -- write data to text screen ram
         cycle <= '1';
         nwr   <= '0';
       end if;
@@ -226,11 +226,11 @@ begin
         charpos    <= charpos + 1;
         scrAddress <= std_logic_vector(to_unsigned(charpos, scraddress'length));
       end if;
-		if (keys(9) = '1') then
-		  ballSpeed <= 2;
-		else
-		  ballSpeed <= 1;
-		end if;
+      if (keys(9) = '1') then
+        ballSpeed <= 2;
+      else
+        ballSpeed <= 1;
+      end if;
       if(DRAWBL = '1')then
         RBL <= (others => '1');
         GBL <= (others => '0');
@@ -357,14 +357,14 @@ begin
         else
 
           if bl_x1 >= (h_pixels - scalebl*5) then
-            bl_xdelta <= ballSpeed *(-1);
-            bl_x1     <= 380;
-				playerScore <= playerScore + 1;
+            bl_xdelta   <= ballSpeed *(-1);
+            bl_x1       <= 380;
+            playerScore <= playerScore + 1;
           else
             if bl_x1 < 5*scalebl then
-              bl_xdelta <= ballSpeed;
-              bl_x1     <= 280;
-              playerScore2  <= playerScore2 + 1;
+              bl_xdelta    <= ballSpeed;
+              bl_x1        <= 280;
+              playerScore2 <= playerScore2 + 1;
             else
               bl_x1 <= bl_x1 + bl_xdelta;
             end if;
