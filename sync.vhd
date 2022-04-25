@@ -63,10 +63,10 @@ architecture MAIN of SYNC is
   signal P_Y1                        : integer range 0 to 479  := 60;
   signal P_X2                        : integer range 0 to 639  := 620;
   signal P_Y2                        : integer range 0 to 479  := 60;
-  signal SQ_X1                       : integer range 0 to 639  := 200;
-  signal SQ_Y1                       : integer range 0 to 479  := 200;
-  signal SQ_X2                       : integer range 0 to 639  := 300;
-  signal SQ_Y2                       : integer range 0 to 479  := 300;
+--  signal SQ_X1                       : integer range 0 to 639  := 200;
+--  signal SQ_Y1                       : integer range 0 to 479  := 200;
+--  signal SQ_X2                       : integer range 0 to 639  := 300;
+--  signal SQ_Y2                       : integer range 0 to 479  := 300;
   signal BL_X1                       : integer range 0 to 639  := 400;
   signal BL_Y1                       : integer range 0 to 479  := 400;
   signal nBlanking                   : std_logic               := '1';
@@ -98,12 +98,12 @@ architecture MAIN of SYNC is
   signal RBL                         : std_logic_vector(3 downto 0);
   signal GBL                         : std_logic_vector(3 downto 0);
   signal BBL                         : std_logic_vector(3 downto 0);
-  signal DRAW0, DRAW1, DRAW2, drawBL : std_logic               := '0';
+  signal DRAW0, DRAW1, drawBL 		 : std_logic               := '0';
   signal HPOS                        : integer range 0 to 799  := 0;
   signal VPOS                        : integer range 0 to 524  := 0;
-  signal sixtyHz                     : integer range 0 to 6    := 0;
+--  signal sixtyHz                     : integer range 0 to 6    := 0;
   signal count100ms                  : integer range 0 to 9999 := 0;
-  signal scale                       : integer range 1 to 32   := 8;
+--  signal scale                       : integer range 1 to 32   := 8;
   signal scaleP                      : integer range 1 to 32   := 8;
   signal scaleBL                     : integer range 1 to 32   := 2;
   signal playerScore                 : integer range 0 to 9999 := 0;
@@ -384,14 +384,12 @@ begin
           end if;
         end if;
       end if;
-      sixtyHz <= sixtyHz + 1;
-      if (sixtyHz > 5) then
-        count100ms <= count100ms + 1;
-        sixtyHz    <= 0;
-        scale      <= scale + 1;
-      end if;
+--      sixtyHz <= sixtyHz + 1;
+--      if (sixtyHz > 5) then
+--        count100ms <= count100ms + 1;
+--        sixtyHz    <= 0;
+--        scale      <= scale + 1;
+--      end if;
     end if;
-
-
   end process;
 end MAIN;
