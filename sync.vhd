@@ -60,9 +60,9 @@ architecture MAIN of SYNC is
   signal oovsync                     : std_logic;
   signal cycle                       : std_logic               := '0';
   signal P_X1                        : integer range 0 to 639  := 8;
-  signal P_Y1                        : integer range 0 to 479  := 60;
+  signal P_Y1                        : integer range 0 to 479  := 220;
   signal P_X2                        : integer range 0 to 639  := 620;
-  signal P_Y2                        : integer range 0 to 479  := 60;
+  signal P_Y2                        : integer range 0 to 479  := 220;
 --  signal SQ_X1                       : integer range 0 to 639  := 200;
 --  signal SQ_Y1                       : integer range 0 to 479  := 200;
 --  signal SQ_X2                       : integer range 0 to 639  := 300;
@@ -311,9 +311,10 @@ begin
   process (vsync)
   begin  -- move or scale stuff
     if (vsync'event and vsync = '0') then
-      if ((p_X1 + 2 * scaleP) = bl_x1) and ((BL_y1 - p_y1) > 0) and ((bl_y1 - p_y1) < 10 * scaleP) then  -- bat hits ball
+      if ((p_X1 + 4 * scaleP) = bl_x1) and ((BL_y1 - p_y1) > 0) 
+		   and ((bl_y1 - p_y1) < 10 * scaleP) then  -- bat hits ball
         bl_xdelta <= ballSpeed;
-        bl_x1     <= p_x1 + 20;
+        bl_x1     <= p_x1 + 4 * scaleP;
         if ((bl_y1 - p_y1) < 16) then
           bl_ydelta <= ballSpeed * (-2);
         else
@@ -333,7 +334,8 @@ begin
           end if;
         end if;
       else
-        if (p_X2 = (bl_x1 + scaleP)) and ((BL_y1 - p_y2) > 0) and ((bl_y1 - p_y2) < 10 * scaleP) then  -- bat hits ball
+        if (p_X2 = (bl_x1 + scaleP)) and ((BL_y1 - p_y2) > 0) and 
+		     ((bl_y1 - p_y2) < 10 * scaleP) then  -- bat hits ball
           bl_xdelta <= bl_xdelta * (-1);
           bl_x1     <= p_x2 - 10;
           if ((bl_y1 - p_y2) < 16) then
