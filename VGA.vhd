@@ -12,7 +12,8 @@ entity VGA is
     VGA_R          : out std_logic_vector(3 downto 0);
     VGA_G          : out std_logic_vector(3 downto 0);
     VGA_B          : out std_logic_vector(3 downto 0);
-    GPIO           : in  std_logic_vector(35 downto 0)
+    GPIO           : in  std_logic_vector(35 downto 0);
+	 LEDR			    : out std_logic_vector(9 downto 0)
     );
 end VGA;
 
@@ -40,7 +41,9 @@ architecture MAIN of VGA is
       KEYS     : in  std_logic_vector(9 downto 0);
       S        : in  std_logic_vector(1 downto 0);
       encoder1 : in  std_logic_vector(2 downto 0);
-      encoder2 : in  std_logic_vector(2 downto 0)
+      encoder2 : in  std_logic_vector(2 downto 0);
+      led      : out std_logic_vector(9 downto 0)
+
       );
   end component SYNC;
 
@@ -57,6 +60,6 @@ begin
   encoder2(2) <= gpio(5);
 
   C  : pll port map (MAX10_CLK1_50, VGACLK);
-  C1 : SYNC port map(VGACLK, VGA_HS, VGA_VS, VGA_R, VGA_G, VGA_B, SW, KEY, encoder1, encoder2);
+  C1 : SYNC port map(VGACLK, VGA_HS, VGA_VS, VGA_R, VGA_G, VGA_B, SW, KEY, encoder1, encoder2, LEDR);
 
 end MAIN;
