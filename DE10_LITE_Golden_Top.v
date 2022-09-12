@@ -127,14 +127,20 @@ module DE10_LITE_Golden_Top(
 //  REG/WIRE declarations
 //=======================================================
 
-
+assign HEX5[7] = 1'b1; // low active
+assign HEX4[7] = 1'b1; // low active
+assign HEX3 = 8'b10111111; // low active
+assign HEX2 = 8'b10111111; // low active
+assign HEX1[7] = 1'b1; // low active
+assign HEX0[7] = 1'b1; // low active
 
 
 //=======================================================
 //  Structural coding
 //=======================================================
 VGA VGA_DISP ( .MAX10_CLK1_50(MAX10_CLK1_50), .VGA_HS(VGA_HS), .VGA_VS(VGA_VS), .SEL(KEY[1:0]), .SW(SW[9:0]),
-					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .GPIO(GPIO), .LEDR(LEDR[9:0])); 
+					.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), .GPIO(GPIO), .LEDR(LEDR[9:0]), .HEX0(HEX0[6:0]),
+				   .HEX1(HEX1[6:0]), /*.HEX2(HEX2[6:0]), .HEX3(HEX3[6:0]),*/ .HEX4(HEX4[6:0]), .HEX5(HEX5[6:0])); 
 
 
 endmodule

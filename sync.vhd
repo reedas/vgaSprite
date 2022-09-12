@@ -17,7 +17,14 @@ entity SYNC is
     S        : in     std_logic_vector(1 downto 0);
     encoder1 : in     std_logic_vector(2 downto 0);
     encoder2 : in     std_logic_vector(2 downto 0);
-	 led      : out    std_logic_vector(9 downto 0)
+	 led      : out    std_logic_vector(9 downto 0);
+	 HEX0		: out std_logic_vector(6 downto 0);
+	 HEX1		: out std_logic_vector(6 downto 0);
+--	 HEX2		: out std_logic_vector(6 downto 0);
+--	 HEX3		: out std_logic_vector(6 downto 0);
+	 HEX4		: out std_logic_vector(6 downto 0);
+	 HEX5		: out std_logic_vector(6 downto 0);
+	 audio	: out std_logic
 
     );
 end SYNC;
@@ -47,6 +54,14 @@ architecture MAIN of SYNC is
 
       );
   end component txtScreen;
+  component sevsegxdec is
+	PORT
+	(
+		binIn		:	 IN STD_LOGIC_vector (3 downto 0);
+		hexout	:	 out STD_LOGIC_vector (6 downto 0)
+	);
+
+  end component sevsegxdec;
 -----640x480 @ 60 Hz pixel clock 25 MHz
   constant h_pulse  : integer := 96;    --horiztonal sync pulse width in pixels
   constant h_bp     : integer := 48;    --horizontal back porch width in pixels
@@ -124,6 +139,7 @@ architecture MAIN of SYNC is
   signal collision                   : integer range 0 to 1    := 0;
   signal current_dir                 : integer range -1 to 1   := 1;
   signal ballSpeed                   : integer range 1 to 10   := 1;
+  signal audioblip, audioblop			 : std_logic;
   signal paddle                      : std_logic_vector(19 downto 0) :=
     ('1', '1',
      '1', '1',
@@ -163,6 +179,10 @@ begin
   SPR(HPOS, VPOS, P_X1, P_Y1, paddle, scaleP, DRAW0);
   SPR(HPOS, VPOS, P_X2, P_Y2, paddle, scaleP, DRAW1);
   SP(HPOS, VPOS, BL_X1, BL_Y1, ball, scaleBL, DRAWBL);
+  digit0 : sevsegxdec port map (std_logic_vector(to_unsigned((playerScore2 mod 10), 4)), HEX0(6 downto 0));
+  digit1 : sevsegxdec port map (std_logic_vector(to_unsigned(((playerScore2 / 10) mod 10), 4)), HEX1(6 downto 0));
+  digit4 : sevsegxdec port map (std_logic_vector(to_unsigned((playerScore mod 10), 4)), HEX4(6 downto 0));
+  digit5 : sevsegxdec port map (std_logic_vector(to_unsigned(((playerScore / 10) mod 10), 4)), HEX5(6 downto 0));
 
   process(CLK)
   begin
@@ -170,25 +190,33 @@ begin
 		if (collblip = '1') or (blip = '1') then
 			if (blipcnt < 5000000) then
            blipcnt <= blipcnt + 1;
+			  if ((blipcnt mod 20000) = 0) then
+			      audioblip <= not audioblip;
+			  end if;
 			  blip <= '1';
 			  led(9) <= '1';
 			else
 			  blip <= '0';
 			  led(9) <= '0';
-			  blipcnt <= 1;
+			  blipcnt <= 0;
 			end if;
 		end if;
 		if (collblop = '1') or (blop = '1') then
 			if (blopcnt < 10000000) then
 			  blopcnt <= blopcnt + 1;
+			  if ((blopcnt mod 100000) = 0) then
+			      audioblop <= not audioblop;
+			  end if;
+			  
            blop <= '1';
 			  led(8) <= '1';
 			else
 			  blop <= '0';
 			  led(8) <= '0';
-			  blopcnt <= 1;
+			  blopcnt <= 0;
 			end if;
 		end if;
+		audio <= audioblip xor audioblop;
       if (cycle = '0') then             -- write data to text screen ram
         cycle <= '1';
         nwr   <= '0';
