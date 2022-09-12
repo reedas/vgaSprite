@@ -1,0 +1,17 @@
+# system info paddles on 2022.09.12.12:19:43
+system_info:
+name,value
+DEVICE,10M50DAF484C6GES
+DEVICE_FAMILY,MAX 10
+GENERATION_ID,1662981583
+#
+#
+# Files generated for paddles on 2022.09.12.12:19:43
+files:
+filepath,kind,attributes,module,is_top
+simulation/paddles.vhd,VHDL,,paddles,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+paddles.adc_mega_0,paddles_adc_mega_0

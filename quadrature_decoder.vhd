@@ -34,7 +34,7 @@ ENTITY quadrature_decoder IS
     b            : IN     STD_LOGIC;                            --quadrature encoded signal b
     set_origin_n : IN     STD_LOGIC;                            --active-low synchronous clear of position counter
     direction    : OUT    STD_LOGIC;                            --direction of last change, 1 = positive, 0 = negative
-    position     : BUFFER INTEGER RANGE 0 TO positions-1 := 31); --current position relative to index or initial value
+    position     : BUFFER INTEGER RANGE 0 TO positions-1 := 25); --current position relative to index or initial value
 END quadrature_decoder;
 
 ARCHITECTURE logic OF quadrature_decoder IS
@@ -76,7 +76,7 @@ BEGIN
       
       --determine direction and position
       IF(set_origin_n_int = '0') THEN                                     --inital position is being set
-        position <= 0;                                                      --clear position counter
+        position <= 25;                                                      --clear position counter
       ELSIF(debounce_cnt = debounce_time                                  --debounce time for a and b is met
           AND ((a_prev XOR a_new(1)) OR (b_prev XOR b_new(1))) = '1') THEN    --AND the new value is different than the previous value
         direction <= b_prev XOR a_new(1);                                   --update the direction

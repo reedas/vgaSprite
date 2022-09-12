@@ -44,16 +44,16 @@ module pll (
 	input	  inclk0;
 	output	  c0;
 
-	wire [0:0] sub_wire2 = 1'h0;
-	wire [4:0] sub_wire3;
-	wire  sub_wire0 = inclk0;
-	wire [1:0] sub_wire1 = {sub_wire2, sub_wire0};
-	wire [0:0] sub_wire4 = sub_wire3[0:0];
-	wire  c0 = sub_wire4;
+	wire [4:0] sub_wire0;
+	wire [0:0] sub_wire4 = 1'h0;
+	wire [0:0] sub_wire1 = sub_wire0[0:0];
+	wire  c0 = sub_wire1;
+	wire  sub_wire2 = inclk0;
+	wire [1:0] sub_wire3 = {sub_wire4, sub_wire2};
 
 	altpll	altpll_component (
-				.inclk (sub_wire1),
-				.clk (sub_wire3),
+				.inclk (sub_wire3),
+				.clk (sub_wire0),
 				.activeclock (),
 				.areset (1'b0),
 				.clkbad (),
