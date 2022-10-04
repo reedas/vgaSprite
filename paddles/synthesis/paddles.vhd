@@ -8,20 +8,16 @@ use IEEE.numeric_std.all;
 
 entity paddles is
 	port (
-		CLOCK    : in  std_logic                     := '0'; --                clk.clk
-		ADC_SCLK : out std_logic;                            -- external_interface.SCLK
-		ADC_CS_N : out std_logic;                            --                   .CS_N
-		ADC_DOUT : in  std_logic                     := '0'; --                   .DOUT
-		ADC_DIN  : out std_logic;                            --                   .DIN
-		CH0      : out std_logic_vector(11 downto 0);        --           readings.CH0
-		CH1      : out std_logic_vector(11 downto 0);        --                   .CH1
-		CH2      : out std_logic_vector(11 downto 0);        --                   .CH2
-		CH3      : out std_logic_vector(11 downto 0);        --                   .CH3
-		CH4      : out std_logic_vector(11 downto 0);        --                   .CH4
-		CH5      : out std_logic_vector(11 downto 0);        --                   .CH5
-		CH6      : out std_logic_vector(11 downto 0);        --                   .CH6
-		CH7      : out std_logic_vector(11 downto 0);        --                   .CH7
-		RESET    : in  std_logic                     := '0'  --              reset.reset
+		CLOCK : in  std_logic                     := '0'; --      clk.clk
+		CH0   : out std_logic_vector(11 downto 0);        -- readings.CH0
+		CH1   : out std_logic_vector(11 downto 0);        --         .CH1
+		CH2   : out std_logic_vector(11 downto 0);        --         .CH2
+		CH3   : out std_logic_vector(11 downto 0);        --         .CH3
+		CH4   : out std_logic_vector(11 downto 0);        --         .CH4
+		CH5   : out std_logic_vector(11 downto 0);        --         .CH5
+		CH6   : out std_logic_vector(11 downto 0);        --         .CH6
+		CH7   : out std_logic_vector(11 downto 0);        --         .CH7
+		RESET : in  std_logic                     := '0'  --    reset.reset
 	);
 end entity paddles;
 
@@ -57,28 +53,28 @@ begin
 
 	adc_mega_0 : component paddles_adc_mega_0
 		generic map (
-			board          => "DE10-Standard",
+			board          => "DE10-Lite",
 			board_rev      => "Autodetect",
-			tsclk          => 4,
-			numch          => 7,
+			tsclk          => 5,
+			numch          => 1,
 			max10pllmultby => 1,
-			max10plldivby  => 1
+			max10plldivby  => 5
 		)
 		port map (
-			CLOCK    => CLOCK,    --                clk.clk
-			RESET    => RESET,    --              reset.reset
-			CH0      => CH0,      --           readings.export
-			CH1      => CH1,      --                   .export
-			CH2      => CH2,      --                   .export
-			CH3      => CH3,      --                   .export
-			CH4      => CH4,      --                   .export
-			CH5      => CH5,      --                   .export
-			CH6      => CH6,      --                   .export
-			CH7      => CH7,      --                   .export
-			ADC_SCLK => ADC_SCLK, -- external_interface.export
-			ADC_CS_N => ADC_CS_N, --                   .export
-			ADC_DOUT => ADC_DOUT, --                   .export
-			ADC_DIN  => ADC_DIN   --                   .export
+			CLOCK    => CLOCK, --      clk.clk
+			RESET    => RESET, --    reset.reset
+			CH0      => CH0,   -- readings.export
+			CH1      => CH1,   --         .export
+			CH2      => CH2,   --         .export
+			CH3      => CH3,   --         .export
+			CH4      => CH4,   --         .export
+			CH5      => CH5,   --         .export
+			CH6      => CH6,   --         .export
+			CH7      => CH7,   --         .export
+			ADC_SCLK => open,  -- (terminated)
+			ADC_CS_N => open,  -- (terminated)
+			ADC_DOUT => '0',   -- (terminated)
+			ADC_DIN  => open   -- (terminated)
 		);
 
 end architecture rtl; -- of paddles
