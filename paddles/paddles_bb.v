@@ -9,11 +9,7 @@ module paddles (
 	CH4,
 	CH5,
 	CH6,
-	CH7,
-	ADC_SCLK,
-	ADC_CS_N,
-	ADC_DOUT,
-	ADC_DIN);	
+	CH7);	
 
 	input		CLOCK;
 	input		RESET;
@@ -25,8 +21,4 @@ module paddles (
 	output	[11:0]	CH5;
 	output	[11:0]	CH6;
 	output	[11:0]	CH7;
-	output		ADC_SCLK;
-	output		ADC_CS_N;
-	input		ADC_DOUT;
-	output		ADC_DIN;
 endmodule

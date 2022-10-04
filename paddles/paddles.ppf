@@ -15,9 +15,5 @@
   <pin name="CH5[11..0]" direction="output" scope="external" />
   <pin name="CH6[11..0]" direction="output" scope="external" />
   <pin name="CH7[11..0]" direction="output" scope="external" />
-  <pin name="ADC_SCLK" direction="output" scope="external" />
-  <pin name="ADC_CS_N" direction="output" scope="external" />
-  <pin name="ADC_DOUT" direction="input" scope="external" />
-  <pin name="ADC_DIN" direction="output" scope="external" />
  </global>
 </pinplan>

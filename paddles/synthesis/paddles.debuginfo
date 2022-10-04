@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="paddles" kind="system" version="20.1" fabric="QSYS">
  <!-- Format version 20.1 720 (Future versions may contain additional information.) -->
- <!-- 2022.09.12.12:20:28 -->
+ <!-- 2022.09.12.21:22:22 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1662981626</value>
+  <value>1663014139</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -156,7 +156,7 @@
 the requested settings for a module instance. -->
   <parameter name="board">
    <type>java.lang.String</type>
-   <value>DE10-Standard</value>
+   <value>DE10-Lite</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -172,15 +172,15 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="sclk_freq">
    <type>double</type>
-   <value>12.5</value>
+   <value>10.0</value>
    <derived>false</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="tsclk">
    <type>int</type>
-   <value>4</value>
+   <value>5</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -188,7 +188,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="numch_">
    <type>int</type>
-   <value>8</value>
+   <value>2</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -196,7 +196,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="numch">
    <type>int</type>
-   <value>7</value>
+   <value>1</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -212,7 +212,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="max10plldivby">
    <type>int</type>
-   <value>1</value>
+   <value>5</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -455,69 +455,6 @@ parameters are a RESULT of the module parameters. -->
     <role>export</role>
    </port>
   </interface>
-  <interface name="external_interface" kind="conduit_end" version="20.1">
-   <!-- The connection points exposed by a module instance for the
-particular module parameters. Connection points and their
-parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="deviceFamily">
-    <type>java.lang.String</type>
-    <value>UNKNOWN</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="generateLegacySim">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <type>conduit</type>
-   <isStart>false</isStart>
-   <port>
-    <name>ADC_SCLK</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>export</role>
-   </port>
-   <port>
-    <name>ADC_CS_N</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>export</role>
-   </port>
-   <port>
-    <name>ADC_DOUT</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>export</role>
-   </port>
-   <port>
-    <name>ADC_DIN</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>export</role>
-   </port>
-  </interface>
  </module>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -544,7 +481,7 @@ parameters are a RESULT of the module parameters. -->
   <version>20.1</version>
  </plugin>
  <plugin>
-  <instanceCount>2</instanceCount>
+  <instanceCount>1</instanceCount>
   <name>conduit_end</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
@@ -552,5 +489,5 @@ parameters are a RESULT of the module parameters. -->
   <version>20.1</version>
  </plugin>
  <reportVersion>20.1 720</reportVersion>
- <uniqueIdentifier>00C1413908EE00000183316DDB0D</uniqueIdentifier>
+ <uniqueIdentifier>FCAA1401B3A500000183335DF67A</uniqueIdentifier>
 </EnsembleReport>
