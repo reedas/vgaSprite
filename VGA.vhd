@@ -13,6 +13,7 @@ entity VGA is
     VGA_G          : out std_logic_vector(3 downto 0);
     VGA_B          : out std_logic_vector(3 downto 0);
     GPIO           : inout std_logic_vector(35 downto 0);
+    ARDUINO_IO     : inout std_logic_vector(15 downto 0);
 	 LEDR			    : out std_logic_vector(9 downto 0);
 	 HEX0				 : out std_logic_vector(6 downto 0);
 	 HEX1				 : out std_logic_vector(6 downto 0);
@@ -73,6 +74,7 @@ begin
   encoder2(1) <= gpio(3);
   encoder2(2) <= gpio(5);
   gpio(9)     <= audio;
+  arduino_io(7) <= audio;
 
   C  : pll port map (MAX10_CLK1_50, VGACLK);
   C1 : SYNC port map(VGACLK, VGA_HS, VGA_VS, VGA_R, VGA_G, VGA_B, SW, KEY, encoder1, encoder2, LEDR, 

@@ -83,10 +83,13 @@ architecture MAIN of SYNC is
   signal P_Y2                        : integer range 0 to 479  := 220;
   signal blipcnt                     : integer range 0 to 100000000  := 0;
   signal blopcnt                     : integer range 0 to 100000000  := 0;
+  signal bloopcnt                    : integer range 0 to 100000000  := 0;
   signal blip                        : std_logic;
   signal blop                        : std_logic;
+  signal bloop                       : std_logic;
   signal collblip                    : std_logic;
   signal collblop                    : std_logic;
+  signal sideblip                    : std_logic;
   signal BL_X1                       : integer range 0 to 639  := 400;
   signal BL_Y1                       : integer range 0 to 479  := 400;
   signal nBlanking                   : std_logic               := '1';
@@ -140,6 +143,7 @@ architecture MAIN of SYNC is
   signal current_dir                 : integer range -1 to 1   := 1;
   signal ballSpeed                   : integer range 1 to 10   := 1;
   signal audioblip, audioblop			 : std_logic;
+  signal audiobloop			          : std_logic;
   signal paddle                      : std_logic_vector(19 downto 0) :=
     ('1', '1',
      '1', '1',
@@ -215,8 +219,22 @@ begin
 			  led(8) <= '0';
 			  blopcnt <= 0;
 			end if;
+		end if;		if (sideblip = '1') or (bloop = '1') then
+			if (bloopcnt < 5000000) then
+			  bloopcnt <= bloopcnt + 1;
+			  if ((bloopcnt mod 50000) = 0) then
+			      audiobloop <= not audiobloop;
+			  end if;
+			  
+           bloop <= '1';
+			  led(5) <= '1';
+			else
+			  bloop <= '0';
+			  led(5) <= '0';
+			  bloopcnt <= 0;
+			end if;
 		end if;
-		audio <= audioblip xor audioblop;
+		audio <= audioblip xor audioblop xor audiobloop;
       if (cycle = '0') then             -- write data to text screen ram
         cycle <= '1';
         nwr   <= '0';
@@ -476,6 +494,7 @@ begin
     if (vsync'event and vsync = '0') then
 		if (collblip = '1') then collblip <= '0'; end if;
 		if (collblop = '1') then collblop <= '0'; end if;
+		if (sideblip = '1') then sideblip <= '0'; end if;
       if ((bl_x1 < 32) and ((BL_y1 - p_y1) > 0) 
 		   and ((bl_y1 - p_y1) < 10 * scaleP)) then  -- bat hits ball
         bl_xdelta <= ballSpeed;
@@ -550,11 +569,13 @@ begin
         if ((bl_y1 <= 51 + 4*scalebl)) then
           bl_ydelta <= abs (bl_ydelta);
           bl_y1     <= 51 + 6*scaleBl;
+			 sideblip <= '1';
 
         else
           if (bl_y1 >= (v_pixels - 10 - 4*scalebl)) then
             bl_ydelta <= bl_ydelta *(-1);
             bl_y1     <= v_pixels - 10 - 6*scalebl;
+				sideblip <= '1';
           else
             bl_y1 <= bl_y1 + bl_ydelta;
 
