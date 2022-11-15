@@ -1,3 +1,5 @@
+-- adc driver to read channel 1 and 3 of arduino header and return
+-- 8 bit values for paddle position 
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -58,21 +60,13 @@ architecture A of paddles is
     signal adc_cc_response_channel  : std_logic_vector(4 downto 0);
     signal adc_cc_response_data     : std_logic_vector(11 downto 0);
 	 
-	 -- paddle selection (Channel 001 or 011)
---	 signal paddle : std_logic_vector(4 downto 0) := "00001";
+	 -- paddle channel selection (Channel 1 (001) or 3 (011))
 	 signal player : std_logic;
-
-    -- BCD signals
-    signal ones        : std_logic_vector(3 downto 0);
-    signal tenths      : std_logic_vector(3 downto 0);
-    signal hundredths  : std_logic_vector(3 downto 0);
-    signal thousandths : std_logic_vector(3 downto 0);
 
     -- system clock and reset
     signal sys_clk, nreset : std_logic;
 begin
     -- system reset
---    reset <= not KEY(0);
     nreset <= not reset;
 
     -- calculate channel used for sampling
@@ -104,7 +98,7 @@ begin
         if rising_edge(sys_clk) then
             if (adc_cc_response_valid = '1') then
                 reading := adc_cc_response_data;
-                ch := adc_cc_response_channel;
+                ch := adc_cc_response_channel; -- read channels in turn
 					if (ch = "00001") then
 						player1 <= reading(11 downto 4);
 						player <= '1' ; -- flip to channel 3

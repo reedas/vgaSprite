@@ -52,6 +52,7 @@ architecture MAIN of SYNC is
       position     : buffer integer range 0 to 63 := 31  --current position relative to index or initial value
       );
   end component quadrature_decoder;
+  
   component txtScreen is
     port(
       hp, vp :    integer;
@@ -65,6 +66,7 @@ architecture MAIN of SYNC is
 
       );
   end component txtScreen;
+  
   component sevsegxdec is
 	PORT
 	(
@@ -73,7 +75,7 @@ architecture MAIN of SYNC is
 	);
 
   end component sevsegxdec;
------640x480 @ 60 Hz pixel clock 25 MHz
+-----640x480 @ 60 Hz pixel clock 25. MHz
   constant h_pulse  : integer := 96;    --horiztonal sync pulse width in pixels
   constant h_bp     : integer := 48;    --horizontal back porch width in pixels
   constant h_pixels : integer := 640;   --horiztonal display width in pixels

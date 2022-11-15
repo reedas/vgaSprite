@@ -1,3 +1,6 @@
+-- Convert ascii character code to std logic vector (7 downto 0) binary 
+-- equivalent via lookup table
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 package CHAR2STD is
