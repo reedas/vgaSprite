@@ -73,8 +73,8 @@ begin
   encoder2(0) <= gpio(1);
   encoder2(1) <= gpio(3);
   encoder2(2) <= gpio(5);
-  gpio(9)     <= audio;
-  arduino_io(7) <= audio;
+  gpio(9)     <= audio and SW(2);
+  arduino_io(7) <= audio and SW(2);
 
   C  : pll port map (MAX10_CLK1_50, VGACLK);
   C1 : SYNC port map(VGACLK, VGA_HS, VGA_VS, VGA_R, VGA_G, VGA_B, SW, KEY, encoder1, encoder2, LEDR, 

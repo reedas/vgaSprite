@@ -71,6 +71,7 @@ architecture MAIN of SYNC is
   constant v_bp     : integer := 33;    --vertical back porch width in rows
   constant v_pixels : integer := 480;   --vertical display width in rows
   constant v_fp     : integer := 10;    --vertical front porch width in rows
+--
 
   signal ohsync                      : std_logic;
   signal ovsync                      : std_logic;
@@ -106,31 +107,26 @@ architecture MAIN of SYNC is
   signal unit2                       : integer range 0 to 255  := 0;
   signal scrData                     : std_logic_vector(7 downto 0);
   signal nWr                         : std_logic;
-  signal RD0                         : std_logic_vector(3 downto 0);
+  signal RD0                         : std_logic_vector(3 downto 0); -- Player 1 
   signal GD0                         : std_logic_vector(3 downto 0);
   signal BD0                         : std_logic_vector(3 downto 0);
-  signal RD1                         : std_logic_vector(3 downto 0);
+  signal RD1                         : std_logic_vector(3 downto 0); -- Player 2
   signal GD1                         : std_logic_vector(3 downto 0);
   signal BD1                         : std_logic_vector(3 downto 0);
-  signal RD2                         : std_logic_vector(3 downto 0);
-  signal GD2                         : std_logic_vector(3 downto 0);
-  signal BD2                         : std_logic_vector(3 downto 0);
-  signal RT                          : std_logic_vector(3 downto 0);
+  signal RT                          : std_logic_vector(3 downto 0); -- Text display
   signal GT                          : std_logic_vector(3 downto 0);
   signal BT                          : std_logic_vector(3 downto 0);
-  signal RBL                         : std_logic_vector(3 downto 0);
+  signal RBL                         : std_logic_vector(3 downto 0); -- Ball
   signal GBL                         : std_logic_vector(3 downto 0);
   signal BBL                         : std_logic_vector(3 downto 0);
-  signal GRIDR, GRIDG, GRIDB         : std_logic_vector(3 downto 0);
+  signal GRIDR, GRIDG, GRIDB         : std_logic_vector(3 downto 0); -- side walls
   signal DRAW0, DRAW1, drawBL 		 : std_logic               := '0';
-  signal HPOS                        : integer range 0 to 799  := 0;
+  signal HPOS                        : integer range 0 to 799  := 0; -- Current pixel position counters
   signal VPOS                        : integer range 0 to 524  := 0;
---  signal sixtyHz                     : integer range 0 to 6    := 0;
   signal counter                     : integer range 0 to 9999 := 0;
   signal flash                       : std_logic;
---  signal scale                       : integer range 1 to 32   := 8;
-  signal scaleP                      : integer range 1 to 32   := 8;
-  signal scaleBL                     : integer range 1 to 32   := 2;
+  signal scaleP                      : integer range 1 to 32   := 8; -- paddle scaling
+  signal scaleBL                     : integer range 1 to 32   := 2; -- ball scaling
   signal playerScore                 : integer range 0 to 9999 := 0;
   signal playerScore2                : integer range 0 to 9999 := 0;
   signal direction1                  : std_logic;
@@ -144,6 +140,7 @@ architecture MAIN of SYNC is
   signal ballSpeed                   : integer range 1 to 10   := 1;
   signal audioblip, audioblop			 : std_logic;
   signal audiobloop			          : std_logic;
+-- sprite for paddles
   signal paddle                      : std_logic_vector(19 downto 0) :=
     ('1', '1',
      '1', '1',
@@ -155,23 +152,27 @@ architecture MAIN of SYNC is
      '1', '1',
      '1', '1',
      '1', '1');
-
+-- sprite for ball
   signal ball : std_logic_vector(99 downto 0) :=
     ('0', '0', '0', '0', '1', '1', '0', '0', '0', '0',
      '0', '0', '1', '1', '1', '1', '1', '1', '0', '0',
      '0', '1', '1', '1', '1', '1', '1', '1', '1', '0',
      '0', '1', '1', '1', '1', '1', '1', '1', '1', '0',
-     '1', '1', '1', '1', '1', '1', '1', '1', '1', '1',
-     '1', '1', '1', '1', '1', '1', '1', '1', '1', '1',
+     '1', '1', '1', '1', '0', '0', '1', '1', '1', '1',
+     '1', '1', '1', '1', '0', '0', '1', '1', '1', '1',
      '0', '1', '1', '1', '1', '1', '1', '1', '1', '0',
      '0', '1', '1', '1', '1', '1', '1', '1', '1', '0',
      '0', '0', '1', '1', '1', '1', '1', '1', '0', '0',
      '0', '0', '0', '0', '1', '1', '0', '0', '0', '0');
 begin
+-- There are effectively two displays overlayed over each other an 80 column 24 line text display
+-- and the hardware sprites for paddles and ball
   txtscr : txtScreen
     port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
+-- Get the current paddle positions
   paddleLeft  : quadrature_decoder port map (clk, encoder1(0), encoder1(1), not s(1), direction1, position1);
   paddleRight : quadrature_decoder port map (clk, encoder2(0), encoder2(1), not s(1), direction2, position2);
+-- Enumarate the digits of the scores
   thousands  <= 48 + ((playerScore / 1000) mod 10);
   hundreds   <= 48 + ((playerScore / 100) mod 10);
   tens       <= 48 + ((playerScore / 10) mod 10);
@@ -180,16 +181,19 @@ begin
   hundreds2  <= 48 + ((playerScore2 / 100) mod 10);
   tens2      <= 48 + ((playerScore2 / 10) mod 10);
   unit2      <= 48 + (playerScore2 mod 10);
+-- Draw all sprites
   SPR(HPOS, VPOS, P_X1, P_Y1, paddle, scaleP, DRAW0);
   SPR(HPOS, VPOS, P_X2, P_Y2, paddle, scaleP, DRAW1);
   SP(HPOS, VPOS, BL_X1, BL_Y1, ball, scaleBL, DRAWBL);
+  
+-- update seven segment displays with score
   digit0 : sevsegxdec port map (std_logic_vector(to_unsigned((playerScore2 mod 10), 4)), HEX0(6 downto 0));
   digit1 : sevsegxdec port map (std_logic_vector(to_unsigned(((playerScore2 / 10) mod 10), 4)), HEX1(6 downto 0));
   digit4 : sevsegxdec port map (std_logic_vector(to_unsigned((playerScore mod 10), 4)), HEX4(6 downto 0));
   digit5 : sevsegxdec port map (std_logic_vector(to_unsigned(((playerScore / 10) mod 10), 4)), HEX5(6 downto 0));
 
   process(CLK)
-  begin
+  begin -- make noises and update display
     if(CLK'event and CLK = '0')then
 		if (collblip = '1') or (blip = '1') then
 			if (blipcnt < 5000000) then
@@ -329,73 +333,13 @@ begin
           scrData <= std_logic_vector(to_unsigned(unit2, scrdata'length));
           nwr     <= '1';
         end if;
--- net
+-- draw the net
 		  if (charpos > 400) and ((charpos MOD 80) = 40) and (charpos < 3160) then
           scrData <= char2std('|');
           nwr     <= '1';
         end if;
---		  if (charpos = 541) then
---          scrData <= x"a1";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 542) then
---          scrData <= x"a2";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 543) then
---          scrData <= x"a3";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 544) then
---          scrData <= x"a4";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 545) then
---          scrData <= x"a5";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 546) then
---          scrData <= x"a6";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 547) then
---          scrData <= x"a7";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 548) then
---          scrData <= x"a8";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 549) then
---          scrData <= x"a9";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 550) then
---          scrData <= x"aa";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 551) then
---          scrData <= x"ab";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 552) then
---          scrData <= x"ac";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 553) then
---          scrData <= x"ad";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 554) then
---          scrData <= x"ae";
---          nwr     <= '1';
---        end if;
---		  if (charpos = 555) then
---          scrData <= x"af";
---          nwr     <= '1';
---        end if;
 
-        charpos    <= charpos + 1;
+		  charpos    <= charpos + 1;
         scrAddress <= std_logic_vector(to_unsigned(charpos, scraddress'length));
       end if;
       if (keys(9) = '1') then
@@ -490,9 +434,9 @@ begin
     end if;
   end process;
   process (vsync)
-  begin  -- move or scale stuff
+  begin  -- move stuff and check for collisions
     if (vsync'event and vsync = '0') then
-		if (collblip = '1') then collblip <= '0'; end if;
+		if (collblip = '1') then collblip <= '0'; end if; -- end all audio bloops
 		if (collblop = '1') then collblop <= '0'; end if;
 		if (sideblip = '1') then sideblip <= '0'; end if;
       if ((bl_x1 < 32) and ((BL_y1 - p_y1) > 0) 
@@ -584,8 +528,6 @@ begin
       end if;
 		counter <= counter + 1;
 		if (counter = 50) then
---			collblip <= '0';
---			collblop <= '0';
 			counter <= 0;
 			led(0) <= flash;
 			flash <= not flash;
