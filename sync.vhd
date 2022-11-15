@@ -31,6 +31,17 @@ end SYNC;
 
 
 architecture MAIN of SYNC is
+	component paddles is
+		port (
+			-- Clocks
+			MAX10_CLK1_50   : in std_logic;
+			-- KEY
+			reset           : in std_logic;
+			-- paddle postioins from adc
+			player1			 : out std_logic_vector(7 downto 0);
+			player2			 : out std_logic_vector(7 downto 0)
+		);
+	end component paddles;
   component quadrature_decoder is
     port(
       clk          : in     std_logic;  --system clock
@@ -131,7 +142,9 @@ architecture MAIN of SYNC is
   signal playerScore2                : integer range 0 to 9999 := 0;
   signal direction1                  : std_logic;
   signal position1                   : integer;
+  signal paddlepos1                  : std_logic_vector(7 downto 0); --
   signal direction2                  : std_logic;
+  signal paddlepos2                  : std_logic_vector(7 downto 0); --
   signal position2                   : integer;
   signal bl_xdelta                   : integer range -4 to 4   := 1;
   signal bl_ydelta                   : integer range -4 to 4   := 1;
@@ -170,8 +183,12 @@ begin
   txtscr : txtScreen
     port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
 -- Get the current paddle positions
-  paddleLeft  : quadrature_decoder port map (clk, encoder1(0), encoder1(1), not s(1), direction1, position1);
-  paddleRight : quadrature_decoder port map (clk, encoder2(0), encoder2(1), not s(1), direction2, position2);
+--  paddleLeft  : quadrature_decoder port map (clk, encoder1(0), encoder1(1), not s(1), direction1, position1);
+--  paddleRight : quadrature_decoder port map (clk, encoder2(0), encoder2(1), not s(1), direction2, position2);
+	paddlePositions : paddles port map (clk, S(0), paddlepos1, paddlepos2);
+	position1 <= (to_integer(unsigned(paddlepos1)));
+	position2 <= (to_integer(unsigned(paddlepos2)));
+
 -- Enumarate the digits of the scores
   thousands  <= 48 + ((playerScore / 1000) mod 10);
   hundreds   <= 48 + ((playerScore / 100) mod 10);
@@ -392,8 +409,8 @@ begin
 		  GRIDG <= (others => '0');
 		  GRIDB <= (others => '0');
 		end if;
-      P_y1 <= position1 * 8;
-      p_y2 <= position2 * 8;
+      P_y1 <= position1*3/2 + 40;
+      p_y2 <= position2*3/2 + 40;
       if(HPOS < h_pixels + h_fp + h_pulse + h_bp)then
         HPOS <= HPOS+1;
       else
@@ -485,7 +502,7 @@ begin
                   bl_ydelta <= ballSpeed * (1);
 
                 else
-                  bl_ydelta <= ballSpeed * (2);
+                  bl_ydelta <= ballSpeed  * (2);
                 end if;
               end if;
             end if;
