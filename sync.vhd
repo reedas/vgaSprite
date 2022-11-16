@@ -104,8 +104,8 @@ architecture MAIN of SYNC is
   signal collblip                    : std_logic;
   signal collblop                    : std_logic;
   signal sideblip                    : std_logic;
-  signal BL_X1                       : integer range 0 to 639  := 400;
-  signal BL_Y1                       : integer range 0 to 479  := 400;
+  signal BL_X1                       : integer range 0 to 639  := 280;
+  signal BL_Y1                       : integer range 0 to 479  := 220;
   signal nBlanking                   : std_logic               := '1';
   signal txtRGB                      : std_logic;
   signal scrAddress                  : std_logic_vector(11 downto 0);
@@ -140,19 +140,21 @@ architecture MAIN of SYNC is
   signal flash                       : std_logic;
   signal scaleP                      : integer range 1 to 32   := 8; -- paddle scaling
   signal scaleBL                     : integer range 1 to 32   := 2; -- ball scaling
-  signal playerScore                 : integer range 0 to 9999 := 0;
-  signal playerScore2                : integer range 0 to 9999 := 0;
+  signal player1score                 : integer range 0 to 9999 := 0;
+  signal player2score                : integer range 0 to 9999 := 0;
   signal direction1                  : std_logic;
+  signal player1serve                : std_logic 					:= '1';
+  signal player2serve                : std_logic					:= '0';
   signal position1                   : integer;
   signal paddlepos1                  : std_logic_vector(7 downto 0); --
   signal direction2                  : std_logic;
   signal paddlepos2                  : std_logic_vector(7 downto 0); --
   signal position2                   : integer;
-  signal bl_xdelta                   : integer range -4 to 4   := 1;
-  signal bl_ydelta                   : integer range -4 to 4   := 1;
+  signal bl_xdelta                   : integer range -20 to 20   := 1;
+  signal bl_ydelta                   : integer range -20 to 20   := 1;
   signal collision                   : integer range 0 to 1    := 0;
   signal current_dir                 : integer range -1 to 1   := 1;
-  signal ballSpeed                   : integer range 1 to 10   := 1;
+  signal ballSpeed                   : integer range 1 to 20   := 1;
   signal audioblip, audioblop			 : std_logic;
   signal audiobloop			          : std_logic;
 -- sprite for paddles
@@ -192,24 +194,24 @@ begin
 	position2 <= (to_integer(unsigned(paddlepos2)));
 
 -- Enumarate the digits of the scores
-  thousands  <= 48 + ((playerScore / 1000) mod 10);
-  hundreds   <= 48 + ((playerScore / 100) mod 10);
-  tens       <= 48 + ((playerScore / 10) mod 10);
-  unit       <= 48 + (playerScore mod 10);
-  thousands2 <= 48 + ((playerScore2 / 1000) mod 10);
-  hundreds2  <= 48 + ((playerScore2 / 100) mod 10);
-  tens2      <= 48 + ((playerScore2 / 10) mod 10);
-  unit2      <= 48 + (playerScore2 mod 10);
+  thousands  <= 48 + ((player1score / 1000) mod 10); -- probably won't need to go to 9999
+  hundreds   <= 48 + ((player1score / 100) mod 10);
+  tens       <= 48 + ((player1score / 10) mod 10);
+  unit       <= 48 + (player1score mod 10);
+  thousands2 <= 48 + ((player2score / 1000) mod 10);
+  hundreds2  <= 48 + ((player2score / 100) mod 10);
+  tens2      <= 48 + ((player2score / 10) mod 10);
+  unit2      <= 48 + (player2score mod 10);
 -- Draw all sprites
   SPR(HPOS, VPOS, P_X1, P_Y1, paddle, scaleP, DRAW0);
   SPR(HPOS, VPOS, P_X2, P_Y2, paddle, scaleP, DRAW1);
   SP(HPOS, VPOS, BL_X1, BL_Y1, ball, scaleBL, DRAWBL);
   
 -- update seven segment displays with score
-  digit0 : sevsegxdec port map (std_logic_vector(to_unsigned((playerScore2 mod 10), 4)), HEX0(6 downto 0));
-  digit1 : sevsegxdec port map (std_logic_vector(to_unsigned(((playerScore2 / 10) mod 10), 4)), HEX1(6 downto 0));
-  digit4 : sevsegxdec port map (std_logic_vector(to_unsigned((playerScore mod 10), 4)), HEX4(6 downto 0));
-  digit5 : sevsegxdec port map (std_logic_vector(to_unsigned(((playerScore / 10) mod 10), 4)), HEX5(6 downto 0));
+  digit0 : sevsegxdec port map (std_logic_vector(to_unsigned((player2score mod 10), 4)), HEX0(6 downto 0));
+  digit1 : sevsegxdec port map (std_logic_vector(to_unsigned(((player2score / 10) mod 10), 4)), HEX1(6 downto 0));
+  digit4 : sevsegxdec port map (std_logic_vector(to_unsigned((player1score mod 10), 4)), HEX4(6 downto 0));
+  digit5 : sevsegxdec port map (std_logic_vector(to_unsigned(((player1score / 10) mod 10), 4)), HEX5(6 downto 0));
 
   process(CLK)
   begin -- make noises and update display
@@ -321,35 +323,35 @@ begin
           scrData <= char2std('2');
           nwr     <= '1';
         end if;
-        if (charpos = 84) then
-          scrData <= std_logic_vector(to_unsigned(thousands, scrData'length));
-          nwr     <= '1';
-        end if;
-        if (charpos = 85) then
-          scrData <= std_logic_vector(to_unsigned(hundreds, scrdata'length));
-          nwr     <= '1';
-        end if;
-        if (charpos = 86) then
+--        if (charpos = 84) then
+--          scrData <= std_logic_vector(to_unsigned(thousands, scrData'length));
+--          nwr     <= '1';
+--        end if;
+--        if (charpos = 85) then
+--          scrData <= std_logic_vector(to_unsigned(hundreds, scrdata'length));
+--          nwr     <= '1';
+--        end if;
+        if (charpos = 87) then
           scrData <= std_logic_vector(to_unsigned(tens, scrdata'length));
           nwr     <= '1';
         end if;
-        if (charpos = 87) then
+        if (charpos = 88) then
           scrData <= std_logic_vector(to_unsigned(unit, scrdata'length));
           nwr     <= '1';
         end if;
-        if (charpos = 152) then
-          scrData <= std_logic_vector(to_unsigned(thousands2, scrData'length));
-          nwr     <= '1';
-        end if;
+--        if (charpos = 152) then
+--          scrData <= std_logic_vector(to_unsigned(thousands2, scrData'length));
+--          nwr     <= '1';
+--        end if;
+--        if (charpos = 153) then
+--          scrData <= std_logic_vector(to_unsigned(hundreds2, scrdata'length));
+--          nwr     <= '1';
+--        end if;
         if (charpos = 153) then
-          scrData <= std_logic_vector(to_unsigned(hundreds2, scrdata'length));
-          nwr     <= '1';
-        end if;
-        if (charpos = 154) then
           scrData <= std_logic_vector(to_unsigned(tens2, scrdata'length));
           nwr     <= '1';
         end if;
-        if (charpos = 155) then
+        if (charpos = 154) then
           scrData <= std_logic_vector(to_unsigned(unit2, scrdata'length));
           nwr     <= '1';
         end if;
@@ -363,9 +365,9 @@ begin
         scrAddress <= std_logic_vector(to_unsigned(charpos, scraddress'length));
       end if;
       if (keys(9) = '1') then -- selectable ball speed
-        ballSpeed <= 2;
+        ballSpeed <= 4;
       else
-        ballSpeed <= 1;
+        ballSpeed <= 2;
       end if;
       if(DRAWBL = '1')then -- draw the ball sprite
         RBL <= (others => '1');
@@ -511,39 +513,56 @@ begin
             end if;
           end if;
         else
-
-          if bl_x1 >= (h_pixels - scalebl*5) then
-            bl_xdelta   <= ballSpeed *(-1);
-            bl_x1       <= 380;
-            playerScore <= playerScore + 1;
-				collblop <= '1';
-				led(6) <= '1';
-          else
-            if bl_x1 < 5*scalebl then
-              bl_xdelta    <= ballSpeed;
-              bl_x1        <= 280;
-              playerScore2 <= playerScore2 + 1;
-				  collblop <= '1';
-				  led(6) <= '1';
-            else
-              bl_x1 <= bl_x1 + bl_xdelta;
-            end if;
-          end if;
+				if (player1serve = '0') AND (player2serve = '0') then
+					if bl_x1 >= (h_pixels - scalebl*5) then -- player2 loses ball
+						bl_xdelta   <= ballSpeed *(-1);
+						bl_x1       <= 580;
+						if player1score = 14 then -- game over player 1 wins 14+1 == 15
+							player1score <= 0;
+							player2score <= 0;
+						else
+							player1score <= player1score + 1;
+						end if;
+						player2serve <='1';
+						collblop <= '1';
+						led(6) <= '1';
+				
+					elsif bl_x1 < 5*scalebl then  -- player1 loses ball
+						bl_xdelta    <= ballSpeed;
+						bl_x1        <= 60;
+						if player2score = 14 then -- game over player 2 wins
+							player2score <= 0;
+							player1score <= 0;
+						else
+							player2score <= player2score + 1;
+						end if;
+						player1serve <='1';
+						collblop <= '1';
+						led(6) <= '1';
+					else
+						bl_x1 <= bl_x1 + bl_xdelta; -- ball is in play or being bounced prior to serving
+					end if;
+				else -- someone has to serve the ball
+					if (P_y1 > 400) and (player1serve = '1') then
+						player1serve <= '0';
+					elsif (P_y2 > 400) and (player2serve = '1') then
+						player2serve <= '0';
+					end if;
+				end if;
         end if;
-        if ((bl_y1 <= 51 + 4*scalebl)) then
+        if ((bl_y1 <= 60)) then
           bl_ydelta <= abs (bl_ydelta);
-          bl_y1     <= 51 + 6*scaleBl;
+          bl_y1     <= 64;
 			 sideblip <= '1';
 
-        else
-          if (bl_y1 >= (v_pixels - 10 - 4*scalebl)) then
+        elsif (bl_y1 >= (v_pixels - 10 - 4*scalebl)) then
             bl_ydelta <= bl_ydelta *(-1);
             bl_y1     <= v_pixels - 10 - 6*scalebl;
 				sideblip <= '1';
-          else
+        else
             bl_y1 <= bl_y1 + bl_ydelta;
 
-          end if;
+        
         end if;
       end if;
 		counter <= counter + 1; -- led light feedback for debugging sounds etc
