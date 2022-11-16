@@ -104,7 +104,7 @@ architecture MAIN of SYNC is
   signal collblip                    : std_logic;
   signal collblop                    : std_logic;
   signal sideblip                    : std_logic;
-  signal BL_X1                       : integer range 0 to 639  := 280;
+  signal BL_X1                       : integer range 0 to 639  := 60;
   signal BL_Y1                       : integer range 0 to 479  := 220;
   signal nBlanking                   : std_logic               := '1';
   signal txtRGB                      : std_logic;
@@ -112,8 +112,8 @@ architecture MAIN of SYNC is
   signal charpos                     : integer range 0 to 4191 := 0;
   signal thousands                   : integer range 0 to 255  := 0;
   signal hundreds                    : integer range 0 to 255  := 0;
-  signal tens                        : integer range 0 to 255  := 0;
-  signal unit                        : integer range 0 to 255  := 0;
+  signal tens1                        : integer range 0 to 255  := 0;
+  signal unit1                        : integer range 0 to 255  := 0;
   signal thousands2                  : integer range 0 to 255  := 0;
   signal hundreds2                   : integer range 0 to 255  := 0;
   signal tens2                       : integer range 0 to 255  := 0;
@@ -150,11 +150,11 @@ architecture MAIN of SYNC is
   signal direction2                  : std_logic;
   signal paddlepos2                  : std_logic_vector(7 downto 0); --
   signal position2                   : integer;
-  signal bl_xdelta                   : integer range -20 to 20   := 1;
-  signal bl_ydelta                   : integer range -20 to 20   := 1;
+  signal bl_xdelta                   : integer range -20 to 20   := 2;
+  signal bl_ydelta                   : integer range -20 to 20   := 2;
   signal collision                   : integer range 0 to 1    := 0;
   signal current_dir                 : integer range -1 to 1   := 1;
-  signal ballSpeed                   : integer range 1 to 20   := 1;
+  signal ballSpeed                   : integer range 1 to 20   := 2;
   signal audioblip, audioblop			 : std_logic;
   signal audiobloop			          : std_logic;
 -- sprite for paddles
@@ -184,8 +184,8 @@ architecture MAIN of SYNC is
 begin
 -- There are effectively two displays overlayed over each other an 80 column 24 line text display
 -- and the hardware sprites for paddles and ball
-  txtscr : txtScreen
-    port map (hpos, vpos, scrAddress, scrData, nWr, Clk, nBlanking, txtRGB);
+  txtscr : txtScreen -- memory mapped screen display for 80 x 24 ascii characters
+    port map (hpos, vpos, scrAddress, scrData, nWr, clk, nBlanking, txtRGB);
 -- Get the current paddle positions
 --  paddleLeft  : quadrature_decoder port map (clk, encoder1(0), encoder1(1), not s(1), direction1, position1);
 --  paddleRight : quadrature_decoder port map (clk, encoder2(0), encoder2(1), not s(1), direction2, position2);
@@ -196,8 +196,8 @@ begin
 -- Enumarate the digits of the scores
   thousands  <= 48 + ((player1score / 1000) mod 10); -- probably won't need to go to 9999
   hundreds   <= 48 + ((player1score / 100) mod 10);
-  tens       <= 48 + ((player1score / 10) mod 10);
-  unit       <= 48 + (player1score mod 10);
+  tens1       <= 48 + ((player1score / 10) mod 10);
+  unit1       <= 48 + (player1score mod 10);
   thousands2 <= 48 + ((player2score / 1000) mod 10);
   hundreds2  <= 48 + ((player2score / 100) mod 10);
   tens2      <= 48 + ((player2score / 10) mod 10);
@@ -331,12 +331,12 @@ begin
 --          scrData <= std_logic_vector(to_unsigned(hundreds, scrdata'length));
 --          nwr     <= '1';
 --        end if;
-        if (charpos = 87) then
-          scrData <= std_logic_vector(to_unsigned(tens, scrdata'length));
+        if (charpos = 85) then
+          scrData <= std_logic_vector(to_unsigned(tens1, scrdata'length));
           nwr     <= '1';
         end if;
-        if (charpos = 88) then
-          scrData <= std_logic_vector(to_unsigned(unit, scrdata'length));
+        if (charpos = 86) then
+          scrData <= std_logic_vector(to_unsigned(unit1, scrdata'length));
           nwr     <= '1';
         end if;
 --        if (charpos = 152) then
