@@ -242,7 +242,8 @@ begin
 			  led(8) <= '0';
 			  blopcnt <= 0;
 			end if;
-		end if;		if (sideblip = '1') or (bloop = '1') then
+		end if;
+		if (sideblip = '1') or (bloop = '1') then
 			if (bloopcnt < 5000000) then
 			  bloopcnt <= bloopcnt + 1;
 			  if ((bloopcnt mod 50000) = 0) then
@@ -262,7 +263,7 @@ begin
         cycle <= '1';
         nwr   <= '0';
       end if;
-      if (cycle = '1') then
+      if (cycle = '1') then -- complete write to screen ram cycles 
         cycle <= '0';
 		  if (charpos = 2) then
           scrData <= char2std('P');
@@ -361,12 +362,12 @@ begin
 		  charpos    <= charpos + 1;
         scrAddress <= std_logic_vector(to_unsigned(charpos, scraddress'length));
       end if;
-      if (keys(9) = '1') then
+      if (keys(9) = '1') then -- selectable ball speed
         ballSpeed <= 2;
       else
         ballSpeed <= 1;
       end if;
-      if(DRAWBL = '1')then
+      if(DRAWBL = '1')then -- draw the ball sprite
         RBL <= (others => '1');
         GBL <= (others => '1');
         BBL <= (others => '1');
@@ -375,7 +376,7 @@ begin
         GBL <= (others => '0');
         BBL <= (others => '0');
       end if;
-      if(DRAW0 = '1')then
+      if(DRAW0 = '1')then -- draw the player 1 paddle
         RD0 <= (others => '1');
         GD0 <= (others => '0');
         BD0 <= (others => '1');
@@ -384,7 +385,7 @@ begin
         GD0 <= (others => '0');
         BD0 <= (others => '0');
       end if;
-      if(DRAW1 = '1')then
+      if(DRAW1 = '1')then -- draw the player 2 paddle
         RD1 <= (others => '0');
         GD1 <= (others => '1');
         BD1 <= (others => '1');
@@ -393,7 +394,7 @@ begin
         GD1 <= (others => '0');
         BD1 <= (others => '0');
       end if;
-      if (txtRGB = '1') then
+      if (txtRGB = '1') then -- add the text screen
         RT <= (others => '1');
         GT <= (others => '1');
         BT <= (others => '1');
@@ -402,7 +403,7 @@ begin
         GT <= (others => '0');
         BT <= (others => '0');
       end if;
-		if (VPOS = 50) or (VPOS = (v_pixels - 7)) then
+		if (VPOS = 50) or (VPOS = (v_pixels - 7)) then -- draw the side walls
 		  GRIDR <= (others => '1');
 		  GRIDG <= (others => '1');
 		  GRIDB <= (others => '1');
@@ -411,8 +412,8 @@ begin
 		  GRIDG <= (others => '0');
 		  GRIDB <= (others => '0');
 		end if;
-      P_y1 <= position1*3/2 + 40;
-      p_y2 <= position2*3/2 + 40;
+      P_y1 <= position1*3/2 + 40; -- encoder/potentiometer positioning the paddle for player 1
+      p_y2 <= position2*3/2 + 40; -- encoder/potentiometer positioning the paddle for player 2
       if(HPOS < h_pixels + h_fp + h_pulse + h_bp)then
         HPOS <= HPOS+1;
       else
@@ -423,7 +424,7 @@ begin
           VPOS <= 0;
         end if;
       end if;
-      if((HPOS > h_pixels) or (VPOS > v_pixels))then
+      if((HPOS > h_pixels) or (VPOS > v_pixels))then 
         R         <= (others => '0');
         G         <= (others => '0');
         B         <= (others => '0');
@@ -434,25 +435,25 @@ begin
         B         <= BD0 or BD1 or BBL or GRIDB or BT;
         nBlanking <= '1';
       end if;
-      if(HPOS > (h_pixels + h_fp) and HPOS < (h_pixels + h_fp + h_pulse))then  ----HSYNC
+      if(HPOS > (h_pixels + h_fp) and HPOS < (h_pixels + h_fp + h_pulse))then  -- HSYNC goes low
         ooHSYNC <= '0';
         hsync   <= oohsync;
-      else
+      else -- Hsync goes high
         ooHSYNC <= '1';
         hsync   <= oohsync;
       end if;
-      if (vpos > (v_pixels + v_fp) and VPOS < (v_pixels + v_fp + v_pulse))then  ----------vsync
+      if (vpos > (v_pixels + v_fp) and VPOS < (v_pixels + v_fp + v_pulse))then  -- Vsync goes low
         oovSYNC <= '0';
         vsync   <= oovsync;
 
-      else
+      else --Vsync goes high
         ooVSYNC <= '1';
         vsync   <= oovsync;
 
       end if;
     end if;
   end process;
-  process (vsync)
+  process (vsync) -- display is in blanking so do stuff to avoid interference on display
   begin  -- move stuff and check for collisions
     if (vsync'event and vsync = '0') then
 		if (collblip = '1') then collblip <= '0'; end if; -- end all audio bloops
@@ -545,7 +546,7 @@ begin
           end if;
         end if;
       end if;
-		counter <= counter + 1;
+		counter <= counter + 1; -- led light feedback for debugging sounds etc
 		if (counter = 50) then
 			counter <= 0;
 			led(0) <= flash;
