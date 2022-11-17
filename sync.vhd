@@ -523,40 +523,41 @@ begin
 							hex5(7) <= '0'; -- indicate player 1 won the game
 						else
 							player1score <= player1score + 1;
-							hex1(7) <= '0'; -- player 1 to serve
 						end if;
 						player2serve <='1';
-						hex5(7) <= '1'; -- turn off player 1 won last game
-						hex4(7) <= '1'; -- turn off player 1 serve request
+						hex1(7) <= '0'; -- player 2 to serve
 						collblop <= '1';
 						led(6) <= '1';
 				
 					elsif bl_x1 < 5*scalebl then  -- player1 loses ball
 						bl_xdelta    <= ballSpeed;
-						bl_x1        <= 60;
+						bl_x1        <= 60; -- start from serving position for ball
 						if player2score = 14 then -- game over player 2 wins
 							player2score <= 0;
 							player1score <= 0;
-							hex0(7) <= '0'; -- player 2 wins game
+							hex0(7) <= '0'; -- player 2 wins game indicator
 						else
 							player2score <= player2score + 1;
-							hex5(7) <= '1'; 
 						end if;
 						player1serve <='1';
+						hex4(7) <= '0'; -- player 1 to serve
 						collblop <= '1';
 						led(6) <= '1';
-						hex1(7) <= '1'; -- turn off player 2 serve request
-						hex0(7) <= '1'; -- turn off player 2 won last game
 					else
 						bl_x1 <= bl_x1 + bl_xdelta; -- ball is in play or being bounced prior to serving
 					end if;
 				else -- someone has to serve the ball
 					if (P_y1 > 400) and (player1serve = '1') then
 						player1serve <= '0';
-						hex5(7) <= '1';
+						hex4(7) <= '1'; -- player 1 has served the ball
+						hex0(7) <= '1'; -- player 2 win cleared
+						hex5(7) <= '1'; -- player 1 win cleared
+
 					elsif (P_y2 > 400) and (player2serve = '1') then
 						player2serve <= '0';
-						hex0(7) <= '1';
+						hex1(7) <= '1'; -- player 2 has served the ball
+						hex0(7) <= '1'; -- player 2 win cleared
+						hex5(7) <= '1'; -- player 1 win cleared
 					end if;
 				end if;
         end if;
