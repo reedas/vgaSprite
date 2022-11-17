@@ -155,6 +155,10 @@ architecture MAIN of SYNC is
   signal collision                   : integer range 0 to 1    := 0;
   signal current_dir                 : integer range -1 to 1   := 1;
   signal ballSpeed                   : integer range 1 to 20   := 2;
+  signal gamespl1							 : integer range 0 to 5 	:= 0;
+  signal gamespl2							 : integer range 0 to 5 	:= 0;
+  signal matchpl1							 : std_logic					:= '0';
+  signal matchpl2							 : std_logic					:= '0';
   signal audioblip, audioblop			 : std_logic;
   signal audiobloop			          : std_logic;
 -- sprite for paddles
@@ -551,12 +555,10 @@ begin
 						player1serve <= '0';
 						hex4(7) <= '1'; -- player 1 has served the ball
 						hex0(7) <= '1'; -- player 2 win cleared
-						hex5(7) <= '1'; -- player 1 win cleared
 
 					elsif (P_y2 > 400) and (player2serve = '1') then
 						player2serve <= '0';
 						hex1(7) <= '1'; -- player 2 has served the ball
-						hex0(7) <= '1'; -- player 2 win cleared
 						hex5(7) <= '1'; -- player 1 win cleared
 					end if;
 				end if;
