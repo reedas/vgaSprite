@@ -139,6 +139,10 @@ architecture MAIN of SYNC is
   signal player2score         : integer range 0 to 99        := 0;
   signal player1games         : integer range 0 to 99        := 0;
   signal player2games         : integer range 0 to 99        := 0;
+	signal player1gamept				:	std_logic										 := '0';
+	signal player2gamept				:	std_logic										 := '0';
+	signal player1matchpt				:	std_logic										 := '0';
+	signal player2matchpt				:	std_logic										 := '0';
   signal direction1           : std_logic;
   signal player1serve         : std_logic                    := '1';
   signal player2serve         : std_logic                    := '0';
@@ -179,7 +183,7 @@ architecture MAIN of SYNC is
      '0', '0', '1', '1', '1', '1', '1', '1', '0', '0',
      '0', '0', '0', '0', '1', '1', '0', '0', '0', '0');
 begin
--- There are effectively two displays overlayed over each other an 80 column 24 line text display
+-- There are effectively two displays overlayed over each other an 80 column 40 line text display
 -- and the hardware sprites for paddles and ball
   txtscr : txtScreen  -- memory mapped screen display for 80 x 24 ascii characters
     port map (hpos, vpos, scrAddress, scrData, nWr, clk, nBlanking, txtRGB);
@@ -259,7 +263,7 @@ begin
         cycle <= '1';
         nwr   <= '0';
       end if;
-      if (cycle = '1') then             -- complete write to screen ram cycles 
+      if (cycle = '1') then             -- complete write to screen ram cycles if something is to be written
         cycle <= '0';
         if (charpos = 2) then
           scrData <= char2std('P');
@@ -325,7 +329,6 @@ begin
           scrData <= std_logic_vector(to_unsigned(unit1, scrdata'length));
           nwr     <= '1';
         end if;
-
         if (charpos = 153) then
           scrData <= std_logic_vector(to_unsigned(tens2, scrdata'length));
           nwr     <= '1';
@@ -334,6 +337,224 @@ begin
           scrData <= std_logic_vector(to_unsigned(unit2, scrdata'length));
           nwr     <= '1';
         end if;
+
+				if (player1gamept = '1') or (player1matchpt = '1') then
+					if (player1matchpt = '1') then
+						if (charpos = 162) then
+							scrData <= char2std('M');
+							nwr     <= '1';
+						end if;
+						if (charpos = 163) then
+							scrData <= char2std('a');
+							nwr     <= '1';
+						end if;
+						if (charpos = 164) then
+							scrData <= char2std('t');
+							nwr     <= '1';
+						end if;
+						if (charpos = 165) then
+							scrData <= char2std('c');
+							nwr     <= '1';
+						end if;
+						if (charpos = 166) then
+							scrData <= char2std('h');
+							nwr     <= '1';
+						end if;				
+					elsif (player1gamept = '1') then
+						if (charpos = 162) then
+							scrData <= char2std('G');
+							nwr     <= '1';
+						end if;
+						if (charpos = 163) then
+							scrData <= char2std('a');
+							nwr     <= '1';
+						end if;
+						if (charpos = 164) then
+							scrData <= char2std('m');
+							nwr     <= '1';
+						end if;
+						if (charpos = 165) then
+							scrData <= char2std('e');
+							nwr     <= '1';
+						end if;
+						if (charpos = 166) then
+							scrData <= char2std(' ');
+							nwr     <= '1';
+						end if;
+					end if;
+					if (charpos = 242) then
+						scrData <= char2std('P');
+						nwr     <= '1';
+					end if;
+					if (charpos = 243) then
+            scrData <= char2std('o');
+            nwr     <= '1';
+          end if;
+          if (charpos = 244) then
+            scrData <= char2std('i');
+            nwr     <= '1';
+          end if;
+          if (charpos = 245) then
+            scrData <= char2std('n');
+            nwr     <= '1';
+          end if;
+          if (charpos = 246) then
+            scrData <= char2std('t');
+            nwr     <= '1';
+          end if;
+        else 
+					if (charpos = 162) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 163) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+          if (charpos = 164) then
+            scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 165) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 166) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 242) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 243) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+          if (charpos = 244) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+          if (charpos = 245) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+          if (charpos = 246) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+				end if;
+				if (player2gamept = '1') or (player2matchpt = '1') then
+					if (player2matchpt = '1') then
+						if (charpos = 232) then
+							scrData <= char2std('M');
+							nwr     <= '1';
+						end if;
+						if (charpos = 233) then
+							scrData <= char2std('a');
+							nwr     <= '1';
+						end if;
+						if (charpos = 234) then
+							scrData <= char2std('t');
+							nwr     <= '1';
+						end if;
+						if (charpos = 235) then
+							scrData <= char2std('c');
+							nwr     <= '1';
+						end if;
+						if (charpos = 236) then
+							scrData <= char2std('h');
+							nwr     <= '1';
+						end if;				
+					elsif (player2gamept = '1') then
+						if (charpos = 232) then
+							scrData <= char2std('G');
+							nwr     <= '1';
+						end if;
+						if (charpos = 233) then
+							scrData <= char2std('a');
+							nwr     <= '1';
+						end if;
+						if (charpos = 234) then
+							scrData <= char2std('m');
+							nwr     <= '1';
+						end if;
+						if (charpos = 235) then
+							scrData <= char2std('e');
+							nwr     <= '1';
+						end if;
+						if (charpos = 236) then
+							scrData <= char2std(' ');
+							nwr     <= '1';
+						end if;
+					end if;
+					if (charpos = 312) then
+						scrData <= char2std('P');
+						nwr     <= '1';
+					end if;
+					if (charpos = 313) then
+            scrData <= char2std('o');
+            nwr     <= '1';
+          end if;
+          if (charpos = 314) then
+            scrData <= char2std('i');
+            nwr     <= '1';
+          end if;
+          if (charpos = 315) then
+            scrData <= char2std('n');
+            nwr     <= '1';
+          end if;
+          if (charpos = 316) then
+            scrData <= char2std('t');
+            nwr     <= '1';
+          end if;
+				else
+					if (charpos = 312) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 313) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+          if (charpos = 314) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+          if (charpos = 315) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+          if (charpos = 316) then
+            scrData <= char2std(' ');
+            nwr     <= '1';
+          end if;
+					if (charpos = 232) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 233) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 234) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 235) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+					if (charpos = 236) then
+						scrData <= char2std(' ');
+						nwr     <= '1';
+					end if;
+        end if;
+				
+--        if (charpos > 400) and ((charpos mod 80) = 22) and (charpos < 3240) then
+--          scrData <= std_logic_vector(to_unsigned((charpos / 80) + 32, scrdata'length)) ;
+--					nwr     <= '1';
+--        end if;
 -- draw the net
         if (charpos > 400) and ((charpos mod 80) = 40) and (charpos < 3160) then
           scrData <= char2std('|');
@@ -481,29 +702,46 @@ begin
             if bl_x1 >= (h_pixels - scalebl*5) then  -- player2 loses ball
               bl_xdelta <= ballSpeed *(-1);
               bl_x1     <= 580;
-              if player1score = 14 then  -- game over player 1 wins 14+1 == 15
+							player1score <= player1score + 1;
+					    if player1score = 14 then  -- game over player 1 wins 14+1 == 15
                 player1score <= 0;
                 player2score <= 0;
                 player1games <= player1games + 1;
+								player1gamept <= '0';
+								player2gamept <= '0';
+								player1matchpt <= '0';
+								player2matchpt <= '0';
                 hex5(7)      <= '0';    -- indicate player 1 won the game
-              else
-                player1score <= player1score + 1;
+              elsif player1score = 13 then
+								if player1games = 2 then
+								  player1matchpt <= '1';
+								else
+								  player1gamept <= '1';
+								end if;
               end if;
               player2serve <= '1';
               hex1(7)      <= '0';      -- player 2 to serve
               collblop     <= '1';
               led(6)       <= '1';
-
             elsif bl_x1 < 5*scalebl then   -- player1 loses ball
               bl_xdelta <= ballSpeed;
-              bl_x1     <= 60;          -- start from serving position for ball
+              player2score <= player2score + 1;
+							bl_x1     <= 60;          -- start from serving position for ball
               if player2score = 14 then    -- game over player 2 wins
                 player2score <= 0;
                 player1score <= 0;
+								player1gamept <= '0';
+								player2gamept <= '0';
+								player1matchpt <= '0';
+								player2matchpt <= '0';
                 player2games <= player2games + 1;
                 hex0(7)      <= '0';    -- player 2 wins game indicator
-              else
-                player2score <= player2score + 1;
+              elsif player2score = 13 then
+								if player2games = 2 then
+									player2matchpt <= '1';
+								else								
+									player2gamept <= '1';
+								end if;
               end if;
               player1serve <= '1';
               hex4(7)      <= '0';      -- player 1 to serve
