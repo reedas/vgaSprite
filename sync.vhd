@@ -111,6 +111,8 @@ architecture MAIN of SYNC is
   signal unit1                : integer range 0 to 255       := 0;
   signal tens2                : integer range 0 to 255       := 0; -- player 2 BCD score
   signal unit2                : integer range 0 to 255       := 0;
+  signal games1               : integer range 0 to 255       := 0; -- player 2 BCD score
+  signal games2               : integer range 0 to 255       := 0;
   signal scrData              : std_logic_vector(7 downto 0); -- data for screen memory location pointed to by scraddress
   signal nWr                  : std_logic;	-- write memory strobe
   signal RD0                  : std_logic_vector(3 downto 0);  -- Player 1 
@@ -142,6 +144,9 @@ architecture MAIN of SYNC is
 	signal player1matchpt				:	std_logic										 := '0';	-- players match point indicator
 	signal player2matchpt				:	std_logic										 := '0';
   signal direction1           : std_logic;														-- quadrature decoder direction (up or down)
+	signal gameover							: std_logic										 := '0';
+	signal player1wins					: std_logic										 := '0';
+	signal player2wins					: std_logic										 := '0';
   signal direction2           : std_logic;
   signal player1serve         : std_logic                    := '1'; -- which player is about to serve
   signal player2serve         : std_logic                    := '0';
@@ -197,6 +202,8 @@ begin
   unit1 <= 48 + (player1score mod 10);
   tens2 <= 48 + ((player2score / 10) mod 10);
   unit2 <= 48 + (player2score mod 10);
+	games1 <= 48 + player1games mod 10;
+	games2 <= 48 + player2games mod 10;
 -- Draw all sprites
   SPR(HPOS, VPOS, P_X1, P_Y1, paddle, scaleP, DRAW0);
   SPR(HPOS, VPOS, P_X2, P_Y2, paddle, scaleP, DRAW1);
@@ -335,7 +342,35 @@ begin
           scrData <= std_logic_vector(to_unsigned(unit2, scrdata'length));
           nwr     <= '1';
         end if;
-
+        if (charpos = 278) then
+          scrData <= std_logic_vector(to_unsigned(games1, scrdata'length));
+          nwr     <= '1';
+        end if;
+				if (charpos = 280) then
+					scrdata <= char2std('-');
+					nwr <= '1';
+				end if;
+        if (charpos = 282) then
+          scrData <= std_logic_vector(to_unsigned(games2, scrdata'length));
+          nwr     <= '1';
+        end if;
+				if (charpos = 12) then
+					if (player1wins = '1') then
+						scrdata <= char2std('W');
+						nwr <= '1';
+					else
+						scrdata <= char2std(' ');
+						nwr <= '1';
+					end if;
+				elsif (charpos = 68) then
+					if (player2wins = '1') then
+						scrdata <= char2std('W');
+						nwr <= '1';
+					else
+						scrdata <= char2std(' ');
+						nwr <= '1';
+					end if;
+				end if;
 				if (player1gamept = '1') or (player1matchpt = '1') then
 					if (player1matchpt = '1') then
 						if (charpos = 162) then
@@ -705,6 +740,10 @@ begin
                 player1score <= 0;
                 player2score <= 0;
                 player1games <= player1games + 1;
+								if player1games = 2 then -- player 2 wins match
+									gameover <= '1';
+									player1wins <= '1';
+								end if;
 								player1gamept <= '0';
 								player2gamept <= '0';
 								player1matchpt <= '0';
@@ -733,6 +772,10 @@ begin
 								player1matchpt <= '0';
 								player2matchpt <= '0';
                 player2games <= player2games + 1;
+								if player2games = 2 then -- player 2 wins match
+									gameover <= '1';
+									player2wins <= '1';
+								end if;
                 hex0(7)      <= '0';    -- player 2 wins game indicator
               elsif player2score = 13 then
 								if player2games = 2 then
@@ -749,7 +792,22 @@ begin
               bl_x1 <= bl_x1 + bl_xdelta;  -- ball is in play or being bounced prior to serving
             end if;
           else                          -- someone has to serve the ball
-            if (P_y1 > 400) and (player1serve = '1') then
+						-- TODO add match complete holding and reset logic
+						if gameover = '1' then
+						  if (P_y1 < 60)  and (P_y2 < 60) then
+								gameover <= '0';
+                player2score <= 0;
+                player1score <= 0;
+								player1gamept <= '0';
+								player2gamept <= '0';
+								player1matchpt <= '0';
+								player2matchpt <= '0';
+                player2games <= 0;
+								player1games <= 0;
+								player1wins <= '0';
+								player2wins <= '0';
+							end if;
+            elsif (P_y1 > 400) and (player1serve = '1') then
 							bl_xdelta <= ballSpeed;
               player1serve <= '0';
               hex4(7)      <= '1';      -- player 1 has served the ball
