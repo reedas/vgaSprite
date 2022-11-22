@@ -1,6 +1,6 @@
 Archive Project report for vga
-Sat May 29 15:30:43 2021
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Tue Nov 22 09:49:14 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -16,9 +16,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -28,14 +28,15 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Sat May 29 15:30:42 2021 ;
+; Archive Project Status ; Successful - Tue Nov 22 09:49:14 2022 ;
 ; Revision Name          ; vga                                   ;
 ; Top-level Entity Name  ; DE10_LITE_Golden_Top                  ;
 ; Family                 ; MAX 10                                ;
@@ -50,50 +51,76 @@ Info: File Set 'Source control' contains:
     Info: Automatically detected source files
 Warning: Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver
 Info: Archive will store files relative to the closest common parent directory
-Info (13213): Using common directory C:/Users/eleceng/Documents/sixforty/
+Info (13213): Using common directory /home/asr/Documents/GitHub/pong/
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'C:/Users/eleceng/Documents/sixforty/vga640base.qar'
+Info: Generated archive '/home/asr/Documents/GitHub/pong/pong.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'vga.archive.rpt'
-Info (23030): Evaluation of Tcl script c:/intelfpga_lite/18.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info (23030): Evaluation of Tcl script /home/asr/intelFPGA_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4827 megabytes
-    Info: Processing ended: Sat May 29 15:30:43 2021
-    Info: Elapsed time: 00:00:04
+    Info: Peak virtual memory: 590 megabytes
+    Info: Processing ended: Tue Nov 22 09:49:14 2022
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
-+-----------------------------+
-; Files Archived              ;
-+-----------------------------+
-; File Name                   ;
-+-----------------------------+
-; charrom.cmp                 ;
-; charrom.qip                 ;
-; charrom.v                   ;
-; charrom_bb.v                ;
-; DE10_LITE_Golden_Top.v      ;
-; dispmem.cmp                 ;
-; dispmem.qip                 ;
-; dispmem.v                   ;
-; dispmem_bb.v                ;
-; dispmem_inst.v              ;
-; font18x12.hex               ;
-; pcgsprite.vhd               ;
-; pll.cmp                     ;
-; pll.ppf                     ;
-; pll.qip                     ;
-; pll.v                       ;
-; pll_bb.v                    ;
-; ramstart.mif                ;
-; sync.vhd                    ;
-; txtscreen.vhd               ;
-; vga.qpf                     ;
-; vga.qsf                     ;
-; VGA.vhd                     ;
-; vga_assignment_defaults.qdf ;
-+-----------------------------+
++---------------------------------------------------------------------------------+
+; Files Archived                                                                  ;
++---------------------------------------------------------------------------------+
+; File Name                                                                       ;
++---------------------------------------------------------------------------------+
+; char2std.vhd                                                                    ;
+; charrom.cmp                                                                     ;
+; charrom.qip                                                                     ;
+; charrom.v                                                                       ;
+; charrom_bb.v                                                                    ;
+; DE10_LITE_Golden_Top.v                                                          ;
+; dispmem.cmp                                                                     ;
+; dispmem.qip                                                                     ;
+; dispmem.v                                                                       ;
+; dispmem_bb.v                                                                    ;
+; dispmem_inst.v                                                                  ;
+; font18x12.hex                                                                   ;
+; fpga/src/paddle.vhd                                                             ;
+; pcgsprite.vhd                                                                   ;
+; pcgsprite2.vhd                                                                  ;
+; pll.cmp                                                                         ;
+; pll.ppf                                                                         ;
+; pll.qip                                                                         ;
+; pll.v                                                                           ;
+; pll_bb.v                                                                        ;
+; quadrature_decoder.vhd                                                          ;
+; quartus/DE10LiteClockAssignments.sdc                                            ;
+; quartus/DE10LitePins.tcl                                                        ;
+; quartus/hello_adc/synthesis/../../hello_adc.qsys                                ;
+; quartus/hello_adc/synthesis/../../hello_adc.sopcinfo                            ;
+; quartus/hello_adc/synthesis/../hello_adc.cmp                                    ;
+; quartus/hello_adc/synthesis/hello_adc.debuginfo                                 ;
+; quartus/hello_adc/synthesis/hello_adc.qip                                       ;
+; quartus/hello_adc/synthesis/hello_adc.v                                         ;
+; quartus/hello_adc/synthesis/submodules/altera_modular_adc_control.sdc           ;
+; quartus/hello_adc/synthesis/submodules/altera_modular_adc_control.v             ;
+; quartus/hello_adc/synthesis/submodules/altera_modular_adc_control_avrg_fifo.v   ;
+; quartus/hello_adc/synthesis/submodules/altera_modular_adc_control_fsm.v         ;
+; quartus/hello_adc/synthesis/submodules/altera_reset_controller.sdc              ;
+; quartus/hello_adc/synthesis/submodules/altera_reset_controller.v                ;
+; quartus/hello_adc/synthesis/submodules/altera_reset_synchronizer.v              ;
+; quartus/hello_adc/synthesis/submodules/chsel_code_converter_sw_to_hw.v          ;
+; quartus/hello_adc/synthesis/submodules/fiftyfivenm_adcblock_primitive_wrapper.v ;
+; quartus/hello_adc/synthesis/submodules/fiftyfivenm_adcblock_top_wrapper.v       ;
+; quartus/hello_adc/synthesis/submodules/hello_adc_adc_control_core.v             ;
+; quartus/hello_adc/synthesis/submodules/hello_adc_altpll.v                       ;
+; ramstart.mif                                                                    ;
+; sevsegxdec.vhd                                                                  ;
+; sync.vhd                                                                        ;
+; sync.vhd.bak                                                                    ;
+; txtscreen.vhd                                                                   ;
+; vga.qpf                                                                         ;
+; vga.qsf                                                                         ;
+; VGA.vhd                                                                         ;
+; vga_assignment_defaults.qdf                                                     ;
++---------------------------------------------------------------------------------+
 
 

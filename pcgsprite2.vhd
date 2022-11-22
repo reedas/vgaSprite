@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-PACKAGE DW2 IS
+PACKAGE DW2 IS -- sprite for paddle type objects (2x10)
 PROCEDURE SPR(SIGNAL Xcur,Ycur,Xpos,Ypos:IN INTEGER RANGE 0 to 639 ;signal sprite:IN std_logic_vector(19 downto 0);
 signal scale: in integer; SIGNAL DRAW: OUT STD_LOGIC);
 END DW2;

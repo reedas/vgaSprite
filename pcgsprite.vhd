@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-PACKAGE DW IS
+PACKAGE DW IS -- sprite for ball type objects (10 x 10)
 PROCEDURE SP(SIGNAL Xcur,Ycur,Xpos,Ypos:IN INTEGER;signal sprite:IN std_logic_vector(99 downto 0);
 signal scale: in integer; SIGNAL DRAW: OUT STD_LOGIC);
 END DW;

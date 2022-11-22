@@ -20,8 +20,8 @@ entity SYNC is
     led      : out    std_logic_vector(9 downto 0);
     HEX0     : out    std_logic_vector(7 downto 0);
     HEX1     : out    std_logic_vector(7 downto 0);
-    HEX2     : out    std_logic_vector(7 downto 0) := "11111111";
-    HEX3     : out    std_logic_vector(7 downto 0) := "11111111";
+    HEX2     : out    std_logic_vector(7 downto 0);
+    HEX3     : out    std_logic_vector(7 downto 0);
     HEX4     : out    std_logic_vector(7 downto 0);
     HEX5     : out    std_logic_vector(7 downto 0);
     audio    : out    std_logic
@@ -30,13 +30,13 @@ entity SYNC is
 end SYNC;
 
 architecture MAIN of SYNC is
-  component paddles is
+  component paddles is  -- get the current values of the potentiometers
     port (
       -- Clocks
       MAX10_CLK1_50 : in  std_logic;
       -- KEY
       reset         : in  std_logic;
-      -- paddle postioins from adc
+      -- paddle positions from adc
       player1       : out std_logic_vector(7 downto 0);
       player2       : out std_logic_vector(7 downto 0)
       );
@@ -66,7 +66,7 @@ architecture MAIN of SYNC is
       );
   end component txtScreen;
 
-  component sevsegxdec is
+  component sevsegxdec is --- player score display on the seven segment output
     port
       (
         binIn  : in  std_logic_vector (3 downto 0);
@@ -85,36 +85,34 @@ architecture MAIN of SYNC is
   constant v_fp     : integer := 10;    --vertical front porch width in rows
 --
 
-  signal ohsync               : std_logic;
-  signal ovsync               : std_logic;
-  signal oohsync              : std_logic;
-  signal oovsync              : std_logic;
-  signal cycle                : std_logic                    := '0';
-  signal P_X1                 : integer range 0 to 639       := 8;
+  signal oohsync              : std_logic; -- hsync delayed by one clock cycle
+  signal oovsync              : std_logic; -- vsync delayed by one clock cycle
+  signal cycle                : std_logic                    := '0'; -- write to ram timing
+  signal P_X1                 : integer range 0 to 639       :=   8; -- paddle coords player 1
   signal P_Y1                 : integer range 0 to 479       := 220;
-  signal P_X2                 : integer range 0 to 639       := 620;
-  signal P_Y2                 : integer range 0 to 479       := 220;
-  signal blipcnt              : integer range 0 to 100000000 := 0;
-  signal blopcnt              : integer range 0 to 100000000 := 0;
-  signal bloopcnt             : integer range 0 to 100000000 := 0;
-  signal blip                 : std_logic;
+  signal P_X2                 : integer range 0 to 639       := 620; -- paddle coords player 2
+  signal P_Y2                 : integer range 0 to 479       := 220; --
+  signal blipcnt              : integer range 0 to 100000000 :=   0; -- bat hit ball sound length
+  signal blopcnt              : integer range 0 to 100000000 :=   0; -- ball lost sound length
+  signal bloopcnt             : integer range 0 to 100000000 :=   0; -- ball hit sidewall sound length
+  signal blip                 : std_logic; -- sound toggle
   signal blop                 : std_logic;
   signal bloop                : std_logic;
-  signal collblip             : std_logic;
+  signal collblip             : std_logic; -- sound interlock
   signal collblop             : std_logic;
   signal sideblip             : std_logic;
-  signal BL_X1                : integer range 0 to 639       := 60;
+  signal BL_X1                : integer range 0 to 639       := 60; -- ball coords
   signal BL_Y1                : integer range 0 to 479       := 220;
-  signal nBlanking            : std_logic                    := '1';
-  signal txtRGB               : std_logic;
-  signal scrAddress           : std_logic_vector(11 downto 0);
-  signal charpos              : integer range 0 to 4191      := 0;
-  signal tens1                : integer range 0 to 255       := 0;
+  signal nBlanking            : std_logic                    := '1'; -- blanking signal
+  signal txtRGB               : std_logic;	-- text pixel should be shown on the display at current pixel position
+  signal scrAddress           : std_logic_vector(11 downto 0); -- current display memory address
+  signal charpos              : integer range 0 to 4191      := 0; -- character position from start of screen memory
+  signal tens1                : integer range 0 to 255       := 0; -- player 1 BCD score
   signal unit1                : integer range 0 to 255       := 0;
-  signal tens2                : integer range 0 to 255       := 0;
+  signal tens2                : integer range 0 to 255       := 0; -- player 2 BCD score
   signal unit2                : integer range 0 to 255       := 0;
-  signal scrData              : std_logic_vector(7 downto 0);
-  signal nWr                  : std_logic;
+  signal scrData              : std_logic_vector(7 downto 0); -- data for screen memory location pointed to by scraddress
+  signal nWr                  : std_logic;	-- write memory strobe
   signal RD0                  : std_logic_vector(3 downto 0);  -- Player 1 
   signal GD0                  : std_logic_vector(3 downto 0);
   signal BD0                  : std_logic_vector(3 downto 0);
@@ -131,34 +129,34 @@ architecture MAIN of SYNC is
   signal DRAW0, DRAW1, drawBL : std_logic                    := '0';
   signal HPOS                 : integer range 0 to 799       := 0;  -- Current pixel position counters
   signal VPOS                 : integer range 0 to 524       := 0;
-  signal counter              : integer range 0 to 9999      := 0;
+  signal counter              : integer range 0 to 9999      := 0; -- debugging counter
   signal flash                : std_logic;
   signal scaleP               : integer range 1 to 32        := 8;  -- paddle scaling
   signal scaleBL              : integer range 1 to 32        := 2;  -- ball scaling
-  signal player1score         : integer range 0 to 99        := 0;
+  signal player1score         : integer range 0 to 99        := 0;  -- players point score
   signal player2score         : integer range 0 to 99        := 0;
-  signal player1games         : integer range 0 to 99        := 0;
+  signal player1games         : integer range 0 to 99        := 0;	-- players game score
   signal player2games         : integer range 0 to 99        := 0;
-	signal player1gamept				:	std_logic										 := '0';
+	signal player1gamept				:	std_logic										 := '0'; -- players game point indicator
 	signal player2gamept				:	std_logic										 := '0';
-	signal player1matchpt				:	std_logic										 := '0';
+	signal player1matchpt				:	std_logic										 := '0';	-- players match point indicator
 	signal player2matchpt				:	std_logic										 := '0';
-  signal direction1           : std_logic;
-  signal player1serve         : std_logic                    := '1';
-  signal player2serve         : std_logic                    := '0';
-  signal position1            : integer;
-  signal paddlepos1           : std_logic_vector(7 downto 0);  --
+  signal direction1           : std_logic;														-- quadrature decoder direction (up or down)
   signal direction2           : std_logic;
-  signal paddlepos2           : std_logic_vector(7 downto 0);  --
+  signal player1serve         : std_logic                    := '1'; -- which player is about to serve
+  signal player2serve         : std_logic                    := '0';
+  signal position1            : integer;														 -- current paddle position (numeric)
   signal position2            : integer;
-  signal bl_xdelta            : integer range -20 to 20      := 2;
+  signal paddlepos1           : std_logic_vector(7 downto 0);  --	current paddle position as binary vector
+  signal paddlepos2           : std_logic_vector(7 downto 0);  --
+  signal bl_xdelta            : integer range -20 to 20      := 2; -- ball motion increments
   signal bl_ydelta            : integer range -20 to 20      := 2;
-  signal collision            : integer range 0 to 1         := 0;
+  signal collision            : integer range 0 to 1         := 0; -- hit detected
   signal current_dir          : integer range -1 to 1        := 1;
-  signal ballSpeed            : integer range 1 to 20        := 2;
-  signal audioblip, audioblop : std_logic;
+  signal ballSpeed            : integer range 1 to 20        := 2; -- speed adjuster
+  signal audioblip, audioblop : std_logic;	-- sound outputs
   signal audiobloop           : std_logic;
--- sprite for paddles
+-- sprite for paddle
   signal paddle               : std_logic_vector(19 downto 0) :=
     ('1', '1',
      '1', '1',
@@ -656,7 +654,7 @@ begin
   process (vsync)  -- display is in blanking so do stuff to avoid interference on display
   begin  -- move stuff and check for collisions or point scoring
     if (vsync'event and vsync = '0') then
-      if (collblip = '1') then collblip <= '0'; end if;  -- end any audio bloops
+      if (collblip = '1') then collblip <= '0'; end if;  -- end any audio blips
       if (collblop = '1') then collblop <= '0'; end if;
       if (sideblip = '1') then sideblip <= '0'; end if;
       if ((bl_x1 < 32) and ((BL_y1 - p_y1) > 0)
@@ -665,7 +663,7 @@ begin
         bl_x1     <= 32;
         collblip  <= '1';
         led(7)    <= '1';
-        if ((bl_y1 - p_y1) < 16) then
+        if ((bl_y1 - p_y1) < 16) then -- angle trajectory of ball changes by player 1
           bl_ydelta <= ballSpeed * (-2);
         elsif ((bl_y1 - p_y1) < 32) then
           bl_ydelta <= ballSpeed * (-1);
